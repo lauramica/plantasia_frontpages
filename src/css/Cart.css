@@ -147,7 +147,7 @@
   font-family: "Proxima Nova";
 }
 
-p {
+.modal.fade.right.modal-lg p {
   color: var(--almond);
 }
 

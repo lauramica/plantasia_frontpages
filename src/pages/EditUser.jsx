@@ -3,54 +3,64 @@ import "../css/EditUser.css";
 function EditUser() {
   return (
     <div className="container mt-3">
-      <h3 className="galadali-regular">Account Settings</h3>
+      <h3 className="galadali-regular title-admin-user">Account Settings</h3>
       <div className="form-div proxima-nova-regular">
         <div className="d-flex flex-column flex-md-row">
           <div className="input-group d-flex flex-column me-md-1 mb-2">
-            <label htmlFor="firstName">First Name</label>
+            <label className="label-form" htmlFor="firstName">
+              First Name
+            </label>
             <input
               type="text"
               name="firstName"
               id="firstName"
               placeholder="Type your first name"
-              className="mt-1 p-1"
+              className="mt-1 p-1 input-form"
             />
           </div>
           <div className="input-group d-flex flex-column w-md-50 ms-md-1 mb-2">
-            <label htmlFor="lastName">Last Name</label>
+            <label className="label-form" htmlFor="lastName">
+              Last Name
+            </label>
             <input
               type="text"
               name="lastName"
               id="lastName"
               placeholder="Type your last name"
-              className="mt-1 p-1"
+              className="mt-1 p-1 input-form"
             />
           </div>
         </div>
         <div className="d-flex flex-column flex-md-row">
           <div className="input-group d-flex flex-column mb-2 me-md-1">
-            <label htmlFor="address">Address</label>
+            <label className="label-form" htmlFor="address">
+              Address
+            </label>
             <input
               type="text"
               name="address"
               id="address"
               placeholder="Type your address"
-              className="mt-1 p-1"
+              className="mt-1 p-1 input-form"
             />
           </div>
           <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2">
-            <label htmlFor="city">City</label>
+            <label className="label-form" htmlFor="city">
+              City
+            </label>
             <input
               type="text"
               name="city"
               id="city"
               placeholder="Type your city"
-              className="mt-1 p-1"
+              className="mt-1 p-1 input-form"
             />
           </div>
           <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2">
-            <label htmlFor="country">Country</label>
-            <select className="mt-1 p-1 w-100">
+            <label className="label-form" htmlFor="country">
+              Country
+            </label>
+            <select className="mt-1 p-1 w-100 select-form">
               <option value="AF">Afghanistan</option>
               <option value="AX">Åland Islands</option>
               <option value="AL">Albania</option>
@@ -305,37 +315,44 @@ function EditUser() {
         </div>
         <div className="d-flex flex-column flex-md-row">
           <div className="input-group d-flex flex-column justify-content-between w-md-50 me-md-1 mb-2 state-province">
-            <label htmlFor="state">State / Province</label>
+            <label className="label-form" htmlFor="state">
+              State / Province
+            </label>
             <input
               type="text"
               name="state"
               id="state"
               placeholder="Type your state/province"
-              className="mt-1 p-1"
+              className="mt-1 p-1 input-form"
             />
           </div>
           <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 me-md-1 mb-2 postal-code">
-            <label htmlFor="postalCode">Postal code</label>
+            <label className="label-form" htmlFor="postalCode">
+              Postal code
+            </label>
             <input
               type="text"
               name="postalCode"
               id="postalCode"
               placeholder="Type your postal code"
-              className="mt-1 p-1"
+              className="mt-1 p-1 input-form"
             />
           </div>
           <div className="input-group d-flex flex-column ms-md-1 mb-1 phone">
-            <label htmlFor="phone">Phone</label>
+            <label className="label-form" htmlFor="phone">
+              Phone
+            </label>
             <input
               type="text"
               name="phone"
               id="phone"
               placeholder="Type your phone"
-              className="mt-1 p-1"
+              className="mt-1 p-1 input-form"
             />
           </div>
         </div>
-        <div className="d-flex flex-column flex-md-row mt-2">
+        <div className="d-flex flex-md-row mt-2">
+          <button className="btn delete-button me-auto">Delete</button>
           <button className="btn confirm-button ms-auto">Confirm</button>
         </div>
       </div>

@@ -1,0 +1,27 @@
+.form-div {
+  margin-bottom: 3rem;
+  /* background-color: var(--lightgreen); */
+  border: solid;
+  border-color: var(--lightgreen);
+  padding: 1.5rem;
+  border-radius: 2px;
+}
+
+.profile-title {
+  color: var(--mediumgreen);
+  font-size: 2.5rem;
+}
+
+.info-user {
+  color: var(--capuccino);
+}
+
+.label-info-user {
+  color: var(--mediumgreen);
+  border-bottom: solid var(--lightgreen);
+}
+
+.edit-info-button {
+  background-color: var(--mediumgreen);
+  color: hsl(0, 0%, 100%);
+}

@@ -24,7 +24,7 @@ function Home() {
         <div
           className="home-banner d-flex align-items-center"
           style={{
-            backgroundImage: `linearGradient(0deg, rgba(0, 0, 0, 0.37) 100%, rgba(29, 0, 0, 0.329) 100%), url(${
+            backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.37) 100%, rgba(29, 0, 0, 0.329) 100%), url(${
               import.meta.env.VITE_IMAGES_URL
             }home/home_banner.png)`,
           }}

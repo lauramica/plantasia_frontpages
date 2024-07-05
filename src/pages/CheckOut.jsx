@@ -1,11 +1,13 @@
 import "../css/CheckOut.css";
 import { Link } from "react-router-dom";
+import PurchasingModal from "../components/PurchasingModal";
 
 function Home() {
   const stock = 5;
 
   return (
     <div className="checkout">
+      <PurchasingModal />
       <div className="container px-sm-0 py-3">
         <h1 className="galadali-bold darkgreen mb-3">Hi! This is your shopping cart.</h1>
         <table className="table">

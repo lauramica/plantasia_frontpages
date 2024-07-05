@@ -32,7 +32,7 @@ function ProductPage() {
             <div className="d-flex product-body-content w-100">
               <div className="photo-product w-100">
                 <img
-                  src="/images/plants/paradoxa_minor.png"
+                  src={`${import.meta.emv.VITE_IMAGES_URL}plants/paradoxa_minor.png`}
                   alt="Product"
                   className="object-fit-cover w-100 h-100"
                 />

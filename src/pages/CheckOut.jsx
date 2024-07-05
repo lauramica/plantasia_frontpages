@@ -147,7 +147,7 @@ function Home() {
                   </div>
                   <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2 country">
                     <label htmlFor="country">Country</label>
-                    <select className="mt-1 p-1">
+                    <select className="mt-1 p-1 w-100">
                       <option value="AF">Afghanistan</option>
                       <option value="AX">Åland Islands</option>
                       <option value="AL">Albania</option>

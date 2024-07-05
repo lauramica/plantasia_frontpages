@@ -32,3 +32,8 @@ select {
   border-color: var(--lightgreen);
   color: var(--almond);
 }
+
+.confirm-button {
+  background-color: var(--mediumgreen);
+  color: hsl(0, 0%, 100%);
+}

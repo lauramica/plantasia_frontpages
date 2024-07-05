@@ -21,7 +21,14 @@ function Home() {
   return (
     products && (
       <>
-        <div className="home-banner d-flex align-items-center">
+        <div
+          className="home-banner d-flex align-items-center"
+          style={{
+            backgroundImage: `linearGradient(0deg, rgba(0, 0, 0, 0.37) 100%, rgba(29, 0, 0, 0.329) 100%), url(${
+              import.meta.env.VITE_IMAGES_URL
+            }home/home_banner.png)`,
+          }}
+        >
           <div className="container home-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
             <h1 className="galadali-bold p-0">Growing Happiness</h1>
             <p className="proxima-nova-regular p-0 m-0">

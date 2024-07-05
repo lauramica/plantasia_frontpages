@@ -1,0 +1,49 @@
+.navbar-logo {
+  height: 1.5rem;
+}
+
+.navbar-anchor i {
+  color: var(--darkgreen);
+  font-size: 1.4rem;
+}
+.navbar-anchor {
+  background-color: white;
+  border: none;
+}
+
+.navbar-text {
+  color: var(--darkgreen);
+  font-family: "Proxima Nova";
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  padding-top: 10px;
+  text-align: left;
+}
+
+.navbar {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.navbar-collapse a {
+  background-color: #00000000;
+}
+
+.navbar-text:hover {
+  color: #000;
+  transition: 0.3s ease;
+}
+
+.navbar-anchor i:hover {
+  color: #000;
+  transition: 0.3s ease;
+}
+
+.navbar-hamburger {
+  border: none;
+  width: 50px;
+}

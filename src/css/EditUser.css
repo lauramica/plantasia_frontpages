@@ -1,0 +1,34 @@
+.form-div {
+  margin-bottom: 3rem;
+  /* background-color: var(--lightgreen); */
+  border: solid;
+  border-color: var(--lightgreen);
+  padding: 1.5rem;
+  border-radius: 2px;
+}
+
+h3 {
+  color: var(--mediumgreen);
+  font-size: 2.5rem;
+}
+label {
+  color: var(--mediumgreen);
+}
+::placeholder {
+  color: var(--almond);
+}
+
+input {
+  /* border: none; */
+  color: var(--darkgreen);
+  border: solid, 2px;
+  border-color: var(--lightgreen);
+  border-radius: 2px;
+}
+
+select {
+  /* border: none; */
+  border: solid, 2px;
+  border-color: var(--lightgreen);
+  color: var(--almond);
+}

@@ -1,0 +1,135 @@
+.footer {
+  background-color: var(--lightgreen);
+  color: #ffffff;
+  font-family: "Proxima Nova Regular";
+  font-weight: normal;
+  font-style: normal;
+  padding-top: 1.7rem;
+  padding-bottom: 3rem;
+}
+
+.footer__logo-wrapper {
+  margin-bottom: 3rem;
+}
+
+.footer__logo {
+  max-width: 10rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.footer__links-wrapper {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.footer__links-wrapper-title {
+  font-family: "Proxima Nova Bold";
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.footer__links-wrapper-item {
+  margin-bottom: 0.2rem;
+}
+
+.footer__links-wrapper-item-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer__links-wrapper-item-link:hover {
+  color: #000000;
+}
+
+.footer__links-wrapper:nth-of-type(1) .footer__links-wrapper-title:nth-of-type(4) {
+  display: none;
+}
+.footer__links-wrapper:nth-of-type(1) .footer__links-wrapper-item:nth-of-type(5) {
+  display: none;
+}
+
+.footer__log-in-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.footer__social-media-links-wrapper {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+.footer__social-media-links-wrapper-link {
+  text-decoration: none;
+}
+
+.footer__social-media-links-wrapper-icon {
+  color: var(--lightgreen);
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+.footer__social-media-links-wrapper-icon:hover {
+  background-color: #000000;
+}
+
+/* Tablet and desktop view*/
+@media (min-width: 769px) {
+  .footer {
+    padding-top: 4rem;
+  }
+  .footer__nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 1.5rem;
+  }
+
+  .footer__logo-wrapper {
+    flex-basis: 100%;
+  }
+
+  .footer__logo {
+    max-width: 10rem;
+    margin: 0;
+  }
+
+  .footer__links-wrapper-title {
+    border-top: none;
+    padding: 0;
+  }
+  .footer__links-wrapper-item {
+    display: flex;
+    margin: 0;
+  }
+
+  .footer__log-in-link {
+    display: none;
+  }
+}
+@media (min-width: 1100px) {
+  .footer__logo-wrapper {
+    flex-basis: auto;
+  }
+}
+
+@media (min-width: 1401px) {
+  .footer__logo {
+    max-width: 15rem;
+  }
+}

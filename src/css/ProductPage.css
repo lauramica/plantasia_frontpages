@@ -1,0 +1,111 @@
+.product-body {
+  color: var(--mediumgreen);
+  font-family: "Galadali";
+}
+
+.product-body-content {
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  margin-bottom: 100px;
+}
+h3 {
+  padding-top: 0.8rem;
+  padding-bottom: 1rem;
+}
+.product-body-content-text {
+  padding: 30px;
+}
+
+.product-body-goback {
+  text-decoration: none;
+  color: var(--lightgreen);
+}
+
+.product-body-goback:hover {
+  color: #000;
+  text-decoration: underline;
+  transition: 0.3s ease;
+}
+
+.description-pharagraph {
+  color: var(--lightgreen);
+  font-size: 1.3rem;
+  padding-bottom: 2rem;
+}
+
+.product-body-content-text-icons {
+  display: flex;
+  justify-content: space-around;
+  color: var(--lightgreen);
+  font-size: 4rem;
+}
+.counter-container-counterbutton {
+  border: none;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+}
+.counter-container-counterbutton:hover {
+  background-color: var(--lightgreen);
+  transition: 0.3s ease;
+}
+.counter-container-counterbutton:active {
+  background-color: var(--mediumgreen);
+  transition: 0.3s ease;
+}
+
+.counter-container {
+  color: var(--darkgreen);
+  font-size: 25px;
+  margin: 0 0 20px 0;
+}
+
+.product-submitbutton {
+  border: none;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 20px;
+  font-family: "Proxima Nova";
+  background-color: var(--mediumgreen);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+.product-submitbutton:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.3s ease;
+}
+.product-submitbutton:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  transition: 0.3s ease;
+}
+.recomended {
+  color: var(--darkgreen);
+}
+.product-recomended-plant h4,
+.product-recomended-plant p,
+.product-recomended-plant b {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .product-body-content-text-icons {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+  .product-body-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 576px) {
+  .product-body-content {
+    display: flex;
+    flex-direction: column;
+  }
+}

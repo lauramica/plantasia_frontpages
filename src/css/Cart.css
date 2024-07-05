@@ -1,0 +1,186 @@
+.cart-items {
+  list-style-type: none;
+  padding: 0;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.cart-items-photo img {
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.cart-items-text {
+  margin-left: 20px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  color: var(--darkgreen);
+}
+
+.counter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.counter-container-counterbutton1 {
+  border: none;
+  background-color: var(--mediumgreen);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.counter-container-counterbutton:hover {
+  background-color: var(--darkgreen);
+}
+
+.counter-value {
+  margin: 0 5px;
+  font-size: 1.2rem;
+}
+
+.cart-price-icon-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 10px;
+}
+
+.cart-trash-icon {
+  color: var(--almond);
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 10px;
+}
+
+.cart-item-price {
+  align-self: flex-end;
+  margin-top: auto;
+  margin-bottom: 3px;
+}
+
+.modal.fade.right .modal-dialog {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 500px;
+  margin: 0;
+  transform: translateX(100%);
+  background-color: white;
+}
+
+.modal.fade.right.show .modal-dialog {
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+.modal.fade.right .modal-content {
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.modal.fade.right .modal-content .modal-body {
+  max-height: calc(100% - 60px);
+  overflow-y: auto;
+}
+
+.cart-title {
+  padding: 10px;
+  text-align: left;
+  font-family: "Galadali";
+  color: var(--darkgreen);
+  position: relative;
+}
+
+.cart-closebutton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.cart-button {
+  border: none;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 20px;
+  font-family: "Proxima Nova";
+  background-color: var(--mediumgreen);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  width: 270px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.cart-button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.3s ease;
+}
+
+.cart-button:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  transition: 0.3s ease;
+}
+
+.modal-body {
+  font-family: "Proxima Nova";
+}
+
+p {
+  color: var(--almond);
+}
+
+@media (max-width: 576px) {
+  .modal.fade.right .modal-dialog {
+    width: 100%;
+  }
+
+  .cart-items-photo img {
+    margin: 10px auto;
+    width: 100px;
+    height: auto;
+  }
+  .counter-container-counterbutton1 {
+    width: 25px;
+    height: 25px;
+  }
+  .cart-items-text {
+    margin-top: 0px;
+  }
+  .cart-button {
+    margin-bottom: 65px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .modal.fade.right .modal-dialog {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .modal.fade.right .modal-dialog {
+    width: 500px;
+  }
+}

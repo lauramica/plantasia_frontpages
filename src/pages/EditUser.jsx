@@ -16,7 +16,7 @@ function EditUser() {
               className="mt-1 p-1"
             />
           </div>
-          <div className="input-group d-flex flex-column w-md-50 ms-md-1 mb-2 last-name">
+          <div className="input-group d-flex flex-column w-md-50 ms-md-1 mb-2">
             <label htmlFor="lastName">Last Name</label>
             <input
               type="text"
@@ -28,7 +28,7 @@ function EditUser() {
           </div>
         </div>
         <div className="d-flex flex-column flex-md-row">
-          <div className="input-group d-flex flex-column mb-2 me-md-1 address">
+          <div className="input-group d-flex flex-column mb-2 me-md-1">
             <label htmlFor="address">Address</label>
             <input
               type="text"
@@ -38,7 +38,7 @@ function EditUser() {
               className="mt-1 p-1"
             />
           </div>
-          <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2 city">
+          <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2">
             <label htmlFor="city">City</label>
             <input
               type="text"
@@ -48,9 +48,9 @@ function EditUser() {
               className="mt-1 p-1"
             />
           </div>
-          <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2 country">
+          <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2">
             <label htmlFor="country">Country</label>
-            <select className="mt-1 p-1">
+            <select className="mt-1 p-1 w-100">
               <option value="AF">Afghanistan</option>
               <option value="AX">Åland Islands</option>
               <option value="AL">Albania</option>
@@ -334,6 +334,9 @@ function EditUser() {
               className="mt-1 p-1"
             />
           </div>
+        </div>
+        <div className="d-flex flex-column flex-md-row mt-2">
+          <button className="btn confirm-button ms-auto">Confirm</button>
         </div>
       </div>
     </div>

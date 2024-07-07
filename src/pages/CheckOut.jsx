@@ -1,14 +1,54 @@
+import { useEffect, useState } from "react";
 import "../css/CheckOut.css";
+import "../css/Loader.css";
 import { Link } from "react-router-dom";
-import PurchasingModal from "../components/PurchasingModal";
+import axios from "axios";
 
 function Home() {
   const stock = 5;
-  const toggle = false;
+  const [modalState, setModalState] = useState(false);
+  const [orderState, setOrderState] = useState(false);
+
+  const handleModalToggle = () => {
+    modalState ? setModalState(false) : setModalState(true);
+  };
+
+  //   useEffect(() => {
+  //     if (modalState) {
+  //       setOrderState(false);
+  //       const getOrder = async () => {
+  //         const order = await axios();
+  //       };
+  //     }
+  //   }, [modalState]);
 
   return (
     <div className="checkout">
-      {toggle && <PurchasingModal />}
+      {modalState && (
+        <div className="purchasing-modal">
+          <div className="block shadow p-5 position-relative">
+            <h3 className="proxima-nova-bold darkgreen mb-5">
+              {orderState ? "We are processing your order" : "Order succesfully processed"}
+            </h3>
+            {orderState ? (
+              <span className="flower-loader"></span>
+            ) : (
+              <>
+                <i
+                  className="bi bi-x position-absolute top-0 end-0 fs-2 p-2 almond"
+                  onClick={() => handleModalToggle()}
+                ></i>
+                <div className="links">
+                  <Link to={"/products"} className="continue proxima-nova-regular darkgreen fs-5">
+                    ← Continue Shopping
+                  </Link>
+                  <button className="shadow proxima-nova-regular">Go to Order</button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
       <div className="container px-sm-0 py-3">
         <h1 className="galadali-bold darkgreen mb-3">Hi! This is your shopping cart.</h1>
         <table className="table">
@@ -522,11 +562,16 @@ function Home() {
         </table>
         <div className="d-flex justify-content-between">
           <div>
-            <Link to="/" className="proxima-nova-regular mediumgreen go-back fs-5">
+            <Link to="/products" className="proxima-nova-regular mediumgreen go-back fs-5">
               ← Continue Shopping
             </Link>
           </div>
-          <button className="form-button rounded-pill mb-2 shadow">Continue to checkout</button>
+          <button
+            className="form-button rounded-pill mb-2 shadow"
+            onClick={() => handleModalToggle()}
+          >
+            Continue to checkout
+          </button>
         </div>
       </div>
     </div>

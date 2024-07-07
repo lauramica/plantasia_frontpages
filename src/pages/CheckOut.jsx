@@ -4,10 +4,11 @@ import PurchasingModal from "../components/PurchasingModal";
 
 function Home() {
   const stock = 5;
+  const toggle = false;
 
   return (
     <div className="checkout">
-      <PurchasingModal />
+      {toggle && <PurchasingModal />}
       <div className="container px-sm-0 py-3">
         <h1 className="galadali-bold darkgreen mb-3">Hi! This is your shopping cart.</h1>
         <table className="table">
@@ -147,7 +148,7 @@ function Home() {
                   </div>
                   <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2 country">
                     <label htmlFor="country">Country</label>
-                    <select className="mt-1 p-1 w-100">
+                    <select className="mt-1 p-1 w-100" id="country">
                       <option value="AF">Afghanistan</option>
                       <option value="AX">Åland Islands</option>
                       <option value="AL">Albania</option>

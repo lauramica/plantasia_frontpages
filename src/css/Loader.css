@@ -103,9 +103,40 @@
 }
 
 .purchasing-modal {
-  border-radius: 2px;
-  position: absolute;
+  position: fixed;
+  background-color: #00000050;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.purchasing-modal .block {
   background-color: #fff;
-  padding: 20px;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.purchasing-modal .links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.purchasing-modal .links button {
+  color: #fff;
+  background-color: var(--mediumgreen);
+  border-radius: 2px;
+}
+
+@media (max-width: 415px) {
+  .purchasing-modal .links {
+    flex-direction: column;
+  }
+  .purchasing-modal .links .continue {
+    margin-bottom: 15px;
+  }
 }

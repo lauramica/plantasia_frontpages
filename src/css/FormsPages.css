@@ -68,8 +68,6 @@
   }
 
   .desktop-form-container {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url(../../backup_images/home/home_banner.png);
     background-size: cover;
     padding: 3rem;
     display: flex;

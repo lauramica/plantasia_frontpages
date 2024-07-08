@@ -5,7 +5,14 @@ function Login() {
     <>
       <div className="window-box">
         <div className="container bg-form m-3">
-          <div className="desktop-form-container">
+          <div
+            style={{
+              background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${
+                import.meta.env.VITE_IMAGES_URL
+              }/home/home_banner.png)`,
+            }}
+            className="desktop-form-container"
+          >
             <h2 className="title-welcome proxima-nova-regular">Welcome back!</h2>
             <img
               className="forms-logo"
@@ -27,7 +34,6 @@ function Login() {
                   className="forms-input form-control rounded-pill"
                   aria-describedby="email"
                   placeholder="E-mail"
-                  value="admin@admin.com"
                 />
               </div>
               <div className="mb-3">
@@ -41,7 +47,6 @@ function Login() {
                   className="forms-input form-control rounded-pill"
                   aria-describedby="password"
                   placeholder="Password"
-                  value="1234"
                 />
                 <a
                   href="#"
@@ -53,7 +58,7 @@ function Login() {
               <button className="btn-forms form-control rounded-pill my-4">Log In</button>
             </form>
             <p className="text-center darkgreen">
-              Don't have an account?{" "}
+              Don't have an account?
               <a href="#" className="forms-link proxima-nova-bold text-decoration-none">
                 Sign Up
               </a>

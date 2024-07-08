@@ -9,6 +9,7 @@ import AboutPage from "./pages/AboutPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./pages/ProductList";
 import EditUser from "./pages/EditUser";
+import OrderList from "./pages/OrderList";
 
 function App() {
   const router = createBrowserRouter([
@@ -40,6 +41,10 @@ function App() {
         {
           path: "edit-user",
           element: <EditUser />,
+        },
+        {
+          path: "orders",
+          element: <OrderList />,
         },
       ],
     },

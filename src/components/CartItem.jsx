@@ -12,7 +12,7 @@ function CartItem() {
     <>
       <div className="cart-items d-flex position-relative">
         <div className="cart-items-photo">
-          <img src="images/recomended-product.svg" alt="" />
+          <img src="backup_images/recomended_product.svg" alt="" />
         </div>
         <div className="d-flex flex-column justify-content-between cart-items-text">
           <div className="cart-items-text">

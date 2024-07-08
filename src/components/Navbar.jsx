@@ -1,78 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import "../css/Navbar.css";
 import Cart from "./Cart";
 
-function Navbar() {
+function CustomNavbar() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-white p-0 position-sticky">
-        <div className="container p-sm-0">
-          <a className="navbar-brand text-warning" href="/">
+      <Navbar expand="lg" bg="white" variant="light" sticky="top" className="">
+        <Container className="p-sm-0">
+          <Navbar.Brand href="/" className="text-warning">
             <img
               src={`${import.meta.env.VITE_IMAGES_URL}Plantasia_green.svg`}
               alt="Plantasia logo"
               className="navbar-logo"
             />
-          </a>
-          <button
-            className="navbar-toggler navbar-hamburger"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <div className="navbar-nav me-auto">
-              <a className="navbar-text nav-link me-3" href="/">
-                Home
-              </a>
-              <a className="navbar-text nav-link me-3" href="/products">
-                Products
-              </a>
-              <a className="navbar-text nav-link me-3" href="/about-this-project">
-                About this project
-              </a>
-              <a className="navbar-text nav-link me-3 d-lg-none" href="#">
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarNav" className="navbar-hamburger" />
+          <Navbar.Collapse id="navbarNav">
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/products">Products</Nav.Link>
+              <Nav.Link href="/about-this-project">About this project</Nav.Link>
+              <Nav.Link href="#" className="d-lg-none">
                 Profile
-              </a>
-              <a className="navbar-text nav-link me-3 d-lg-none" href="#">
+              </Nav.Link>
+              <Nav.Link href="#" className="d-lg-none">
                 Favorites
-              </a>
-              <button
-                type="button"
-                className="navbar-text nav-link me-3 d-lg-none "
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
+              </Nav.Link>
+              <Nav.Link href="#" className="d-lg-none" onClick={handleShow}>
                 Cart
-              </button>
-            </div>
-            <div className="d-flex d-none d-lg-flex">
-              <a className="nav-link me-3 ms-auto navbar-anchor" href="#">
+              </Nav.Link>
+            </Nav>
+            <Nav className="d-flex d-none d-lg-flex">
+              <Nav.Link href="#" className="me-3 ms-auto navbar-anchor">
                 <i className="bi bi-person-fill"></i>
-              </a>
-              <a className="nav-link me-3 navbar-anchor" href="#">
+              </Nav.Link>
+              <Nav.Link href="#" className="me-3 navbar-anchor">
                 <i className="bi bi-suit-heart-fill"></i>
-              </a>
-              <button
-                type="button"
-                className="navbar-anchor"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
+              </Nav.Link>
+              <Nav.Link href="#" className="navbar-anchor" onClick={handleShow}>
                 <i className="bi bi-cart-fill"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <Cart />
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      <Cart show={show} handleClose={handleClose} />
     </>
   );
 }
 
-export default Navbar;
+export default CustomNavbar;

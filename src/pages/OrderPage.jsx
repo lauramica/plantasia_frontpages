@@ -27,7 +27,7 @@ function OrderPage() {
       <div className="container order-container">
         <h1>Order #{order.orderId}</h1>
         <div className="row g-6">
-          <div className="order_list col-8">
+          <div className="order_list col-12 col-md-8">
             <table className="table">
               <thead>
                 <tr>
@@ -52,14 +52,14 @@ function OrderPage() {
                     <td>
                       <p>
                         <img src={product.img} alt={product.name} className="product-img" />
-                        {product.name}
+                        <p className="product_name">{product.name}</p>
                       </p>
                     </td>
                     <td></td>
                     <td>
                       <p>${product.price}</p>
                     </td>
-                    <td>
+                    <td className="product_quantity">
                       <p>{product.quantity}</p>
                     </td>
                     <td>
@@ -79,7 +79,7 @@ function OrderPage() {
               </tbody>
             </table>
           </div>
-          <div className="order_addresses col-4">
+          <div className="order_addresses col-12 col-md-4">
             <div>
               <h2>Shipping Address:</h2>
               <p>{order.shippingAddress}</p>

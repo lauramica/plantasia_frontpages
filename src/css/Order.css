@@ -42,8 +42,11 @@ tbody td {
   vertical-align: middle;
   margin-right: 20px;
   margin-left: 0px;
+  display: inline;
 }
-
+.product_name {
+  display: inline;
+}
 .order_addresses,
 .order_total {
   margin-top: 20px;
@@ -52,12 +55,38 @@ tbody td {
 .order_addresses {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0px;
   padding: 0px;
+  padding-left: 50px;
 }
 
 .totalprice {
   margin: 0px;
   padding: 0px;
+}
+
+@media (max-width: 576px) {
+  .order_addresses {
+    padding: 0px;
+    margin-top: 20px;
+  }
+  .order-container {
+    padding: 10px;
+  }
+  .product-img {
+    display: block;
+  }
+  .product_name {
+    display: block;
+  }
+  .order_addresses {
+    padding: 10px;
+  }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+  .order_addresses {
+    padding: 0px;
+    margin-top: 20px;
+  }
 }

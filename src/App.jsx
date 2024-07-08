@@ -10,6 +10,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./pages/ProductList";
 import EditUser from "./pages/EditUser";
 import OrderList from "./pages/OrderList";
+import ProfileView from "./pages/ProfileView";
+import OrderPage from "./pages/OrderPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -45,6 +47,12 @@ function App() {
         {
           path: "orders",
           element: <OrderList />,
+          path: "profile",
+          element: <ProfileView />,
+        },
+        {
+          path: "order",
+          element: <OrderPage />,
         },
       ],
     },

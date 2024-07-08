@@ -1,4 +1,4 @@
-.flower-loader {
+.purchasing-modal .flower-loader {
   overflow: hidden;
   position: relative;
   text-indent: -9999px;
@@ -100,4 +100,12 @@
       var(--mediumgreen) -12px 12px 0 4px, var(--mediumgreen) -12px -12px 0 4px,
       var(--mediumgreen) 12px -12px 0 4px;
   }
+}
+
+.purchasing-modal {
+  border-radius: 2px;
+  position: absolute;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }

@@ -21,7 +21,14 @@ function Home() {
   return (
     products && (
       <>
-        <div className="home-banner d-flex align-items-center">
+        <section
+          className="home-banner d-flex align-items-center"
+          style={{
+            backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.37) 100%, rgba(29, 0, 0, 0.329) 100%), url(${
+              import.meta.env.VITE_IMAGES_URL
+            }home/home_banner.png)`,
+          }}
+        >
           <div className="container home-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
             <h1 className="galadali-bold p-0">Growing Happiness</h1>
             <p className="proxima-nova-regular p-0 m-0">
@@ -32,8 +39,8 @@ function Home() {
               SHOP NOW
             </a>
           </div>
-        </div>
-        <section className="home-section-2">
+        </section>
+        <section className="home-section-2 mt-5">
           <div className="container cards-container p-sm-0">
             <div className="home-section-2-cards card-one shadow">
               <span className="card-title galadali-regular">Plants</span>

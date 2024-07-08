@@ -9,6 +9,7 @@ import AboutPage from "./pages/AboutPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./pages/ProductList";
 import EditUser from "./pages/EditUser";
+import OrderList from "./pages/OrderList";
 import ProfileView from "./pages/ProfileView";
 import OrderPage from "./pages/OrderPage";
 
@@ -42,6 +43,10 @@ function App() {
         {
           path: "edit-user",
           element: <EditUser />,
+        },
+        {
+          path: "orders",
+          element: <OrderList />,
         },
         {
           path: "profile",

@@ -5,7 +5,14 @@ function SignUp() {
     <>
       <div className="window-box">
         <div className="container bg-form m-3">
-          <div className="desktop-form-container">
+          <div
+            className="desktop-form-container"
+            style={{
+              background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${
+                import.meta.env.VITE_IMAGES_URL
+              }/home/home_banner.png)`,
+            }}
+          >
             <h2 className="title-welcome proxima-nova-regular">Become a plant lover</h2>
             <img
               className="forms-logo"

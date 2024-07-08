@@ -21,7 +21,7 @@ function Home() {
   return (
     products && (
       <>
-        <div
+        <section
           className="home-banner d-flex align-items-center"
           style={{
             backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.37) 100%, rgba(29, 0, 0, 0.329) 100%), url(${
@@ -39,8 +39,8 @@ function Home() {
               SHOP NOW
             </a>
           </div>
-        </div>
-        <section className="home-section-2">
+        </section>
+        <section className="home-section-2 mt-5">
           <div className="container cards-container p-sm-0">
             <div className="home-section-2-cards card-one shadow">
               <span className="card-title galadali-regular">Plants</span>

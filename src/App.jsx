@@ -47,6 +47,8 @@ function App() {
         {
           path: "orders",
           element: <OrderList />,
+        },
+        {
           path: "profile",
           element: <ProfileView />,
         },

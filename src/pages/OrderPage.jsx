@@ -25,7 +25,7 @@ function OrderPage() {
   return (
     <>
       <div className="container order-container">
-        <h1>Order #{order.orderId}</h1>
+        <h1 className="oreder_container_title">Order #{order.orderId}</h1>
         <div className="row g-6">
           <div className="order_list col-12 col-md-8">
             <table className="table">

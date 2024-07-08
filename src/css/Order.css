@@ -65,6 +65,9 @@ tbody td {
   margin: 0px;
   padding: 0px;
 }
+.oreder_container_title {
+  font-family: "Galadali";
+}
 
 @media (max-width: 576px) {
   .order_addresses {

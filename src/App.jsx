@@ -10,6 +10,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./pages/ProductList";
 import EditUser from "./pages/EditUser";
 import ProfileView from "./pages/ProfileView";
+import OrderPage from "./pages/OrderPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -45,6 +46,10 @@ function App() {
         {
           path: "profile",
           element: <ProfileView />,
+        },
+        {
+          path: "order",
+          element: <OrderPage />,
         },
       ],
     },

@@ -1,16 +1,27 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import "../css/CheckOut.css";
 import "../css/Loader.css";
 import CheckOutItem from "../components/CheckOutItem";
+import { createOrder } from "../redux/orderSlice";
 
 function CheckOut() {
   const [modalState, setModalState] = useState(false);
   const [orderState, setOrderState] = useState(false);
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+
+  const handleSubmit = () => {
+    handleModalToggle();
+    dispatch(createOrder(order));
+  };
+
+  const handleModalToggle = () => {
+    modalState ? setModalState(false) : setModalState(true);
+  };
 
   /*  useEffect(() => {
     if (modalState) {
@@ -537,10 +548,7 @@ function CheckOut() {
               ← Continue Shopping
             </Link>
           </div>
-          <button
-            className="form-button rounded-pill mb-2 shadow"
-            onClick={() => handleModalToggle()}
-          >
+          <button className="form-button rounded-pill mb-2 shadow" onClick={handleSubmit}>
             Continue to checkout
           </button>
         </div>

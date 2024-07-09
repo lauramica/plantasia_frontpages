@@ -1,28 +1,56 @@
-import "../css/ProductPage.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
+import "../css/ProductPage.css";
 import Product from "../components/Product";
+import { addProduct, increaseProduct } from "../redux/cartSlice";
 
 function ProductPage() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [products, setProducts] = useState(null);
+  const [product, setProduct] = useState(null);
+  const dispatch = useDispatch();
+  const params = useParams();
+  const cart = useSelector((state) => state.cart);
 
   const handleIncrement = () => setCount(count + 1);
-  const handleDecrement = () => setCount(count > 0 ? count - 1 : 0);
+  const handleDecrement = () => setCount(count > 1 ? count - 1 : 1);
+
+  const handleAddProduct = () => {
+    if (cart.find((p) => p.id === product.id)) {
+      dispatch(increaseProduct({ productId: product.id, productQty: count }));
+    } else {
+      dispatch(addProduct({ ...product, quantity: count }));
+    }
+  };
 
   useEffect(() => {
-    const products = async () => {
+    const getProducts = async () => {
       const response = await axios({
         url: `${import.meta.env.VITE_API_URL}/products`,
         method: "GET",
       });
       setProducts(response.data.products);
     };
-    products();
+    getProducts();
   }, []);
 
+  useEffect(() => {
+    const getProduct = async () => {
+      const response = await axios({
+        url: `${import.meta.env.VITE_API_URL}/products/${params.id}`,
+        method: "GET",
+      });
+      setProduct(response.data.product);
+    };
+    getProduct();
+  }, [params.id]);
+
   return (
-    products && (
+    products &&
+    product && (
       <>
         <div className="container p-sm-0">
           <section className="product-body mt-5">
@@ -32,21 +60,16 @@ function ProductPage() {
             <div className="d-flex product-body-content w-100">
               <div className="photo-product w-100">
                 <img
-                  src={`${import.meta.emv.VITE_IMAGES_URL}plants/paradoxa_minor.png`}
+                  src={`${import.meta.env.VITE_IMAGES_URL}plants/${product.image}`}
                   alt="Product"
                   className="object-fit-cover w-100 h-100"
                 />
               </div>
               <div className="product-body-content-text w-100 d-flex flex-column justify-content-between">
                 <div className="d-flex flex-column">
-                  <h1>Paradoxa Minor</h1>
-                  <h3>Rhipsalis, Fishbone cactus</h3>
+                  <h1>{product.name}</h1>
                   <p className="description-pharagraph proxima-nova-regular border-bottom w-100">
-                    The Rhipsalis Paradoxa Minor has a very distinctive look. She has long stems
-                    that can be thick, thin, straight or slightly curled. These cool stems hang from
-                    her pot, giving her a very noteworthy look! So if you are looking for a cool
-                    houseplant with an uncommon appearance, you have found your match! Buy Rhipsalis
-                    Paradoxa Minor online.
+                    {product.description}
                   </p>
                 </div>
                 <div className="product-body-content-text-icons border-bottom pb-3">
@@ -55,7 +78,7 @@ function ProductPage() {
                   <i className="bi bi-tree"></i>
                   <i className="bi bi-brightness-high"></i>
                 </div>
-                <h2 className="mt-3">$500</h2>
+                <h2 className="mt-3">{product.price}</h2>
                 <div className="buttons-div text-center mb-1">
                   <div className="counter-container">
                     <button className="counter-container-counterbutton" onClick={handleDecrement}>
@@ -66,7 +89,7 @@ function ProductPage() {
                       +
                     </button>
                   </div>
-                  <button className="product-submitbutton">
+                  <button className="product-submitbutton" onClick={handleAddProduct}>
                     Add to cart <i className="bi bi-cart-fill"></i>
                   </button>
                 </div>
@@ -76,9 +99,9 @@ function ProductPage() {
           <section className="recomended">
             <h1 className="recomended-title galadali-bold mb-4">Recommended for you</h1>
             <div className="product-list">
-              {products.map((product) => (
-                <div key={product.id} className="product-item ">
-                  <Product product={product} />
+              {products.map((p) => (
+                <div key={p.id} className="product-item ">
+                  <Product product={p} />
                 </div>
               ))}
             </div>

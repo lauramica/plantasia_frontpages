@@ -29,7 +29,7 @@ function App() {
           element: <AboutPage />,
         },
         {
-          path: "product",
+          path: "products/:id",
           element: <ProductPage />,
         },
         {

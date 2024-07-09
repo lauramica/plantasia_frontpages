@@ -9,7 +9,8 @@ function CartItem({ product }) {
   const dispatch = useDispatch();
 
   const handleIncrement = () => {
-    dispatch(increaseProduct({ productId: product.id, productQty: 1 }));
+    if (product.stock >= product.quantity + 1)
+      dispatch(increaseProduct({ productId: product.id, productQty: 1 }));
   };
   const handleDecrement = () => {
     product.quantity > 1

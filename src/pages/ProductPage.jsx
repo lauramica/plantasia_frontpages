@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "../css/ProductPage.css";
 import Product from "../components/Product";
@@ -15,12 +15,16 @@ function ProductPage() {
   const params = useParams();
   const cart = useSelector((state) => state.cart);
 
-  const handleIncrement = () => setCount(count + 1);
+  const handleIncrement = () => {
+    if (count < product.stock) setCount(count + 1);
+  };
   const handleDecrement = () => setCount(count > 1 ? count - 1 : 1);
 
   const handleAddProduct = () => {
-    if (cart.find((p) => p.id === product.id)) {
-      dispatch(increaseProduct({ productId: product.id, productQty: count }));
+    const cartProduct = cart.find((p) => p.id === product.id);
+    if (cartProduct) {
+      if (cartProduct.stock >= cartProduct.quantity + count)
+        dispatch(increaseProduct({ productId: product.id, productQty: count }));
     } else {
       dispatch(addProduct({ ...product, quantity: count }));
     }
@@ -54,9 +58,9 @@ function ProductPage() {
       <>
         <div className="container p-sm-0">
           <section className="product-body mt-5">
-            <a className="product-body-goback" href="products">
+            <Link className="product-body-goback" to="/products">
               <i className="bi bi-arrow-left"></i> Back to products
-            </a>
+            </Link>
             <div className="d-flex product-body-content w-100">
               <div className="photo-product w-100">
                 <img

@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
-import "../css/CheckOut.css";
-import "../css/Loader.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
-function Home() {
-  const stock = 5;
+import "../css/CheckOut.css";
+import "../css/Loader.css";
+import CheckOutItem from "../components/CheckOutItem";
+
+function CheckOut() {
   const [modalState, setModalState] = useState(false);
   const [orderState, setOrderState] = useState(false);
+  const cart = useSelector((state) => state.cart);
 
-  const handleModalToggle = () => {
-    modalState ? setModalState(false) : setModalState(true);
-  };
-
-  //   useEffect(() => {
-  //     if (modalState) {
-  //       setOrderState(false);
-  //       const getOrder = async () => {
-  //         const order = await axios();
-  //       };
-  //     }
-  //   }, [modalState]);
+  /*  useEffect(() => {
+    if (modalState) {
+      setOrderState(false);
+      const getOrder = async () => {
+        const order = await axios();
+      };
+    }
+  }, [modalState]); */
 
   return (
     <div className="checkout">
@@ -60,39 +59,11 @@ function Home() {
             </tr>
           </thead>
           <tbody className="align-top proxima-nova-regular fs-5">
-            <tr>
-              <td>
-                <div className="d-flex flex-wrap">
-                  <img
-                    src={`${import.meta.env.VITE_IMAGES_URL}plants/charlotte.png`}
-                    className="img-fluid me-3 mb-3 mb-lg-0 product-img rounded-corner shadow"
-                    alt="plant"
-                  />
-                  <div>
-                    <p className="proxima-nova-bold m-0 darkgreen">Charlotte</p>
-                    <p className="m-0 darkgreen">Schefflera (Umbrella tree)</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div className="d-flex align-items-center quantity mb-1">
-                  <i className="bi bi-dash-circle-fill"></i>
-                  <p className="m-0 mx-1 darkgreen mx-md-2 mx-lg-3">20</p>
-                  <i className="bi bi-plus-circle-fill"></i>
-                </div>
-                {stock < 10 ? (
-                  <small className="proxima-nova-bold terracotta">
-                    {`Only ${stock} left in stock!`}
-                  </small>
-                ) : (
-                  <small className="proxima-nova-regular lightgreen">In Stock</small>
-                )}
-              </td>
-              <td>
-                <p className="m-0 darkgreen mb-1">$50.00</p>
-                <small className="proxima-nova-regular almond">$2.50 c/u</small>
-              </td>
-            </tr>
+            {cart.map((product) => (
+              <tr key={product.id}>
+                <CheckOutItem product={product} />
+              </tr>
+            ))}
             <tr>
               <td colSpan={2}>
                 <p className="darkgreen m-0 d-flex flex-column d-md-inline">
@@ -578,4 +549,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default CheckOut;

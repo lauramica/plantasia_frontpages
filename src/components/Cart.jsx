@@ -2,6 +2,8 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import "../css/Cart.css";
 import CartItem from "./CartItem";
 
@@ -40,9 +42,9 @@ function Cart({ show, handleClose }) {
             </div>
           ))}
         </div>
-        <button type="button" className="cart-button">
+        <Link to={`/cart`} className="cart-button" onClick={handleClose}>
           Go to checkout
-        </button>
+        </Link>
       </div>
     </Modal>
   );

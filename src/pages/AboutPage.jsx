@@ -3,71 +3,77 @@ import "../css/AboutPage.css";
 function About() {
   return (
     <>
-      <section className="aboutus-banner d-flex align-items-end justify-content-center ">
-        <div className="container banner-title d-flex flex-column p-0">
-          <span className="galadali-bold">About</span>
-          <span className="galadali-bold">This Project</span>
-        </div>
-      </section>
-
-      <section className="aboutus-description container">
-        <div className="container">
-          <p className="aboutus-description-pharagraph">
-            Este sitio web fue realizado en el marco del Bootcamp de desarollo web de Hack Academy,
-            como proyecto final de este grupo de estudiantes. El bootcamp es un curso intensivo,
-            práctico y de dedicación full time, con una duración total de 13 semanas y una carga
-            horaria total de +580 horas.
+      <section
+        className="about-banner d-flex align-items-center"
+        style={{
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.37) 100%, rgba(29, 0, 0, 0.329) 100%), url(${
+            import.meta.env.VITE_IMAGES_URL
+          }home/home_banner.png)`,
+        }}
+      >
+        <div className="container about-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
+          <h1 className="galadali-bold p-0">About this project...</h1>
+          <p>
+            Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack Academy,
+            como proyecto final de este grupo de estudiantes.
           </p>
-          <p>Breve descripción de la inspo para la página</p>
+          <p>
+            El bootcamp fue un curso intensivo, práctico y de dedicación full time, con una duración
+            total de 13 semanas y una carga horaria total de +40 horas semanales.
+          </p>
         </div>
       </section>
 
-      <section className="aboutus-mainbody container">
-        <div className="row g-5">
-          <div className="col-xl-8 col-lg-12">
-            <div className="aboutus-mainbody-section1">
-              <h2>Technology</h2>
-              <p>Logos de las tecnologías, nombres y links.</p>
-            </div>
-          </div>
-          <div className="col-xl-4 col-lg-12 d-flex flex-column">
-            <div className="aboutus-mainbody-section">
-              <h2>Proyect Duration</h2>
-              <p>
-                El proyecto se desarrolló en 3 semanas, entre los meses de junio y julio de 2024.
-                Cada semana correspondió a un sprint (metodología Scrum).
-              </p>
-            </div>
-            <div className="aboutus-mainbody-section">
-              <h2>Planning</h2>
-              <p>
-                La metodología Scrum* (exlicar enlgún lado qué es) fue la elegida por los docentes
-                para determinar el desarrollo del proyecto, que constó de 3 sprints con sus
-                correspondientes dmeos. Por otra parte, el equipo utilizó herramientas como Miro,
-                Trello, Figma y GitHub para panificar el proyecto.
-              </p>
-            </div>
+      <section className="about-section-2 mt-5">
+        <div className="container p-sm-0 d-flex">
+          <div className="duration">
+            {/*             <img src={`${import.meta.env.VITE_IMAGES_URL}about/calendar.svg`} alt="" className="object-fit-cover w-100"/> */}
+            <h5>Duración</h5>
+            <span>El proyecto se desarrolló en 3 semanas, entre junio y julio de 2024.</span>
           </div>
         </div>
       </section>
 
-      <section>
-        <div className="container tecnologies-container">
-          <h4>Acerca de las tecnologías</h4>
-          <p>Breve descripción de cada tecnología?</p>
+      <section className="about-section-3 mt-5">
+        <div className="container p-sm-0 d-flex">
+          <div className="about-section-3-box me-1">
+            <div className="planning mb-2">
+              <h4>Planificación</h4>
+              <p>
+                En la gestión del proyecto aplicamos la metodología Scrumban para dividir las tareas
+                en “sprints” semanales y ordenarlas en un tablero según su estado.
+              </p>
+              <p>Elegimos Miro, Trello y GitHub como herramientas digitales de planificación.</p>
+            </div>
+            <div className="design">
+              <h4>Diseño</h4>
+              <p>
+                El diseño del Front-End y del Back-End fue realizado de forma simultánea y
+                colaborativa mediante Drawio y Figma.
+              </p>
+            </div>
+          </div>
+          <div className="tecnologies ms-1">
+            <h4>Tecnologías</h4>
+            <p>
+              Desde el inicio del proyecto se utilizó Git y Github, lo que permitió respaldar
+              nuestro trabajo y gestionar las versiones, facilitando así la colaboración simultánea.
+            </p>
+            <p>
+              Para el Front-End del sitio desarrollamos una aplicación en React con Vite y Redux.
+              También aplicamos Bootstrap como librería de preferencia.
+            </p>
+            <p>
+              Respecto al Back-End, construimos una REST API mediante Node.js, Express y mySQL.
+              Elegimos Insomnia para testear el funcionamiento de las rutas.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section>
-        <div className="container tecnologies-container">
-          <h4>Otras habilidades y herramientas</h4>
-          <p>Breve descripción de cada una</p>
-        </div>
-      </section>
-
-      <section>
-        <div className="container d-flex">
-          <div className="mer-explained">
+      <section className="about-section-4 mt-5">
+        <div className="container p-sm-0 d-flex">
+          <div className="back-end">
             <h4>Backend - Explicación del MER</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum eos voluptas corrupti
@@ -89,9 +95,9 @@ function About() {
         </div>
       </section>
 
-      <section>
-        <div className="container">
-          <div className="frontend-container">
+      <section className="about-section-5 mt5">
+        <div className="container p-sm-0">
+          <div className="front-end">
             <h4>Frontend - Estética de la página</h4>
             <p>Breve descripción de cada una</p>
           </div>
@@ -101,8 +107,8 @@ function About() {
         </div>
       </section>
 
-      <section className="aboutus-team container p-0">
-        <div className="d-flex flex-column align-items-center">
+      <section className="aboutus-team container">
+        <div className="container p-sm-0 d-flex flex-column align-items-center">
           <h1>
             <b>Team</b>
           </h1>

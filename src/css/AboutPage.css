@@ -1,93 +1,74 @@
-.aboutus-mainbody-section {
-  background-color: var(--lightgreen);
-  margin-bottom: 50px;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  padding: 20px;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 50px;
-  position: relative;
-}
-
-.aboutus-description p {
-  color: var(--darkgreen);
-  font-family: "Proxima Nova";
-}
-
-.aboutus-description {
-  margin-top: 70px;
-  margin-bottom: 120px;
-}
-
-.aboutus-mainbody-section1 {
-  background-color: var(--lightgreen);
-  margin-bottom: 50px;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  padding: 20px;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 70px;
-  height: 92%;
-  position: relative;
-}
-
-.banner-title {
-  margin-bottom: 100px;
-  margin-top: 100px;
-}
-
-.aboutus-description-pharagraph {
-  color: white;
-  font-family: "Proxima Nova";
-  font-size: 25px;
-}
-
-.aboutus-banner {
-  position: relative;
-  background-image: url(/backup_images/home/home_banner.png);
+.about-banner {
+  background: rgb(0, 0, 0);
   background-size: cover;
   background-position: center;
   width: 100%;
   aspect-ratio: 4/1;
-  font-size: 3.2rem;
   color: white;
-  padding: 50px;
+  min-height: 650px;
 }
 
-.aboutus-banner > * {
-  position: relative;
-  z-index: 1;
+.about-banner-container {
+  height: 100%;
 }
 
-.aboutus-mainbody-section h2 {
-  font-family: "Galadali";
-  font-weight: bold;
-}
-.aboutus-mainbody-section1 h2 {
-  font-family: "Galadali";
-  font-weight: bold;
+.about-banner-container h1 {
+  font-size: 3rem;
+  margin-bottom: 0.7rem;
 }
 
-.aboutus-mainbody-section p {
-  margin-top: 20px;
-  font-family: "Proxima Nova";
-  font-weight: bold;
+.about-banner-container p {
+  font-size: 1.5rem;
   color: white;
-}
-.aboutus-mainbody-section1 p {
-  margin-top: 20px;
-  font-family: "Proxima Nova";
-  font-weight: bold;
-  color: white;
+  text-align: left;
+  margin-top: 15px;
+  width: 75%;
 }
 
-.aboutus-mainbody {
-  margin: 0 auto;
-  padding: 100px 0;
+.about-section-3 .container .about-section-3-box .planning,
+.about-section-3 .container .about-section-3-box .design,
+.about-section-3 .container .tecnologies {
+  border: 3px var(--lightgreen) solid;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.about-section-3 .container .about-section-3-box .planning h4,
+.about-section-3 .container .about-section-3-box .design h4,
+.about-section-3 .container .tecnologies h4 {
+  font-family: "Galadali Regular";
+  font-weight: normal;
+  font-style: normal;
+  color: var(--mediumgreen);
+  font-size: 1.8rem;
+}
+
+.about-section-3 .container .planning p,
+.about-section-3 .container .design p,
+.about-section-3 .container .tecnologies p {
+  font-family: "Proxima Nova Regular";
+  font-weight: normal;
+  font-style: normal;
   color: var(--darkgreen);
-  width: 100%;
+  font-size: 1rem;
+}
+
+.about-section-4 .container .back-end h4,
+.about-section-5 .container .front-end h4 {
+  font-family: "Galadali Regular";
+  font-weight: normal;
+  font-style: normal;
+  color: var(--mediumgreen);
+  font-size: 2rem;
+}
+
+.about-section-4 .container .back-end p,
+.about-section-5 .container .front-end p {
+  font-family: "Proxima Nova Regular";
+  font-weight: normal;
+  font-style: normal;
+  color: var(--darkgreen);
+  font-size: 1rem;
 }
 
 .aboutus-team {
@@ -148,82 +129,14 @@
   margin: 0;
 }
 
-.frontend-container h4,
-.tecnologies-container h4,
-.mer-explained h4 {
-  font-family: "Galadali Regular";
-  font-weight: normal;
-  font-style: normal;
-  color: var(--mediumgreen);
-  font-size: 2.5rem;
-}
-
-.frontend-container p,
-.tecnologies-container p,
-.mer-explained p {
-  font-family: "Proxima Nova Regular";
-  font-weight: normal;
-  font-style: normal;
-  color: var(--darkgreen);
-  font-size: 1.2rem;
-}
-
-@media (min-width: 992px) and (max-width: 1200px) {
-  .aboutus-description-pharagraph {
-    margin: 10px;
-  }
-
-  .aboutus-mainbody-section::before {
-    width: 100px;
-    height: 60px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-  .aboutus-description-pharagraph {
-    margin: 10px;
-  }
-  .aboutus-mainbody-section::before {
-    width: 100px;
-    height: 60px;
-  }
-  .aboutus-mainbody-section1::before {
-    width: 100px;
-    height: 60px;
-    top: -30px;
-  }
+@media (min-width: 350px) and (max-width: 576px) {
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
-  .aboutus-description-pharagraph {
-    margin: 10px;
-  }
-
-  .aboutus-mainbody-section::before {
-    width: 80px;
-    height: 60px;
-  }
-
-  .aboutus-mainbody-section1::before {
-    width: 80px;
-    height: 60px;
-    top: -30px;
-  }
 }
 
-@media (min-width: 350px) and (max-width: 576px) {
-  .aboutus-description-pharagraph {
-    margin: 10px;
-  }
+@media (min-width: 768px) and (max-width: 992px) {
+}
 
-  .aboutus-mainbody-section::before {
-    width: 70px;
-    height: 60px;
-  }
-
-  .aboutus-mainbody-section1::before {
-    width: 70px;
-    height: 60px;
-    top: -30px;
-  }
+@media (min-width: 992px) and (max-width: 1200px) {
 }

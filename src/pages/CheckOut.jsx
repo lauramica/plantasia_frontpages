@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,12 +11,59 @@ import { createOrder } from "../redux/orderSlice";
 function CheckOut() {
   const [modalState, setModalState] = useState(false);
   const [orderState, setOrderState] = useState(false);
+  const [newOrder, setNewOrder] = useState({
+    total_price: 15.0,
+  });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
+  //   const customer = useSelector((state) => state.customer);
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTcyMDU2Njc3Mn0.GQPEuIZCcTEKClUTiDo6o31JwAxqjkjvwJtYkYRRxrY";
 
-  const handleSubmit = () => {
+  //   useEffect(() => {
+  //     setNewOrder({ ...newOrder, total_price: 0 });
+  //     const totalPrice = () => {
+  //       for (const product of cart) {
+  //         setNewOrder({
+  //           ...newOrder,
+  //           total_price: newOrder.total_price
+  //             ? newOrder.total_price + Number(product.price) * product.quantity
+  //             : Number(product.price) * product.quantity,
+  //         });
+  //       }
+  //     };
+  //     totalPrice();
+  //     console.log(newOrder.total_price);
+  //   }, [cart]);
+
+  useEffect(() => {
+    setNewOrder({
+      ...newOrder,
+      products: cart.map((product) => {
+        return {
+          name: product.name,
+          image: product.image,
+          price: product.price,
+          quantity: product.quantity,
+        };
+      }),
+    });
+  }, [cart]);
+
+  const handleSubmit = async () => {
+    if (!token) {
+      return navigate("/login");
+    }
     handleModalToggle();
-    dispatch(createOrder(order));
+    await axios({
+      url: `${import.meta.env.VITE_API_URL}/orders/create`,
+      method: "POST",
+      data: { ...newOrder },
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    dispatch(createOrder(newOrder));
   };
 
   const handleModalToggle = () => {
@@ -83,7 +130,7 @@ function CheckOut() {
                 </p>
               </td>
               <td>
-                <p className="proxima-nova-regular darkgreen m-0">$50.00</p>
+                <p className="proxima-nova-regular darkgreen m-0">${newOrder.total_price}</p>
               </td>
             </tr>
             <tr>
@@ -119,7 +166,7 @@ function CheckOut() {
                 <p className="proxima-nova-bold darkgreen m-0">Total</p>
               </td>
               <td>
-                <p className="proxima-nova-regular darkgreen m-0">$50.00</p>
+                <p className="proxima-nova-regular darkgreen m-0">${newOrder.total_price}</p>
               </td>
             </tr>
             <tr>
@@ -134,6 +181,13 @@ function CheckOut() {
                       id="firstName"
                       placeholder="Type your first name"
                       className="mt-1 p-1"
+                      value={newOrder.buyer?.firstname ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          buyer: { ...newOrder.buyer, firstname: e.target.value },
+                        })
+                      }
                     />
                   </div>
                   <div className="input-group d-flex flex-column w-md-50 ms-md-1 mb-2 last-name">
@@ -144,6 +198,13 @@ function CheckOut() {
                       id="lastName"
                       placeholder="Type your last name"
                       className="mt-1 p-1"
+                      value={newOrder.buyer?.lastname ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          buyer: { ...newOrder.buyer, lastname: e.target.value },
+                        })
+                      }
                     />
                   </div>
                 </div>
@@ -156,6 +217,13 @@ function CheckOut() {
                       id="address"
                       placeholder="Type your address"
                       className="mt-1 p-1"
+                      value={newOrder.order_address?.address ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, address: e.target.value },
+                        })
+                      }
                     />
                   </div>
                   <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2 city">
@@ -166,11 +234,48 @@ function CheckOut() {
                       id="city"
                       placeholder="Type your city"
                       className="mt-1 p-1"
+                      value={newOrder.order_address?.city ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, city: e.target.value },
+                        })
+                      }
                     />
                   </div>
+                  <div className="input-group d-flex flex-column justify-content-between w-md-50 me-md-1 mb-2 state-province">
+                    <label htmlFor="state">State / Province</label>
+                    <input
+                      type="text"
+                      name="state"
+                      id="state"
+                      placeholder="Type your state/province"
+                      className="mt-1 p-1"
+                      value={newOrder.order_address?.state ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, state: e.target.value },
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="d-flex flex-column flex-md-row">
                   <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2 country">
                     <label htmlFor="country">Country</label>
-                    <select className="mt-1 p-1 w-100" id="country">
+                    <select
+                      className="mt-1 p-1 w-100"
+                      id="country"
+                      defaultValue={newOrder.order_address?.country ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, country: e.target.value },
+                        })
+                      }
+                    >
+                      <option>Select a Country</option>
                       <option value="AF">Afghanistan</option>
                       <option value="AX">Åland Islands</option>
                       <option value="AL">Albania</option>
@@ -422,18 +527,6 @@ function CheckOut() {
                       <option value="ZW">Zimbabwe</option>
                     </select>
                   </div>
-                </div>
-                <div className="d-flex flex-column flex-md-row">
-                  <div className="input-group d-flex flex-column justify-content-between w-md-50 me-md-1 mb-2 state-province">
-                    <label htmlFor="state">State / Province</label>
-                    <input
-                      type="text"
-                      name="state"
-                      id="state"
-                      placeholder="Type your state/province"
-                      className="mt-1 p-1"
-                    />
-                  </div>
                   <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 me-md-1 mb-2 postal-code">
                     <label htmlFor="postalCode">Postal code</label>
                     <input
@@ -442,6 +535,13 @@ function CheckOut() {
                       id="postalCode"
                       placeholder="Type your postal code"
                       className="mt-1 p-1"
+                      value={newOrder.order_address?.postalcode ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, postalcode: e.target.value },
+                        })
+                      }
                     />
                   </div>
                   <div className="input-group d-flex flex-column ms-md-1 mb-1 phone">
@@ -452,6 +552,13 @@ function CheckOut() {
                       id="phone"
                       placeholder="Type your phone"
                       className="mt-1 p-1"
+                      value={newOrder.buyer?.phone ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          buyer: { ...newOrder.buyer, phone: e.target.value },
+                        })
+                      }
                     />
                   </div>
                 </div>
@@ -467,6 +574,12 @@ function CheckOut() {
                     id="creditCard"
                     className="radioBtn me-2"
                     value="creditCard"
+                    onChange={(e) =>
+                      setNewOrder({
+                        ...newOrder,
+                        payment: e.target.value,
+                      })
+                    }
                   />
                   <label className="me-3" htmlFor="creditCard">
                     Credit card
@@ -477,6 +590,12 @@ function CheckOut() {
                     id="payPal"
                     className="radioBtn me-2"
                     value="payPal"
+                    onChange={(e) =>
+                      setNewOrder({
+                        ...newOrder,
+                        payment: e.target.value,
+                      })
+                    }
                   />
                   <label className="me-3" htmlFor="payPal">
                     PayPal
@@ -487,6 +606,12 @@ function CheckOut() {
                     id="eTransfer"
                     className="radioBtn me-2"
                     value="eTransfer"
+                    onChange={(e) =>
+                      setNewOrder({
+                        ...newOrder,
+                        payment: e.target.value,
+                      })
+                    }
                   />
                   <label className="me-3" htmlFor="eTransfer">
                     eTransfer

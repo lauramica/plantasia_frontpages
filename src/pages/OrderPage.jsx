@@ -1,26 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../css/Order.css";
-import product1Img from "/backup_images/plants/bby_florida_ghost.png";
-import product2Img from "/backup_images/plants/aquatica.png";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function OrderPage() {
-  // const initialProducts = [
-  //   { id: "product1", name: "Product 1", price: 100, quantity: 2, img: product1Img },
-  //   { id: "product2", name: "Product 2", price: 50, quantity: 3, img: product2Img },
-  // ];
-
-  // const initialOrder = {
-  //   orderId: "12345",
-  //   products: initialProducts.map((product) => ({
-  //     ...product,
-  //     totalPrice: product.price * product.quantity,
-  //   })),
-  //   shippingAddress: "123 Main St, Anytown, Anystate, United States Of America",
-  //   billingAddress: "456 Main St, Anytown, Anystate, United States Of America",
-  //   totalPrice: initialProducts.reduce((acc, product) => acc + product.price * product.quantity, 0),
-  // };
   const params = useParams();
   const [order, setOrder] = useState(null);
 
@@ -31,7 +14,6 @@ function OrderPage() {
         method: "GET",
       });
       setOrder(response.data.order);
-      console.log(response.data);
     };
     getOrder();
   }, []);
@@ -84,7 +66,7 @@ function OrderPage() {
                         <p>{product.quantity}</p>
                       </td>
                       <td>
-                        <p>${product.quantity * product.price}</p>
+                        <p>${(product.quantity * product.price).toFixed(2)}</p>
                       </td>
                     </tr>
                   ))}

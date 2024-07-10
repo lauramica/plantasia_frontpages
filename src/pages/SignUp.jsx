@@ -1,6 +1,33 @@
 import "../css/FormsPages.css";
 
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+
 function SignUp() {
+  const navigate = useNavigate();
+
+  const [customer, setCustomer] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    console.log(customer);
+    const register = async () => {
+      await axios({
+        url: `${import.meta.env.VITE_API_URL}/customers`,
+        method: "POST",
+        data: customer,
+      });
+    };
+    register();
+    navigate("/login");
+  };
+
   return (
     <>
       <div className="window-box">
@@ -22,7 +49,7 @@ function SignUp() {
           </div>
           <div className="form-container">
             <h2 className="title-forms text-center galadali-bold">Sign Up</h2>
-            <form action="" className="proxima-nova-regular">
+            <form action="" className="proxima-nova-regular" onSubmit={handleRegister}>
               <div className="mb-3">
                 <label htmlFor="" className="form-label">
                   First Name
@@ -34,6 +61,8 @@ function SignUp() {
                   className="forms-input form-control rounded-pill"
                   aria-describedby="firstname"
                   placeholder="First Name"
+                  value={customer.firstname}
+                  onChange={(e) => setCustomer({ ...customer, firstname: e.target.value })}
                 />
               </div>
               <div className="mb-3">
@@ -47,6 +76,8 @@ function SignUp() {
                   className="forms-input form-control rounded-pill"
                   aria-describedby="lastname"
                   placeholder="Last Name"
+                  value={customer.lastname}
+                  onChange={(e) => setCustomer({ ...customer, lastname: e.target.value })}
                 />
               </div>
               <div className="mb-3">
@@ -60,6 +91,8 @@ function SignUp() {
                   className="forms-input form-control rounded-pill"
                   aria-describedby="email"
                   placeholder="E-mail"
+                  value={customer.email}
+                  onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
                 />
               </div>
               <div className="mb-3">
@@ -73,6 +106,8 @@ function SignUp() {
                   className="forms-input form-control rounded-pill"
                   aria-describedby="password"
                   placeholder="Password"
+                  value={customer.password}
+                  onChange={(e) => setCustomer({ ...customer, password: e.target.value })}
                 />
               </div>
               <button className="btn-forms form-control rounded-pill my-4">Sign Up</button>

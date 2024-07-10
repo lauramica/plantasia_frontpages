@@ -5,10 +5,12 @@ import { combineReducers } from "redux";
 
 import cartReducer from "./cartSlice";
 import orderReducer from "./orderSlice";
+import customerReducer from "./customerSlice";
 
 const rootReducer = combineReducers({
   cart: cartReducer,
   order: orderReducer,
+  customer: customerReducer,
 });
 
 const persistConfig = { key: "root", storage };

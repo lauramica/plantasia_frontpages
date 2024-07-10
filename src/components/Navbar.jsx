@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import "../css/Navbar.css";
 import Cart from "./Cart";
 
@@ -13,7 +15,7 @@ function CustomNavbar() {
     <>
       <Navbar expand="lg" bg="white" variant="light" sticky="top" className="">
         <Container className="p-sm-0">
-          <Navbar.Brand href="/" className="text-warning">
+          <Navbar.Brand as={Link} to="/" className="text-warning">
             <img
               src={`${import.meta.env.VITE_IMAGES_URL}Plantasia_green.svg`}
               alt="Plantasia logo"
@@ -23,10 +25,16 @@ function CustomNavbar() {
           <Navbar.Toggle aria-controls="navbarNav" className="navbar-hamburger" />
           <Navbar.Collapse id="navbarNav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/products">Products</Nav.Link>
-              <Nav.Link href="/about-this-project">About this project</Nav.Link>
-              <Nav.Link href="#" className="d-lg-none">
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/products">
+                Products
+              </Nav.Link>
+              <Nav.Link as={Link} to="/about-this-project">
+                About this project
+              </Nav.Link>
+              <Nav.Link as={Link} to="/profile" className="d-lg-none">
                 Profile
               </Nav.Link>
               <Nav.Link href="#" className="d-lg-none">
@@ -37,10 +45,10 @@ function CustomNavbar() {
               </Nav.Link>
             </Nav>
             <Nav className="d-flex d-none d-lg-flex">
-              <Nav.Link href="#" className="me-3 ms-auto navbar-anchor">
+              <Nav.Link as={Link} to="/profile" className="me-3 ms-auto navbar-anchor">
                 <i className="bi bi-person-fill"></i>
               </Nav.Link>
-              <Nav.Link href="#" className="me-3 navbar-anchor">
+              <Nav.Link className="me-3 navbar-anchor">
                 <i className="bi bi-suit-heart-fill"></i>
               </Nav.Link>
               <Nav.Link href="#" className="navbar-anchor" onClick={handleShow}>

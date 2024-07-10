@@ -1,6 +1,36 @@
 import "../css/FormsPages.css";
+import { loginCustomer, logoutCustomer } from "../redux/customerSlice";
+
+import { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [customer, setCustomer] = useState({ email: "", password: "" });
+
+  const loggedCustomer = useSelector((state) => state.customer);
+
+  useEffect(() => {
+    if (loggedCustomer.token) return navigate("/");
+  }, [loggedCustomer]);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const login = async () => {
+      const response = await axios({
+        url: `${import.meta.env.VITE_API_URL}/customers/tokens`,
+        method: "POST",
+        data: customer,
+      });
+      dispatch(loginCustomer(response.data));
+    };
+    login();
+  };
+
   return (
     <>
       <div className="window-box">
@@ -22,7 +52,7 @@ function Login() {
           </div>
           <div className="form-container">
             <h2 className="title-forms text-center galadali-bold">Log In</h2>
-            <form action="" className="proxima-nova-regular">
+            <form className="proxima-nova-regular" onSubmit={handleLogin}>
               <div className="mb-3">
                 <label htmlFor="" className="form-label">
                   E-mail
@@ -31,9 +61,11 @@ function Login() {
                   type="email"
                   name="email"
                   id="email"
+                  value={customer.email}
                   className="forms-input form-control rounded-pill"
                   aria-describedby="email"
                   placeholder="E-mail"
+                  onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
                 />
               </div>
               <div className="mb-3">
@@ -44,9 +76,11 @@ function Login() {
                   type="password"
                   name="password"
                   id="password"
+                  value={customer.pass}
                   className="forms-input form-control rounded-pill"
                   aria-describedby="password"
                   placeholder="Password"
+                  onChange={(e) => setCustomer({ ...customer, password: e.target.value })}
                 />
                 <a
                   href="#"
@@ -59,9 +93,9 @@ function Login() {
             </form>
             <p className="text-center darkgreen">
               Don't have an account?
-              <a href="#" className="forms-link proxima-nova-bold text-decoration-none">
+              <Link to="/register" className="forms-link proxima-nova-bold text-decoration-none">
                 Sign Up
-              </a>
+              </Link>
             </p>
           </div>
         </div>

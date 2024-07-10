@@ -6,6 +6,10 @@
   color: var(--darkgreen);
 }
 
+.checkout table tbody td {
+  vertical-align: top;
+}
+
 .checkout .quantity i {
   color: var(--almond);
 }
@@ -46,7 +50,7 @@
   background-color: var(--darkgreen);
 }
 
-#order-notes {
+.checkout #order-notes {
   resize: none;
   border-color: var(--darkgreen);
 }

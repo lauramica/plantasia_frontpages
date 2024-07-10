@@ -1,13 +1,111 @@
-import "../css/CheckOut.css";
-import { Link } from "react-router-dom";
-import PurchasingModal from "../components/PurchasingModal";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 
-function Home() {
-  const stock = 5;
+import "../css/CheckOut.css";
+import "../css/Loader.css";
+import CheckOutItem from "../components/CheckOutItem";
+import { createOrder } from "../redux/orderSlice";
+
+function CheckOut() {
+  const [modalState, setModalState] = useState(false);
+  const [orderState, setOrderState] = useState(false);
+  const [newOrder, setNewOrder] = useState({
+    total_price: 15.0,
+  });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const cart = useSelector((state) => state.cart);
+  //   const customer = useSelector((state) => state.customer);
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTcyMDU2Njc3Mn0.GQPEuIZCcTEKClUTiDo6o31JwAxqjkjvwJtYkYRRxrY";
+
+  //   useEffect(() => {
+  //     setNewOrder({ ...newOrder, total_price: 0 });
+  //     const totalPrice = () => {
+  //       for (const product of cart) {
+  //         setNewOrder({
+  //           ...newOrder,
+  //           total_price: newOrder.total_price
+  //             ? newOrder.total_price + Number(product.price) * product.quantity
+  //             : Number(product.price) * product.quantity,
+  //         });
+  //       }
+  //     };
+  //     totalPrice();
+  //     console.log(newOrder.total_price);
+  //   }, [cart]);
+
+  useEffect(() => {
+    setNewOrder({
+      ...newOrder,
+      products: cart.map((product) => {
+        return {
+          name: product.name,
+          image: product.image,
+          price: product.price,
+          quantity: product.quantity,
+        };
+      }),
+    });
+  }, [cart]);
+
+  const handleSubmit = async () => {
+    if (!token) {
+      return navigate("/login");
+    }
+    handleModalToggle();
+    await axios({
+      url: `${import.meta.env.VITE_API_URL}/orders/create`,
+      method: "POST",
+      data: { ...newOrder },
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    dispatch(createOrder(newOrder));
+  };
+
+  const handleModalToggle = () => {
+    modalState ? setModalState(false) : setModalState(true);
+  };
+
+  /*  useEffect(() => {
+    if (modalState) {
+      setOrderState(false);
+      const getOrder = async () => {
+        const order = await axios();
+      };
+    }
+  }, [modalState]); */
 
   return (
     <div className="checkout">
-      <PurchasingModal />
+      {modalState && (
+        <div className="purchasing-modal">
+          <div className="block shadow p-5 position-relative">
+            <h3 className="proxima-nova-bold darkgreen mb-5">
+              {orderState ? "We are processing your order" : "Order succesfully processed"}
+            </h3>
+            {orderState ? (
+              <span className="flower-loader"></span>
+            ) : (
+              <>
+                <i
+                  className="bi bi-x position-absolute top-0 end-0 fs-2 p-2 almond"
+                  onClick={() => handleModalToggle()}
+                ></i>
+                <div className="links">
+                  <Link to={"/products"} className="continue proxima-nova-regular darkgreen fs-5">
+                    ← Continue Shopping
+                  </Link>
+                  <button className="shadow proxima-nova-regular">Go to Order</button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
       <div className="container px-sm-0 py-3">
         <h1 className="galadali-bold darkgreen mb-3">Hi! This is your shopping cart.</h1>
         <table className="table">
@@ -19,39 +117,11 @@ function Home() {
             </tr>
           </thead>
           <tbody className="align-top proxima-nova-regular fs-5">
-            <tr>
-              <td>
-                <div className="d-flex flex-wrap">
-                  <img
-                    src={`${import.meta.env.VITE_IMAGES_URL}plants/charlotte.png`}
-                    className="img-fluid me-3 mb-3 mb-lg-0 product-img rounded-corner shadow"
-                    alt="plant"
-                  />
-                  <div>
-                    <p className="proxima-nova-bold m-0 darkgreen">Charlotte</p>
-                    <p className="m-0 darkgreen">Schefflera (Umbrella tree)</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div className="d-flex align-items-center quantity mb-1">
-                  <i className="bi bi-dash-circle-fill"></i>
-                  <p className="m-0 mx-1 darkgreen mx-md-2 mx-lg-3">20</p>
-                  <i className="bi bi-plus-circle-fill"></i>
-                </div>
-                {stock < 10 ? (
-                  <small className="proxima-nova-bold terracotta">
-                    {`Only ${stock} left in stock!`}
-                  </small>
-                ) : (
-                  <small className="proxima-nova-regular lightgreen">In Stock</small>
-                )}
-              </td>
-              <td>
-                <p className="m-0 darkgreen mb-1">$50.00</p>
-                <small className="proxima-nova-regular almond">$2.50 c/u</small>
-              </td>
-            </tr>
+            {cart.map((product) => (
+              <tr key={product.id}>
+                <CheckOutItem product={product} />
+              </tr>
+            ))}
             <tr>
               <td colSpan={2}>
                 <p className="darkgreen m-0 d-flex flex-column d-md-inline">
@@ -60,7 +130,7 @@ function Home() {
                 </p>
               </td>
               <td>
-                <p className="proxima-nova-regular darkgreen m-0">$50.00</p>
+                <p className="proxima-nova-regular darkgreen m-0">${newOrder.total_price}</p>
               </td>
             </tr>
             <tr>
@@ -96,7 +166,7 @@ function Home() {
                 <p className="proxima-nova-bold darkgreen m-0">Total</p>
               </td>
               <td>
-                <p className="proxima-nova-regular darkgreen m-0">$50.00</p>
+                <p className="proxima-nova-regular darkgreen m-0">${newOrder.total_price}</p>
               </td>
             </tr>
             <tr>
@@ -111,6 +181,13 @@ function Home() {
                       id="firstName"
                       placeholder="Type your first name"
                       className="mt-1 p-1"
+                      value={newOrder.buyer?.firstname ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          buyer: { ...newOrder.buyer, firstname: e.target.value },
+                        })
+                      }
                     />
                   </div>
                   <div className="input-group d-flex flex-column w-md-50 ms-md-1 mb-2 last-name">
@@ -121,6 +198,13 @@ function Home() {
                       id="lastName"
                       placeholder="Type your last name"
                       className="mt-1 p-1"
+                      value={newOrder.buyer?.lastname ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          buyer: { ...newOrder.buyer, lastname: e.target.value },
+                        })
+                      }
                     />
                   </div>
                 </div>
@@ -133,6 +217,13 @@ function Home() {
                       id="address"
                       placeholder="Type your address"
                       className="mt-1 p-1"
+                      value={newOrder.order_address?.address ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, address: e.target.value },
+                        })
+                      }
                     />
                   </div>
                   <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2 city">
@@ -143,11 +234,48 @@ function Home() {
                       id="city"
                       placeholder="Type your city"
                       className="mt-1 p-1"
+                      value={newOrder.order_address?.city ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, city: e.target.value },
+                        })
+                      }
                     />
                   </div>
+                  <div className="input-group d-flex flex-column justify-content-between w-md-50 me-md-1 mb-2 state-province">
+                    <label htmlFor="state">State / Province</label>
+                    <input
+                      type="text"
+                      name="state"
+                      id="state"
+                      placeholder="Type your state/province"
+                      className="mt-1 p-1"
+                      value={newOrder.order_address?.state ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, state: e.target.value },
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="d-flex flex-column flex-md-row">
                   <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2 country">
                     <label htmlFor="country">Country</label>
-                    <select className="mt-1 p-1 w-100">
+                    <select
+                      className="mt-1 p-1 w-100"
+                      id="country"
+                      defaultValue={newOrder.order_address?.country ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, country: e.target.value },
+                        })
+                      }
+                    >
+                      <option>Select a Country</option>
                       <option value="AF">Afghanistan</option>
                       <option value="AX">Åland Islands</option>
                       <option value="AL">Albania</option>
@@ -399,18 +527,6 @@ function Home() {
                       <option value="ZW">Zimbabwe</option>
                     </select>
                   </div>
-                </div>
-                <div className="d-flex flex-column flex-md-row">
-                  <div className="input-group d-flex flex-column justify-content-between w-md-50 me-md-1 mb-2 state-province">
-                    <label htmlFor="state">State / Province</label>
-                    <input
-                      type="text"
-                      name="state"
-                      id="state"
-                      placeholder="Type your state/province"
-                      className="mt-1 p-1"
-                    />
-                  </div>
                   <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 me-md-1 mb-2 postal-code">
                     <label htmlFor="postalCode">Postal code</label>
                     <input
@@ -419,6 +535,13 @@ function Home() {
                       id="postalCode"
                       placeholder="Type your postal code"
                       className="mt-1 p-1"
+                      value={newOrder.order_address?.postalcode ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          order_address: { ...newOrder.order_address, postalcode: e.target.value },
+                        })
+                      }
                     />
                   </div>
                   <div className="input-group d-flex flex-column ms-md-1 mb-1 phone">
@@ -429,6 +552,13 @@ function Home() {
                       id="phone"
                       placeholder="Type your phone"
                       className="mt-1 p-1"
+                      value={newOrder.buyer?.phone ?? ""}
+                      onChange={(e) =>
+                        setNewOrder({
+                          ...newOrder,
+                          buyer: { ...newOrder.buyer, phone: e.target.value },
+                        })
+                      }
                     />
                   </div>
                 </div>
@@ -444,6 +574,12 @@ function Home() {
                     id="creditCard"
                     className="radioBtn me-2"
                     value="creditCard"
+                    onChange={(e) =>
+                      setNewOrder({
+                        ...newOrder,
+                        payment: e.target.value,
+                      })
+                    }
                   />
                   <label className="me-3" htmlFor="creditCard">
                     Credit card
@@ -454,6 +590,12 @@ function Home() {
                     id="payPal"
                     className="radioBtn me-2"
                     value="payPal"
+                    onChange={(e) =>
+                      setNewOrder({
+                        ...newOrder,
+                        payment: e.target.value,
+                      })
+                    }
                   />
                   <label className="me-3" htmlFor="payPal">
                     PayPal
@@ -464,6 +606,12 @@ function Home() {
                     id="eTransfer"
                     className="radioBtn me-2"
                     value="eTransfer"
+                    onChange={(e) =>
+                      setNewOrder({
+                        ...newOrder,
+                        payment: e.target.value,
+                      })
+                    }
                   />
                   <label className="me-3" htmlFor="eTransfer">
                     eTransfer
@@ -521,15 +669,17 @@ function Home() {
         </table>
         <div className="d-flex justify-content-between">
           <div>
-            <Link to="/" className="proxima-nova-regular mediumgreen go-back fs-5">
+            <Link to="/products" className="proxima-nova-regular mediumgreen go-back fs-5">
               ← Continue Shopping
             </Link>
           </div>
-          <button className="form-button rounded-pill mb-2 shadow">Continue to checkout</button>
+          <button className="form-button rounded-pill mb-2 shadow" onClick={handleSubmit}>
+            Continue to checkout
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-export default Home;
+export default CheckOut;

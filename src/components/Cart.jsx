@@ -1,11 +1,17 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import "../css/Cart.css";
 import CartItem from "./CartItem";
 
 function Cart({ show, handleClose }) {
   const [count, setCount] = useState(0);
+  const cart = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
 
   const handleIncrement = () => setCount(count + 1);
   const handleDecrement = () => setCount(count > 0 ? count - 1 : 0);
@@ -30,13 +36,15 @@ function Cart({ show, handleClose }) {
           <h2>This is your shopping cart</h2>
         </div>
         <div className="modal-body">
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {cart.map((product) => (
+            <div key={product.id}>
+              <CartItem product={product} />
+            </div>
+          ))}
         </div>
-        <button type="button" className="cart-button">
+        <Link to={`/cart`} className="cart-button" onClick={handleClose}>
           Go to checkout
-        </button>
+        </Link>
       </div>
     </Modal>
   );

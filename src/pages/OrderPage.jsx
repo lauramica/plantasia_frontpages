@@ -2,18 +2,24 @@ import React, { useEffect, useState } from "react";
 import "../css/Order.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function OrderPage() {
   const params = useParams();
   const [order, setOrder] = useState(null);
+  const loggedCustomer = useSelector((state) => state.customer);
 
   useEffect(() => {
     const getOrder = async () => {
       const response = await axios({
-        url: `${import.meta.env.VITE_API_URL}/orders/${params.id}`,
+        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
         method: "GET",
+        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
       });
-      setOrder(response.data.order);
+      const orders = response.data.customer.orders;
+      const currentOrder = orders && orders.find((o) => o.id === params.id);
+      console.log(orders);
+      setOrder(currentOrder);
     };
     getOrder();
   }, []);

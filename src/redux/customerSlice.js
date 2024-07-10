@@ -10,9 +10,12 @@ const customerSlice = createSlice({
     logoutCustomer(state, action) {
       return {};
     },
+    updateCustomer(state, action) {
+      return (state = { ...state, ...action.payload });
+    },
   },
 });
 
 const { actions, reducer } = customerSlice;
-export const { loginCustomer, logoutCustomer } = actions;
+export const { loginCustomer, logoutCustomer, updateCustomer } = actions;
 export default reducer;

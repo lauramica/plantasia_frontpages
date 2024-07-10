@@ -15,9 +15,7 @@ function CheckOut() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
-  //   const customer = useSelector((state) => state.customer);
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTcyMDU2Njc3Mn0.GQPEuIZCcTEKClUTiDo6o31JwAxqjkjvwJtYkYRRxrY";
+  const loggedCustomer = useSelector((state) => state.customer);
 
   useEffect(() => {
     setNewOrder({
@@ -39,7 +37,7 @@ function CheckOut() {
   }, [cart]);
 
   const handleSubmit = async () => {
-    if (!token) {
+    if (!loggedCustomer.token) {
       return navigate("/login");
     }
     handleModalToggle();
@@ -47,7 +45,7 @@ function CheckOut() {
       url: `${import.meta.env.VITE_API_URL}/orders/create`,
       method: "POST",
       data: { ...newOrder },
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${loggedCustomer.token}` },
     });
     setNewOrder({ ...newOrder, id: storeOrder.data.id });
     dispatch(createOrder(newOrder));

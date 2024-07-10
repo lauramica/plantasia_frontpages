@@ -1,10 +1,38 @@
 import "../css/EditUser.css";
 
+import { useDispatch, useSelector } from "react-redux";
+import { updateCustomer } from "../redux/customerSlice";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 function EditUser() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const loggedCustomer = useSelector((state) => state.customer);
+  const [updateValues, setUpdateValues] = useState({});
+
+  useEffect(() => {
+    const { firstname, lastname, address, phone } = loggedCustomer;
+    setUpdateValues({ firstname, lastname, address, phone });
+  }, []);
+
+  const handleUpdateCustomer = async (e) => {
+    e.preventDefault();
+    await axios({
+      url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+      method: "POST",
+      data: { ...updateValues },
+      headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+    });
+    dispatch(updateCustomer(updateValues));
+    return navigate("/profile");
+  };
+
   return (
     <div className="container mt-3">
       <h3 className="galadali-regular title-admin-user">Account Settings</h3>
-      <div className="form-div proxima-nova-regular">
+      <form onSubmit={handleUpdateCustomer} className="form-div proxima-nova-regular">
         <div className="d-flex flex-column flex-md-row">
           <div className="input-group d-flex flex-column me-md-1 mb-2">
             <label className="label-form" htmlFor="firstName">
@@ -16,6 +44,8 @@ function EditUser() {
               id="firstName"
               placeholder="Type your first name"
               className="mt-1 p-1 input-form"
+              value={updateValues.firstname}
+              onChange={(e) => setUpdateValues({ ...updateValues, firstname: e.target.value })}
             />
           </div>
           <div className="input-group d-flex flex-column w-md-50 ms-md-1 mb-2">
@@ -28,6 +58,8 @@ function EditUser() {
               id="lastName"
               placeholder="Type your last name"
               className="mt-1 p-1 input-form"
+              value={updateValues.lastname}
+              onChange={(e) => setUpdateValues({ ...updateValues, lastname: e.target.value })}
             />
           </div>
         </div>
@@ -42,6 +74,13 @@ function EditUser() {
               id="address"
               placeholder="Type your address"
               className="mt-1 p-1 input-form"
+              value={updateValues.address?.address ?? ""}
+              onChange={(e) =>
+                setUpdateValues({
+                  ...updateValues,
+                  address: { ...updateValues.address, address: e.target.value },
+                })
+              }
             />
           </div>
           <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2">
@@ -54,13 +93,29 @@ function EditUser() {
               id="city"
               placeholder="Type your city"
               className="mt-1 p-1 input-form"
+              value={updateValues.address?.city ?? ""}
+              onChange={(e) =>
+                setUpdateValues({
+                  ...updateValues,
+                  address: { ...updateValues.address, city: e.target.value },
+                })
+              }
             />
           </div>
           <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2">
             <label className="label-form" htmlFor="country">
               Country
             </label>
-            <select className="mt-1 p-1 w-100 select-form">
+            <select
+              className="mt-1 p-1 w-100 select-form"
+              defaultValue={updateValues.address?.country ?? ""}
+              onChange={(e) =>
+                setUpdateValues({
+                  ...updateValues,
+                  address: { ...updateValues.address, country: e.target.value },
+                })
+              }
+            >
               <option value="AF">Afghanistan</option>
               <option value="AX">Åland Islands</option>
               <option value="AL">Albania</option>
@@ -324,6 +379,13 @@ function EditUser() {
               id="state"
               placeholder="Type your state/province"
               className="mt-1 p-1 input-form"
+              value={updateValues.address?.state ?? ""}
+              onChange={(e) =>
+                setUpdateValues({
+                  ...updateValues,
+                  address: { ...updateValues.address, state: e.target.value },
+                })
+              }
             />
           </div>
           <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 me-md-1 mb-2 postal-code">
@@ -336,6 +398,13 @@ function EditUser() {
               id="postalCode"
               placeholder="Type your postal code"
               className="mt-1 p-1 input-form"
+              value={updateValues.address?.postalcode ?? ""}
+              onChange={(e) =>
+                setUpdateValues({
+                  ...updateValues,
+                  address: { ...updateValues.address, postalcode: e.target.value },
+                })
+              }
             />
           </div>
           <div className="input-group d-flex flex-column ms-md-1 mb-1 phone">
@@ -348,6 +417,8 @@ function EditUser() {
               id="phone"
               placeholder="Type your phone"
               className="mt-1 p-1 input-form"
+              value={updateValues.phone}
+              onChange={(e) => setUpdateValues({ ...updateValues, phone: e.target.value })}
             />
           </div>
         </div>
@@ -355,7 +426,7 @@ function EditUser() {
           <button className="btn delete-button me-auto">Delete</button>
           <button className="btn confirm-button ms-auto">Confirm</button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

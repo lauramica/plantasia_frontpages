@@ -42,10 +42,12 @@ function CheckOut() {
       ...newOrder,
       products: cart.map((product) => {
         return {
+          id: product.id,
           name: product.name,
           image: product.image,
           price: product.price,
           quantity: product.quantity,
+          type: product.typeId,
         };
       }),
     });
@@ -56,13 +58,13 @@ function CheckOut() {
       return navigate("/login");
     }
     handleModalToggle();
-    await axios({
+    const storeOrder = await axios({
       url: `${import.meta.env.VITE_API_URL}/orders/create`,
       method: "POST",
       data: { ...newOrder },
       headers: { Authorization: `Bearer ${token}` },
     });
-
+    setNewOrder({ ...newOrder, id: storeOrder.data.id });
     dispatch(createOrder(newOrder));
   };
 
@@ -99,7 +101,9 @@ function CheckOut() {
                   <Link to={"/products"} className="continue proxima-nova-regular darkgreen fs-5">
                     ← Continue Shopping
                   </Link>
-                  <button className="shadow proxima-nova-regular">Go to Order</button>
+                  <Link to={`/order/${newOrder.id}`} className="shadow proxima-nova-regular">
+                    Go to order
+                  </Link>
                 </div>
               </>
             )}

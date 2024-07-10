@@ -53,7 +53,7 @@ function App() {
           element: <ProfileView />,
         },
         {
-          path: "order",
+          path: "order/:id",
           element: <OrderPage />,
         },
       ],

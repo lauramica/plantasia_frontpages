@@ -9,7 +9,7 @@ import axios from "axios";
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [customer, setCustomer] = useState({ email: "", password: "" });
+  const [customer, setCustomer] = useState({ email: "customer@gmail.com", password: "1234" });
 
   const loggedCustomer = useSelector((state) => state.customer);
 
@@ -76,7 +76,7 @@ function Login() {
                   type="password"
                   name="password"
                   id="password"
-                  value={customer.pass}
+                  value={customer.password}
                   className="forms-input form-control rounded-pill"
                   aria-describedby="password"
                   placeholder="Password"

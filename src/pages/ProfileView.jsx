@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "../css/ProfileView.css";
 import { logoutCustomer } from "../redux/customerSlice";
+import { clearOrders } from "../redux/orderSlice";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
@@ -12,6 +13,7 @@ function ProfileView() {
 
   const handleSession = () => {
     dispatch(logoutCustomer());
+    dispatch(clearOrders());
     return navigate("/login");
   };
 

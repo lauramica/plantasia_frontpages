@@ -24,7 +24,7 @@ function Product({ product }) {
           <div className="product-item-img shadow">
             <span className="view-more-badge proxima-nova-regular">View more</span>
             <img
-              src={`${import.meta.env.VITE_IMAGES_URL}plants/${product.image}`}
+              src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
               alt={product.name}
             />
           </div>

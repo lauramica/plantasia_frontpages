@@ -1,28 +1,48 @@
 import "../css/ProductList.css";
 import Product from "../components/Product";
-import {setProducts} from "../redux/productsSlice"
+import { setProducts } from "../redux/productsSlice";
 
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
+  const [filterValue, setFilterValue] = useState(null);
+  const [productsToShow, setProductsToShow] = useState(null);
+  /*   const [page, setPage] = useState(1);
+  const [pageLimit, setPageLimit] = useState(null); */
 
   useEffect(() => {
-    const products = async () => {
+    const getProducts = async () => {
       const response = await axios({
         url: `${import.meta.env.VITE_API_URL}/products`,
         method: "GET",
+        // params: { page: page },
       });
       dispatch(setProducts(response.data.products));
+      setProductsToShow(response.data.products);
     };
-    products();
+    getProducts();
+    // }, [page]);
   }, []);
 
+  useEffect(() => {
+    const getProductsPerType = async () => {
+      const response = await axios({
+        url: `${import.meta.env.VITE_API_URL}/types/${filterValue}`,
+        method: "GET",
+        // params: { page: page },
+      });
+      setProductsToShow(response.data.type.products);
+      // setPageLimit(response.data.totalPages);
+    };
+    filterValue ? getProductsPerType() : setProductsToShow(products);
+  }, [filterValue]);
+
   return (
-    products && (
+    productsToShow && (
       <>
         <div className="container p-sm-0">
           <h1 className="galadali-bold mediumgreen my-3">All products</h1>
@@ -30,15 +50,17 @@ function ProductList() {
         <div className="filter-container">
           <div className="container p-sm-0 filter-container">
             <div className="product-list-filter">
-              <button className="btn-filter me-2">
-                Filter <i className="bi bi-filter"></i>
-              </button>
-              <select name="categories" id="categories" className='select-filter me-2'>
+              <select
+                name="categories"
+                id="categories"
+                className="select-filter me-2"
+                onChange={(e) => setFilterValue(e.target.value)}
+              >
                 <option defaultValue="Categories">Categories</option>
-                <option value="plants">Plants</option>
-                <option value="pots">Pots</option>
-                <option value="care">Care</option>
-                <option value="accessories">Accessories</option>
+                <option value="1">Plants</option>
+                <option value="2">Pots</option>
+                <option value="3">Care</option>
+                <option value="4">Accessories</option>
               </select>
               <select name="sort-by" id="sort-by" className="select-filter">
                 <option defaultValue="sort-by">Sort by</option>
@@ -57,12 +79,16 @@ function ProductList() {
             <small>1-20 of 500 results</small>
           </div>
           <div className="product-list">
-            {products.map((product) => (
+            {productsToShow.map((product) => (
               <div key={product.id} className="product-item ">
                 <Product product={product} />
               </div>
             ))}
           </div>
+          {/*           <div className="d-flex justify-content-around">
+            <button onClick={() => setPage(page > 1 ? page - 1 : page)}>Previous</button>
+            <button onClick={() => setPage(page + 1)}>Next</button>
+          </div> */}
         </div>
       </>
     )

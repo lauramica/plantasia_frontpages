@@ -20,7 +20,7 @@ function Product({ product }) {
   return (
     <>
       <div>
-        <Link to={`/products/${product.id}`}>
+        <Link to={`/product/${product.id}`}>
           <div className="product-item-img shadow">
             <span className="view-more-badge proxima-nova-regular">View more</span>
             <img

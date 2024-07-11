@@ -1,11 +1,14 @@
 import "../css/ProductList.css";
 import Product from "../components/Product";
+import {setProducts} from "../redux/productsSlice"
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function ProductList() {
-  const [products, setProducts] = useState(null);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
 
   useEffect(() => {
     const products = async () => {
@@ -13,7 +16,7 @@ function ProductList() {
         url: `${import.meta.env.VITE_API_URL}/products`,
         method: "GET",
       });
-      setProducts(response.data.products);
+      dispatch(setProducts(response.data.products));
     };
     products();
   }, []);

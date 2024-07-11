@@ -33,6 +33,13 @@ function ProductList() {
               <button className="btn-filter me-2">
                 Filter <i className="bi bi-filter"></i>
               </button>
+              <select name="categories" id="categories" className='select-filter me-2'>
+                <option defaultValue="Categories">Categories</option>
+                <option value="plants">Plants</option>
+                <option value="pots">Pots</option>
+                <option value="care">Care</option>
+                <option value="accessories">Accessories</option>
+              </select>
               <select name="sort-by" id="sort-by" className="select-filter">
                 <option defaultValue="sort-by">Sort by</option>
                 <option value="name-asc">Name: ascending</option>

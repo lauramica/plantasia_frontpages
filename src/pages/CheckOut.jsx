@@ -7,6 +7,7 @@ import "../css/CheckOut.css";
 import "../css/Loader.css";
 import CheckOutItem from "../components/CheckOutItem";
 import { createOrder } from "../redux/orderSlice";
+import { clearCart } from "../redux/cartSlice";
 
 function CheckOut() {
   const [modalState, setModalState] = useState(false);
@@ -49,6 +50,7 @@ function CheckOut() {
     });
     setNewOrder({ ...newOrder, id: storeOrder.data.id });
     dispatch(createOrder(newOrder));
+    dispatch(clearCart());
   };
 
   const handleModalToggle = () => {

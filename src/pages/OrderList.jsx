@@ -48,7 +48,7 @@ function OrderList() {
               </a>
             </div>
             {order.products.map((product) => (
-              <div className="order-card-item p-3" key={`${product.id}`}>
+              <div className="order-card-item p-3" key={`${order.id}${product.id}`}>
                 <img
                   className="order-card-item-img"
                   src={`${import.meta.env.VITE_IMAGES_URL}${product.type}/${product.image}`}

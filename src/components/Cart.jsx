@@ -1,23 +1,17 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import "../css/Cart.css";
 import CartItem from "./CartItem";
 
 function Cart({ show, handleClose }) {
-  const [count, setCount] = useState(0);
   const cart = useSelector((state) => state.cart);
   const customer = useSelector((state) => state.customer);
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleIncrement = () => setCount(count + 1);
-  const handleDecrement = () => setCount(count > 0 ? count - 1 : 0);
   const handleCheckOut = () => {
     handleClose();
     if (customer.token) {

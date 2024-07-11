@@ -5,9 +5,11 @@ import { setProducts } from "../redux/productsSlice";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 function ProductList() {
   const dispatch = useDispatch();
+  const params = useParams();
   const products = useSelector((state) => state.products);
   const [filterValue, setFilterValue] = useState(null);
   const [productsToShow, setProductsToShow] = useState(null);
@@ -15,6 +17,7 @@ function ProductList() {
   const [pageLimit, setPageLimit] = useState(null); */
 
   useEffect(() => {
+    params.type && setFilterValue(params.type);
     const getProducts = async () => {
       const response = await axios({
         url: `${import.meta.env.VITE_API_URL}/products`,

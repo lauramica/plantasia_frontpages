@@ -27,7 +27,7 @@ function CartItem({ product }) {
         <div className="d-flex">
           <div className="cart-items-photo">
             <img
-              src={`${import.meta.env.VITE_IMAGES_URL}plants/${product.image}`}
+              src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
               alt={product.name}
             />
           </div>

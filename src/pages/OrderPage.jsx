@@ -54,7 +54,7 @@ function OrderPage() {
                       <td>
                         <div>
                           <img
-                            src={`${import.meta.env.VITE_IMAGES_URL}${product.type}/${
+                            src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${
                               product.image
                             }`}
                             alt={product.name}

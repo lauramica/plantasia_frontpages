@@ -20,9 +20,6 @@ function CheckOut() {
   const loggedCustomer = useSelector((state) => state.customer);
 
   useEffect(() => {
-    if (cart.length < 1) {
-      return navigate("/products");
-    }
     setNewOrder({
       ...newOrder,
       products: cart.map((product) => {
@@ -32,7 +29,7 @@ function CheckOut() {
           image: product.image,
           price: product.price,
           quantity: product.quantity,
-          type: product.type.name,
+          type: product.type,
         };
       }),
       total_price: cart
@@ -55,7 +52,7 @@ function CheckOut() {
       setNewOrder({ ...newOrder, id: storeOrder.data.id });
       dispatch(createOrder(newOrder));
       handleModalToggle();
-    } else alertUser();
+    } else setAlert("d-inline");
   };
 
   const handleModalToggle = () => {
@@ -79,10 +76,6 @@ function CheckOut() {
     } catch (err) {
       return false;
     }
-  };
-
-  const alertUser = () => {
-    setAlert("d-inline");
   };
 
   useEffect(() => {
@@ -124,7 +117,10 @@ function CheckOut() {
                     <Link to={"/products"} className="continue proxima-nova-regular darkgreen fs-5">
                       ← Continue Shopping
                     </Link>
-                    <Link to={`/order/${newOrder.id}`} className="shadow proxima-nova-regular">
+                    <Link
+                      to={`/order/${newOrder.id}`}
+                      className="button btn shadow proxima-nova-regular"
+                    >
                       Go to order
                     </Link>
                   </div>

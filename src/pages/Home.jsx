@@ -92,7 +92,9 @@ function Home() {
                 {products.map((product) => (
                   <div className="home-plant-product" key={product.id}>
                     <img
-                      src={`${import.meta.env.VITE_IMAGES_URL}plants/${product.image}`}
+                      src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${
+                        product.image
+                      }`}
                       alt={product.name}
                       className="object-fit-cover w-100 shadow"
                     />
@@ -130,7 +132,9 @@ function Home() {
                 {products.map((product) => (
                   <div className="home-care-product" key={product.id}>
                     <img
-                      src={`${import.meta.env.VITE_IMAGES_URL}plants/${product.image}`}
+                      src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${
+                        product.image
+                      }`}
                       alt={product.name}
                       className="object-fit-cover w-100 shadow"
                     />

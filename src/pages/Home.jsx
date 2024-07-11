@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../css/Home.css";
 import "../css/HomeSectionTwo.css";
 import axios from "axios";
@@ -35,36 +36,36 @@ function Home() {
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora beatae nihil
               mollitia nulla repudiandae in labore debitis blanditiis porro quaerat?
             </p>
-            <a href="/products" className="home-banner-button">
+            <Link to="/products" className="home-banner-button">
               SHOP NOW
-            </a>
+            </Link>
           </div>
         </section>
         <section className="home-section-2 mt-5">
           <div className="container cards-container p-sm-0">
             <div className="home-section-2-cards card-one shadow">
               <span className="card-title galadali-regular">Plants</span>
-              <a className="btn button-see-all proxima-nova-regular" href="">
+              <Link className="btn button-see-all proxima-nova-regular" to="/products">
                 See all
-              </a>
+              </Link>
             </div>
             <div className="home-section-2-cards card-two">
               <span className="card-title galadali-regular">Pots</span>
-              <a className="btn button-see-all proxima-nova-regular" href="">
+              <Link className="btn button-see-all proxima-nova-regular" to="/products">
                 See all
-              </a>
+              </Link>
             </div>
             <div className="home-section-2-cards card-three">
               <span className="card-title galadali-regular">Care</span>
-              <a className="btn button-see-all proxima-nova-regular" href="">
+              <Link className="btn button-see-all proxima-nova-regular" to="/products">
                 See all
-              </a>
+              </Link>
             </div>
             <div className="home-section-2-cards card-four">
               <span className="card-title galadali-regular">Accesories</span>
-              <a className="btn button-see-all proxima-nova-regular" href="">
+              <Link className="btn button-see-all proxima-nova-regular" to="/products">
                 See all
-              </a>
+              </Link>
             </div>
           </div>
           <div className="container d-flex flex-column flex-md-row p-sm-0 mt-5">
@@ -83,9 +84,9 @@ function Home() {
                 pet. In any case, we have the one for you!
               </p>
               <div className="mb-1 home-section-2-link">
-                <a href="/products" className="home-section-2-link">
+                <Link to="/products" className="home-section-2-link">
                   Discover our plants
-                </a>
+                </Link>
               </div>
               <div className="home-section-2-plants">
                 {products.map((product) => (
@@ -121,9 +122,9 @@ function Home() {
                 you need to make that relationship last even through winter.
               </p>
               <div className="mb-1 home-section-3-link text-end">
-                <a href="/products" className="home-section-3-link">
+                <Link to="/products" className="home-section-3-link">
                   Take care of her <i className="bi bi-heart-arrow"></i>
-                </a>
+                </Link>
               </div>
               <div className="home-section-3-care-products">
                 {products.map((product) => (

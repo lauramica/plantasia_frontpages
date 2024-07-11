@@ -11,14 +11,18 @@ import { clearCart } from "../redux/cartSlice";
 
 function CheckOut() {
   const [modalState, setModalState] = useState(false);
-  const [orderState, setOrderState] = useState(false);
+  const [processingOrder, setProcessingOrder] = useState(true);
   const [newOrder, setNewOrder] = useState(null);
+  const [alert, setAlert] = useState("d-none");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const loggedCustomer = useSelector((state) => state.customer);
 
   useEffect(() => {
+    if (cart.length < 1) {
+      return navigate("/products");
+    }
     setNewOrder({
       ...newOrder,
       products: cart.map((product) => {
@@ -41,30 +45,63 @@ function CheckOut() {
     if (!loggedCustomer.token) {
       return navigate("/login");
     }
-    handleModalToggle();
-    const storeOrder = await axios({
-      url: `${import.meta.env.VITE_API_URL}/orders/create`,
-      method: "POST",
-      data: { ...newOrder },
-      headers: { Authorization: `Bearer ${loggedCustomer.token}` },
-    });
-    setNewOrder({ ...newOrder, id: storeOrder.data.id });
-    dispatch(createOrder(newOrder));
-    dispatch(clearCart());
+    if (checkAllInputs()) {
+      const storeOrder = await axios({
+        url: `${import.meta.env.VITE_API_URL}/orders/create`,
+        method: "POST",
+        data: { ...newOrder },
+        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+      });
+      setNewOrder({ ...newOrder, id: storeOrder.data.id });
+      dispatch(createOrder(newOrder));
+      handleModalToggle();
+    } else alertUser();
   };
 
   const handleModalToggle = () => {
     modalState ? setModalState(false) : setModalState(true);
   };
 
-  /*  useEffect(() => {
-    if (modalState) {
-      setOrderState(false);
-      const getOrder = async () => {
-        const order = await axios();
-      };
+  const checkAllInputs = () => {
+    try {
+      if (
+        newOrder.buyer.firstname &&
+        newOrder.buyer.lastname &&
+        newOrder.buyer.phone &&
+        newOrder.order_address.address &&
+        newOrder.order_address.city &&
+        newOrder.order_address.state &&
+        newOrder.order_address.country &&
+        newOrder.order_address.postalcode &&
+        newOrder.payment
+      )
+        return true;
+    } catch (err) {
+      return false;
     }
-  }, [modalState]); */
+  };
+
+  const alertUser = () => {
+    setAlert("d-inline");
+  };
+
+  useEffect(() => {
+    if (modalState) {
+      setProcessingOrder(true);
+      const findOrder = async () => {
+        const response = await axios({
+          url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+          method: "GET",
+          headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+        });
+        if (response.data.customer.orders.find((o) => o.id === Number(newOrder.id))) {
+          dispatch(clearCart());
+          setProcessingOrder(false);
+        }
+      };
+      findOrder();
+    }
+  }, [modalState]);
 
   return (
     newOrder && (
@@ -73,9 +110,9 @@ function CheckOut() {
           <div className="purchasing-modal">
             <div className="block shadow p-5 position-relative">
               <h3 className="proxima-nova-bold darkgreen mb-5">
-                {orderState ? "We are processing your order" : "Order succesfully processed"}
+                {processingOrder ? "We are processing your order" : "Order succesfully processed"}
               </h3>
-              {orderState ? (
+              {processingOrder ? (
                 <span className="flower-loader"></span>
               ) : (
                 <>
@@ -98,7 +135,7 @@ function CheckOut() {
         )}
         <div className="container px-sm-0 py-3">
           <h1 className="galadali-bold darkgreen mb-3">Hi! This is your shopping cart.</h1>
-          <table className="table">
+          <table className="table" onClick={() => setAlert("d-none")}>
             <thead className="galadali-regular fs-4">
               <tr>
                 <th>Product</th>
@@ -238,7 +275,7 @@ function CheckOut() {
                         }
                       />
                     </div>
-                    <div className="input-group d-flex flex-column justify-content-between w-md-50 me-md-1 mb-2 state-province">
+                    <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 mb-2 state-province">
                       <label htmlFor="state">State / Province</label>
                       <input
                         type="text"
@@ -257,7 +294,7 @@ function CheckOut() {
                     </div>
                   </div>
                   <div className="d-flex flex-column flex-md-row">
-                    <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2 country">
+                    <div className="input-group d-flex flex-column w-md-50 me-md-1 mb-2 country">
                       <label htmlFor="country">Country</label>
                       <select
                         className="mt-1 p-1 w-100"
@@ -542,7 +579,7 @@ function CheckOut() {
                         }
                       />
                     </div>
-                    <div className="input-group d-flex flex-column ms-md-1 mb-1 phone">
+                    <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 mb-2 phone">
                       <label htmlFor="phone">Phone</label>
                       <input
                         type="text"
@@ -665,7 +702,7 @@ function CheckOut() {
               </tr>
             </tbody>
           </table>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between flex-column flex-sm-row position-relative">
             <div>
               <Link to="/products" className="proxima-nova-regular mediumgreen go-back fs-5">
                 ← Continue Shopping
@@ -674,6 +711,11 @@ function CheckOut() {
             <button className="form-button rounded-pill mb-2 shadow" onClick={handleSubmit}>
               Continue to checkout
             </button>
+            <div
+              className={`${alert} position-absolute end-0 bg-white border border-warning p-2 alert`}
+            >
+              There are some required fields, that need to be filled
+            </div>
           </div>
         </div>
       </div>

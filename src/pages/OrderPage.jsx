@@ -50,7 +50,7 @@ function OrderPage() {
                 </thead>
                 <tbody>
                   {order.products.map((product) => (
-                    <tr key={product.id}>
+                    <tr key={`${product.id}${order.id}`}>
                       <td>
                         <div>
                           <img

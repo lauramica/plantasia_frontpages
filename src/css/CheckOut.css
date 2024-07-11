@@ -1,5 +1,5 @@
 .checkout .product-img {
-  width: 25%;
+  width: 10%;
 }
 
 .checkout table th {
@@ -93,6 +93,10 @@
 .checkout .card-data-one,
 .checkout .card-data-two {
   width: 50%;
+}
+
+.checkout .alert {
+  top: -3rem;
 }
 
 @media (max-width: 768px) {

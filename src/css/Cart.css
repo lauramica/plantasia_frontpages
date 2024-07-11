@@ -135,6 +135,10 @@
   transition: 0.3s ease;
 }
 
+.cart-link {
+  color: white;
+}
+
 .modal-body {
   font-family: "Proxima Nova";
 }

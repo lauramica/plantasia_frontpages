@@ -13,7 +13,7 @@ function CustomNavbar() {
 
   return (
     <>
-      <Navbar expand="lg" bg="white" variant="light" sticky="top" className="">
+      <Navbar expand="lg" bg="white" variant="light" sticky="top" className="navbar-plantasia">
         <Container className="p-sm-0">
           <Navbar.Brand as={Link} to="/" className="text-warning">
             <img
@@ -58,7 +58,6 @@ function CustomNavbar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
       <Cart show={show} handleClose={handleClose} />
     </>
   );

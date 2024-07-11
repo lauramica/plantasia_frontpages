@@ -89,6 +89,11 @@ function ProfileView() {
                 </button>
               </div>
             </div>
+            <div className="d-flex justify-content-end">
+              <Link to="/orders" className="btn edit-info-button mb-5">
+                View Orders
+              </Link>
+            </div>
           </div>
         </div>
       )

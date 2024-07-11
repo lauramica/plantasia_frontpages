@@ -29,6 +29,7 @@ function ProductList() {
   }, []);
 
   useEffect(() => {
+    if (filterValue === "0") setFilterValue(null);
     const getProductsPerType = async () => {
       const response = await axios({
         url: `${import.meta.env.VITE_API_URL}/types/${filterValue}`,
@@ -53,10 +54,11 @@ function ProductList() {
               <select
                 name="categories"
                 id="categories"
+                defaultValue="0"
                 className="select-filter me-2"
                 onChange={(e) => setFilterValue(e.target.value)}
               >
-                <option defaultValue="Categories">Categories</option>
+                <option value="0">Categories</option>
                 <option value="1">Plants</option>
                 <option value="2">Pots</option>
                 <option value="3">Care</option>

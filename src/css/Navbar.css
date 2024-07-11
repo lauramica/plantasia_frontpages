@@ -52,7 +52,7 @@
 .right-slide-modal .modal-body,
 .right-slide-modal .modal-body p,
 .right-slide-modal .modal-body span,
-.right-slide-modal .modal-body a {
+.navbar-plantasia .right-slide-modal .modal-body a {
   color: var(--darkgreen) !important;
 }
 

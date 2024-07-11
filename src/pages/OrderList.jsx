@@ -1,6 +1,6 @@
 import "../css/OrderList.css";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
@@ -43,9 +43,9 @@ function OrderList() {
                 <p className="order-card-header-title">Status</p>
                 <p>{order.state}</p>
               </div>
-              <a href="#" className="order-card-header-btn">
+              <Link to={`/order/${order.id}`} className="order-card-header-btn">
                 Order details
-              </a>
+              </Link>
             </div>
             {order.products.map((product) => (
               <div className="order-card-item p-3" key={`${order.id}${product.id}`}>

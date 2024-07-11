@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import "../css/Cart.css";
 import CartItem from "./CartItem";
@@ -15,6 +15,9 @@ function Cart({ show, handleClose }) {
   const handleCheckOut = () => {
     handleClose();
     if (customer.token) {
+      if (cart.length < 1) {
+        return navigate("/products");
+      }
       return navigate("/cart");
     }
     return navigate("/login");
@@ -40,11 +43,24 @@ function Cart({ show, handleClose }) {
           <h2>This is your shopping cart</h2>
         </div>
         <div className="modal-body">
-          {cart.map((product) => (
-            <div key={product.id}>
-              <CartItem product={product} />
+          {cart.length < 1 ? (
+            <div className="text-center my-5">
+              <h2 className="proxima-nova-bold lightgreen pb-3">Your Cart Is Empty</h2>
+              <Link
+                to="/products"
+                onClick={handleClose}
+                className="cart-button cart-link text-decoration-none"
+              >
+                Add Products
+              </Link>
             </div>
-          ))}
+          ) : (
+            cart.map((product) => (
+              <div key={product.id}>
+                <CartItem product={product} />
+              </div>
+            ))
+          )}
         </div>
         <button className="cart-button" onClick={handleCheckOut}>
           Go to checkout

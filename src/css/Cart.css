@@ -71,13 +71,7 @@
   width: 100%;
   max-width: 500px;
   margin: 0;
-  transform: translateX(100%);
   background-color: white;
-}
-
-.modal.fade.right.show .modal-dialog {
-  transform: translateX(0);
-  transition: transform 0.3s ease-out;
 }
 
 .modal.fade.right .modal-content {
@@ -157,12 +151,6 @@
   margin: 0;
   height: 100%;
   width: 500px;
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-}
-
-.right-slide-modal .modal.show .modal-dialog {
-  transform: translateX(0);
 }
 
 .right-slide-modal .modal-content {
@@ -177,6 +165,17 @@
 .modal-footer {
   height: auto;
   overflow-y: auto;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out, opacity 0.15s linear;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.modal.fade.show .modal-dialog {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 @media (max-width: 576px) {

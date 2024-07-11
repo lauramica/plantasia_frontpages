@@ -37,9 +37,6 @@ function CustomNavbar() {
               <Nav.Link as={Link} to="/profile" className="d-lg-none">
                 Profile
               </Nav.Link>
-              <Nav.Link href="#" className="d-lg-none">
-                Favorites
-              </Nav.Link>
               <Nav.Link href="#" className="d-lg-none" onClick={handleShow}>
                 Cart
               </Nav.Link>

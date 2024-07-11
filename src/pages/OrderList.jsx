@@ -25,7 +25,7 @@ function OrderList() {
       <div className="container p-sm-0">
         <h1 className="galadali-bold mediumgreen my-3">Your Orders</h1>
         {orders.map((order) => (
-          <div className="order-card mb-3">
+          <div className="order-card mb-3" key={order.id}>
             <div className="order-card-header p-3">
               <div className="order-card-header-items">
                 <p className="order-card-header-title">Order id</p>
@@ -47,31 +47,29 @@ function OrderList() {
                 Order details
               </a>
             </div>
-
-            {order &&
-              order.map((product) => (
-                <div className="order-card-item p-3">
-                  <img
-                    className="order-card-item-img"
-                    src={`${import.meta.env.VITE_IMAGES_URL}${product.type}/${product.image}`}
-                    alt={product.image}
-                  />
-                  <div className="order-card-item-details">
-                    <a href="/product" className="text-decoration-none darkgreen proxima-nova-bold">
-                      {product.name}
-                    </a>
-                    <p>{product.quantity}</p>
-                  </div>
-                  <div className="order-card-item-buttons">
-                    <a href="/product" className="order-card-item-btn">
-                      View product
-                    </a>
-                    <a href="/cart " className="order-card-item-btn">
-                      <i class="bi bi-cart-plus me-1"></i>Buy again
-                    </a>
-                  </div>
+            {order.products.map((product) => (
+              <div className="order-card-item p-3" key={`${product.id}`}>
+                <img
+                  className="order-card-item-img"
+                  src={`${import.meta.env.VITE_IMAGES_URL}${product.type}/${product.image}`}
+                  alt={product.image}
+                />
+                <div className="order-card-item-details">
+                  <a href="/product" className="text-decoration-none darkgreen proxima-nova-bold">
+                    {product.name}
+                  </a>
+                  <p>Quantity: {product.quantity}</p>
                 </div>
-              ))}
+                <div className="order-card-item-buttons">
+                  <a href="/product" className="order-card-item-btn">
+                    View product
+                  </a>
+                  <a href="/cart " className="order-card-item-btn">
+                    <i className="bi bi-cart-plus me-1"></i>Buy again
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         ))}
       </div>

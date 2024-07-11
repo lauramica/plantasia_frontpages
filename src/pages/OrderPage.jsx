@@ -16,9 +16,8 @@ function OrderPage() {
         method: "GET",
         headers: { Authorization: `Bearer ${loggedCustomer.token}` },
       });
-      const orders = response.data.customer.orders;
+      const orders = response.data.customer.orders; // hasta aca finciona, llega la informacion, no pudimos filtrar. Atte. COSTUMER
       const currentOrder = orders && orders.find((o) => o.id === params.id);
-      console.log(orders);
       setOrder(currentOrder);
     };
     getOrder();

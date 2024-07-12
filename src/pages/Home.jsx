@@ -33,8 +33,12 @@ function Home() {
           <div className="container home-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
             <h1 className="galadali-bold p-0">Growing Happiness</h1>
             <p className="proxima-nova-regular p-0 m-0">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora beatae nihil
-              mollitia nulla repudiandae in labore debitis blanditiis porro quaerat?
+              We are Plantasia, the online plant shop for everything a plant lover needs!
+            </p>
+            <p>
+              Plantasia is your one-stop shop for all plant related goodness. It’s a place to learn
+              how to become the best possible plant parent and connect with other plant lovers
+              throughout Uruguay.
             </p>
             <Link to="/products" className="home-banner-button">
               SHOP NOW
@@ -156,8 +160,7 @@ function Home() {
         </section>
 
         <section className="home-section-4 mb-2">
-          <div className="container p-sm-0 mt-5">
-          </div>
+          <div className="container p-sm-0 mt-5"></div>
           <div className="d-flex justify-content-between">
             <div className="home-carrousel">
               <img

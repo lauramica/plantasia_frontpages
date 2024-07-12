@@ -82,10 +82,7 @@ function Login() {
                   placeholder="Password"
                   onChange={(e) => setCustomer({ ...customer, password: e.target.value })}
                 />
-                <a
-                  href="#"
-                  className="d-flex justify-content-end forms-link text-decoration-none mt-2"
-                >
+                <a href="#" className="d-flex justify-content-end forms-link mt-2">
                   Forgot your password?
                 </a>
               </div>
@@ -93,7 +90,10 @@ function Login() {
             </form>
             <p className="text-center darkgreen">
               Don't have an account?
-              <Link to="/register" className="forms-link proxima-nova-bold text-decoration-none">
+              <Link
+                to="/register"
+                className="forms-link proxima-nova-bold text-decoration-none ms-1"
+              >
                 Sign Up
               </Link>
             </p>

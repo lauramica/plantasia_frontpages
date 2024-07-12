@@ -1,8 +1,10 @@
-import "../css/App.css";
+import { useState } from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+import "../css/App.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useState } from "react";
 
 function Main() {
   const [navBarCollapse, setNavBarCollapse] = useState(false);
@@ -13,6 +15,19 @@ function Main() {
 
   return (
     <>
+      {/* <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      /> */}
       <ScrollRestoration />
       <div className="main-container">
         <div>

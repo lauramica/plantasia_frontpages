@@ -48,7 +48,9 @@ function CheckOutItem({ product }) {
       </td>
       <td>
         <p className="m-0 darkgreen mb-1">${subtotal}</p>
-        <small className="proxima-nova-regular almond">${product.price} c/u</small>
+        <small className="proxima-nova-regular almond text-nowrap text-start">
+          1x ${product.price}{" "}
+        </small>
       </td>
     </>
   );

@@ -39,8 +39,8 @@ function Cart({ show, handleClose }) {
             onClick={handleClose}
             aria-label="Close"
           ></button>
-          <h2 className="modal-title px-3">Hi!</h2>
-          <h2 className="modal-title px-3">This is your shopping cart</h2>
+          <h2 className="modal-title px-3 mediumgreen">Hi!</h2>
+          <h2 className="modal-title px-3 mediumgreen">This is your shopping cart</h2>
         </div>
         <div className="modal-body">
           {cart.length < 1 ? (

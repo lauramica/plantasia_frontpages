@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import { format } from "date-fns";
 
 import { increaseProduct, addProduct } from "../redux/cartSlice";
 
@@ -46,11 +47,11 @@ function OrderList() {
             <div className="order-card-header p-3">
               <div className="order-card-header-items">
                 <p className="order-card-header-title">Order id</p>
-                <p>{order.id}</p>
+                <p>{order.order_id}</p>
               </div>
               <div className="order-card-header-items">
                 <p className="order-card-header-title">Date</p>
-                <p>{order.createdAt}</p>
+                <p>{format(order.createdAt, "dd/MM/yyyy")}</p>
               </div>
               <div className="order-card-header-items">
                 <p className="order-card-header-title">Total</p>
@@ -58,7 +59,29 @@ function OrderList() {
               </div>
               <div className="order-card-header-status">
                 <p className="order-card-header-title">State</p>
-                <p>{order.state}</p>
+                <p>
+                  {order.state === "pending" ? (
+                    <span>
+                      <i className="bi bi-hourglass me-1"></i>Pending
+                    </span>
+                  ) : order.state === "processing" ? (
+                    <span>
+                      <i className="bi bi-arrow-repeat me-1"></i>Processing
+                    </span>
+                  ) : order.state === "in transit" ? (
+                    <span>
+                      <i className="bi bi-truck me-1"></i>In Transit
+                    </span>
+                  ) : order.state === "delivered" ? (
+                    <span>
+                      <i className="bi bi-check-circle me-1"></i>Delivered
+                    </span>
+                  ) : (
+                    <span>
+                      <i className="bi bi-x-circle me-1"></i>Canceled
+                    </span>
+                  )}
+                </p>
               </div>
               <Link to={`/order/${order.id}`} className="order-card-header-btn">
                 Order details

@@ -9,8 +9,9 @@ function CheckOutItem({ product }) {
     modalState ? setModalState(false) : setModalState(true);
   };
   const handleIncrement = () => {
-    if (product.stock >= product.quantity + 1)
+    if (product.stock >= product.quantity + 1) {
       dispatch(increaseProduct({ productId: product.id, productQty: 1 }));
+    }
   };
   const handleDecrement = () => {
     product.quantity > 1

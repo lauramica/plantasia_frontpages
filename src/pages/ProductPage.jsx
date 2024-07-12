@@ -47,7 +47,7 @@ function ProductPage() {
         const response = await axios({
           url: `${import.meta.env.VITE_API_URL}/products`,
           method: "GET",
-          params: { typeId: product.type.id },
+          params: { typeId: product.type.id, limit: 4 },
         });
         setProducts(response.data.products);
       };
@@ -140,7 +140,7 @@ function ProductPage() {
             </h2>
             <div className="product-list mb-3">
               {products.map((p) => (
-                <div key={p.id} className="product-item ">
+                <div key={p.id} className="product-item">
                   <Product product={p} />
                 </div>
               ))}

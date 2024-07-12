@@ -9,8 +9,9 @@ function CheckOutItem({ product }) {
     modalState ? setModalState(false) : setModalState(true);
   };
   const handleIncrement = () => {
-    if (product.stock >= product.quantity + 1)
+    if (product.stock >= product.quantity + 1) {
       dispatch(increaseProduct({ productId: product.id, productQty: 1 }));
+    }
   };
   const handleDecrement = () => {
     product.quantity > 1
@@ -47,7 +48,9 @@ function CheckOutItem({ product }) {
       </td>
       <td>
         <p className="m-0 darkgreen mb-1">${subtotal}</p>
-        <small className="proxima-nova-regular almond">${product.price} c/u</small>
+        <small className="proxima-nova-regular almond text-nowrap text-start">
+          1x ${product.price}{" "}
+        </small>
       </td>
     </>
   );

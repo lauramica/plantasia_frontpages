@@ -3,7 +3,8 @@
 }
 
 .checkout table th {
-  color: var(--darkgreen);
+  color: var(--mediumgreen);
+  font-weight: normal;
 }
 
 .checkout table tbody td {
@@ -56,10 +57,11 @@
 }
 
 .checkout .form-button {
-  border: 1px solid var(--mediumgreen);
+  border: none;
   background-color: var(--mediumgreen);
   color: #fff;
   padding: 5px 15px;
+  border-radius: 2px;
 }
 
 .checkout .form-button:hover {
@@ -77,18 +79,41 @@
 }
 
 .checkout label {
-  color: var(--darkgreen);
+  color: var(--mediumgreen);
+}
+.checkout .shipping-information-form label {
+  font-family: "Proxima Nova Regular";
 }
 
 .checkout input {
-  border: 1px solid var(--darkgreen);
+  border: 1px solid var(--lightgreen);
   border-radius: 2px !important;
   width: 100%;
+}
+
+.checkout .section-title {
+  font-family: "Galadali Regular";
+  font-size: 1.7rem;
+  color: var(--mediumgreen);
+}
+
+.checkout select {
+  border: 1px solid var(--lightgreen);
+}
+
+.checkout textarea {
+  border: 1px solid var(--lightgreen);
 }
 
 .checkout input::placeholder {
   color: var(--almond);
 }
+
+.checkout .message-price {
+  font-size: 1rem;
+}
+
+.checkout 
 
 .checkout .card-data-one,
 .checkout .card-data-two {
@@ -97,6 +122,19 @@
 
 .checkout .alert {
   top: -3rem;
+}
+
+.go-back {
+  text-decoration: none;
+  color: var(--mediumgreen);
+}
+
+.go-back:hover {
+  color: var(--almond);
+  text-decoration: none;
+  transform-origin: left;
+  transform: scale(1.1);
+  transition: 0.3;
 }
 
 @media (max-width: 768px) {

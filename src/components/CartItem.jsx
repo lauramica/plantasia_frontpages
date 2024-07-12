@@ -46,9 +46,9 @@ function CartItem({ product }) {
             </div>
           </div>
         </div>
-        <div className="cart-price-icon-container ms-auto">
+        <div className="cart-price-icon-container ms-auto text-nowrap">
           <i className="bi bi-trash-fill cart-trash-icon" onClick={handleRemove}></i>
-          <p className="cart-item-price m-0">${product.price}</p>
+          <p className="cart-item-price m-0">1 x ${product.price}</p>
         </div>
       </div>
     </>

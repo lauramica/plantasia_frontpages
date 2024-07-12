@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import "../css/ProductPage.css";
 import Product from "../components/Product";
@@ -23,11 +24,15 @@ function ProductPage() {
   const handleAddProduct = () => {
     const cartProduct = cart.find((p) => p.id === product.id);
     if (cartProduct) {
-      if (cartProduct.stock >= cartProduct.quantity + count)
+      if (cartProduct.stock >= cartProduct.quantity + count) {
         dispatch(increaseProduct({ productId: product.id, productQty: count }));
+        return toast.success("Product Added to the Cart!");
+      }
     } else {
       dispatch(addProduct({ ...product, quantity: count }));
+      return toast.success("Product Added to the Cart!");
     }
+    return toast.warning("There's not enough stock to add more");
   };
 
   useEffect(() => {

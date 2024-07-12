@@ -143,13 +143,13 @@ function CheckOut() {
           </div>
         )}
         <div className="container px-sm-0 py-3">
-          <h1 className="galadali-bold darkgreen mb-3">Hi! This is your shopping cart.</h1>
+          <h1 className="galadali-bold lightgreen mb-3">Hi! This is your shopping cart.</h1>
           <table className="table" onClick={() => setAlert(false)}>
             <thead className="galadali-regular fs-4">
               <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
+                <th className="section-title">Product</th>
+                <th className="section-title">Quantity</th>
+                <th className="section-title">Price</th>
               </tr>
             </thead>
             <tbody className="align-top proxima-nova-regular fs-5">
@@ -161,7 +161,7 @@ function CheckOut() {
               <tr>
                 <td colSpan={2}>
                   <p className="darkgreen m-0 d-flex flex-column d-md-inline">
-                    <span className="proxima-nova-bold me-1">Subtotal</span>
+                    <span className="section-title me-1">Subtotal</span>
                     <span className="proxima-nova-regular">(Including Taxes)</span>
                   </p>
                 </td>
@@ -172,7 +172,7 @@ function CheckOut() {
               <tr>
                 <td colSpan={3}>
                   <div className="d-flex flex-column">
-                    <label htmlFor="order-notes" className="proxima-nova-bold darkgreen mb-2">
+                    <label htmlFor="order-notes" className="section-title mb-2">
                       Order notes
                     </label>
                     <textarea
@@ -188,13 +188,10 @@ function CheckOut() {
                         id="personal-message"
                         className="checkbox me-1"
                       />
-                      <label
-                        htmlFor="personal-message"
-                        className="proxima-nova-bold darkgreen me-1"
-                      >
+                      <label htmlFor="personal-message" className="proxima-nova-regular me-1">
                         Personal Message
                       </label>
-                      <span className="proxima-nova-regular darkgreen">
+                      <span className="proxima-nova-regular darkgreen message-price">
                         ($15.00 excluding Taxes)
                       </span>
                     </div>
@@ -204,17 +201,17 @@ function CheckOut() {
               </tr>
               <tr>
                 <td colSpan={2}>
-                  <p className="proxima-nova-bold darkgreen m-0">Total</p>
+                  <p className="section-title m-0">Total</p>
                 </td>
                 <td>
-                  <p className="proxima-nova-regular darkgreen m-0">${newOrder.total_price}</p>
+                  <p className="proxima-nova-bold mediumgreen checkout-total-price m-0">${newOrder.total_price}</p>
                 </td>
               </tr>
               <tr>
                 <td colSpan={3}>
-                  <p className="proxima-nova-bold darkgreen m-0 mb-3">Shipping Information</p>
-                  <div className="d-flex flex-column flex-md-row">
-                    <div className="input-group d-flex flex-column me-md-1 mb-2 first-name">
+                  <p className="section-title m-0 mb-3">Shipping Information</p>
+                  <div className="d-flex flex-column flex-md-row shipping-information-form">
+                    <div className="input-group d-flex flex-column me-md-1 mb-2 first-name ">
                       <label htmlFor="firstName">First Name</label>
                       <input
                         type="text"
@@ -351,7 +348,9 @@ function CheckOut() {
                           })
                         }
                       >
-                        <option>Select a Country</option>
+                        <option value="" selected disabled hidden>
+                          Choose a country
+                        </option>
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Åland Islands</option>
                         <option value="AL">Albania</option>
@@ -611,7 +610,7 @@ function CheckOut() {
                       </div>
                     </div>
                     <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 me-md-1 mb-2 postal-code">
-                      <label htmlFor="postalCode">Postal code</label>
+                      <label htmlFor="postalCode">Postal Code</label>
                       <input
                         type="text"
                         name="postalCode"
@@ -666,7 +665,7 @@ function CheckOut() {
               </tr>
               <tr>
                 <td colSpan={3}>
-                  <p className="proxima-nova-bold darkgreen m-0 mb-3">Payment</p>
+                  <p className="section-title m-0 mb-3">Payment</p>
                   <div className="d-flex align-items-center mb-2 position-relative">
                     <input
                       defaultChecked
@@ -726,63 +725,21 @@ function CheckOut() {
                     </div>
                   </div>
                   <div className="d-flex flex-column flex-md-row">
-                    <div className="d-flex flex-column flex-md-row card-data-one">
-                      <div className="input-group d-flex flex-column justify-content-between me-md-1 mb-2">
-                        <label htmlFor="cardNumber">Card Number</label>
-                        <input
-                          type="text"
-                          name="cardNumber"
-                          id="cardNumber"
-                          placeholder="Type your card number"
-                          className="mt-1 p-1"
-                        />
-                      </div>
-                      <div className="input-group d-flex flex-column justify-content-between ms-md-1 me-md-1 mb-2">
-                        <label htmlFor="cardHolder">Card Holder</label>
-                        <input
-                          type="text"
-                          name="cardHolder"
-                          id="cardHolder"
-                          placeholder="Type your card holder"
-                          className="mt-1 p-1"
-                        />
-                      </div>
-                    </div>
-                    <div className="d-flex card-data-two">
-                      <div className="input-group d-flex flex-column justify-content-between ms-md-1 me-1 mb-2">
-                        <label htmlFor="expirationDate">Expiration Date (MM/YY)</label>
-                        <input
-                          type="text"
-                          name="expirationDate"
-                          id="expirationDate"
-                          placeholder="Type your expiration date"
-                          className="mt-1 p-1"
-                        />
-                      </div>
-                      <div className="input-group d-flex flex-column justify-content-between ms-1 mb-2">
-                        <label htmlFor="cvc">CVC</label>
-                        <input
-                          type="text"
-                          name="cvc"
-                          id="cvc"
-                          placeholder="Type your cvc code"
-                          className="mt-1 p-1"
-                        />
-                      </div>
-                    </div>
+                    <div className="d-flex flex-column flex-md-row card-data-one"></div>
+                    <div className="d-flex card-data-two"></div>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
           <div className="d-flex justify-content-between flex-column flex-sm-row position-relative">
-            <div>
-              <Link to="/products" className="proxima-nova-regular mediumgreen go-back fs-5">
+            <div className="go-back">
+              <Link to="/products" className="proxima-nova-bold go-back fs-5 linkto-shopping">
                 ← Continue Shopping
               </Link>
             </div>
-            <button className="form-button rounded-pill mb-2 shadow" onClick={handleSubmit}>
-              Continue to checkout
+            <button className="form-button mb-2 shadow" onClick={handleSubmit}>
+              Continue to Checkout
             </button>
             <div
               className={`${

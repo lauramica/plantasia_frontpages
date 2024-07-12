@@ -16,7 +16,6 @@ function SignUp() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log(customer);
     const register = async () => {
       await axios({
         url: `${import.meta.env.VITE_API_URL}/customers`,

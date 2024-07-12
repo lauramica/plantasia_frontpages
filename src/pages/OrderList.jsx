@@ -1,6 +1,6 @@
 import "../css/OrderList.css";
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,7 +20,6 @@ function OrderList() {
         headers: { Authorization: `Bearer ${loggedCustomer.token}` },
       });
       setOrders(response.data.customer.orders);
-      console.log(response.data.customer.orders);
     };
     getOrders();
   }, []);

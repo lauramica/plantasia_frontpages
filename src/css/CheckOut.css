@@ -9,6 +9,13 @@
 
 .checkout table tbody td {
   vertical-align: top;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.checkout table thead th {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .checkout .quantity i {
@@ -65,12 +72,10 @@
 }
 
 .checkout .form-button:hover {
-  border: 1px solid var(--lightgreen);
   background-color: var(--lightgreen);
 }
 
 .checkout .form-button:active {
-  border: 1px solid var(--almond);
   background-color: var(--almond);
 }
 
@@ -102,7 +107,7 @@
 }
 
 .checkout textarea {
-  border: 1px solid var(--lightgreen);
+  border: 1px solid var(--lightgreen) !important;
 }
 
 .checkout input::placeholder {
@@ -113,9 +118,7 @@
   font-size: 1rem;
 }
 
-.checkout 
-
-.checkout .card-data-one,
+.checkout .checkout .card-data-one,
 .checkout .card-data-two {
   width: 50%;
 }
@@ -141,6 +144,9 @@
   .checkout .card-data-one,
   .checkout .card-data-two {
     width: 100%;
+  }
+  .go-back:hover {
+    transform: scale(1);
   }
 }
 

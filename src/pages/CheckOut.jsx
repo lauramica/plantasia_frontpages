@@ -161,16 +161,18 @@ function CheckOut() {
               <tr>
                 <td colSpan={2}>
                   <p className="darkgreen m-0 d-flex flex-column d-md-inline">
-                    <span className="section-title me-1">Subtotal</span>
+                    <span className="section-title me-1 ">Subtotal</span>
                     <span className="proxima-nova-regular">(Including Taxes)</span>
                   </p>
                 </td>
                 <td>
-                  <p className="proxima-nova-regular darkgreen m-0">$ {newOrder.total_price}</p>
+                  <p className="proxima-nova-regular darkgreen m-0 text-nowrap pt-2">
+                    $ {newOrder.total_price}
+                  </p>
                 </td>
               </tr>
               <tr>
-                <td colSpan={3}>
+                <td colSpan={3} className="py-4">
                   <div className="d-flex flex-column">
                     <label htmlFor="order-notes" className="section-title mb-2">
                       Order notes
@@ -200,15 +202,17 @@ function CheckOut() {
                 </td>
               </tr>
               <tr>
-                <td colSpan={2}>
+                <td colSpan={2} className="py-4">
                   <p className="section-title m-0">Total</p>
                 </td>
-                <td>
-                  <p className="proxima-nova-bold mediumgreen checkout-total-price m-0">${newOrder.total_price}</p>
+                <td className="py-4">
+                  <p className="proxima-nova-bold mediumgreen checkout-total-price m-0 pt-2">
+                    ${newOrder.total_price}
+                  </p>
                 </td>
               </tr>
               <tr>
-                <td colSpan={3}>
+                <td colSpan={3} className="py-4">
                   <p className="section-title m-0 mb-3">Shipping Information</p>
                   <div className="d-flex flex-column flex-md-row shipping-information-form">
                     <div className="input-group d-flex flex-column me-md-1 mb-2 first-name ">
@@ -664,7 +668,7 @@ function CheckOut() {
                 </td>
               </tr>
               <tr>
-                <td colSpan={3}>
+                <td colSpan={3} className="py-4">
                   <p className="section-title m-0 mb-3">Payment</p>
                   <div className="d-flex align-items-center mb-2 position-relative">
                     <input

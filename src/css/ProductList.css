@@ -35,11 +35,11 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 20px;
+  gap: 53px;
 }
 
 .product-item {
-  width: calc(25% - 15px);
+  width: calc(25% - 40px);
   margin-bottom: 10px;
   box-sizing: border-box;
   display: flex;
@@ -80,14 +80,14 @@
 }
 
 .btn-buy {
+  border: none;
   text-decoration: none;
   font-family: "Proxima Nova Regular";
   font-size: 1rem;
-  width: 35%;
-  height: 25px;
   border-radius: 3px;
   color: white;
-  background-color: var(--mediumgreen);
+  background-color: var(--terracotta);
+  padding: 3px 8px;
 }
 .btn-buy:hover {
   color: white;
@@ -128,7 +128,7 @@
   }
 
   .product-item {
-    width: calc(50% - 10px);
+    width: calc(50% - 27px);
   }
   .filter-container {
     top: 37px;
@@ -141,7 +141,7 @@
     justify-content: center;
   }
   .product-item {
-    width: calc(33.33% - 14px);
+    width: calc(33.33% - 36px);
   }
   .product-item-img:hover img {
     transform: scale(1.05);

@@ -1,3 +1,7 @@
+.back-to-ptoduct:hover {
+  color: var(--darkgreen);
+  text-decoration: underline;
+}
 .order-card-header,
 .order-card-item {
   display: flex;
@@ -6,14 +10,15 @@
 }
 
 .order-card-header {
-  border: 1px solid var(--darkgreen);
+  border: 1px solid var(--lightgreen);
   border-radius: 2px 2px 0 0;
+  background-color: var(--lightgreen);
 }
 .order-card-header-title {
   font-family: "Proxima Nova Bold";
 }
 .order-card-header p {
-  color: var(--darkgreen);
+  color: white;
   display: flex;
   flex-direction: column;
   white-space: nowrap;
@@ -33,10 +38,12 @@
   border-radius: 2px;
   padding-inline: 0.5rem;
   white-space: nowrap;
+  width: 123px;
+  text-align: center;
 }
 
 .order-card-item {
-  border: 1px solid var(--darkgreen);
+  border: 1px solid var(--lightgreen);
   border-top: 0;
 }
 .order-card-item-img {
@@ -46,6 +53,7 @@
 .order-card-item-details {
   flex-grow: 1;
   padding-inline: 0.5rem;
+  align-self: flex-start;
 }
 .order-card-item-details p {
   color: var(--darkgreen);
@@ -70,7 +78,6 @@
   display: inline-block;
   text-decoration: none;
   border-radius: 2px;
-  background-color: #174824;
   padding: 0.5rem;
   color: white;
   white-space: nowrap;
@@ -111,6 +118,6 @@
     flex-wrap: wrap;
   }
   .order-card-header-items {
-    flex: 1;
+    flex: 3;
   }
 }

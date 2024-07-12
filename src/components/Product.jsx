@@ -34,7 +34,7 @@ function Product({ product }) {
       <div className="product-buttons mt-2">
         <span className="proxima-nova-regular">$ {product.price}</span>
         <button className="btn-buy text-center" onClick={handleAddProduct}>
-          Add <i className="bi bi-cart"></i>
+          Add to cart <i className="bi bi-cart"></i>
         </button>
       </div>
     </>

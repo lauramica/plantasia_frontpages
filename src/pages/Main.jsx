@@ -11,21 +11,6 @@ function Main() {
     navBarCollapse ? setNavBarCollapse(false) : setNavBarCollapse(true);
   };
 
-  alert(`//////////////////////// ToDo List
-- Footer
-- Date-fns on Order List
-- Password Recovery
-- Narrow Components distance (better definition of the blocks and straight lines)
-- About This Project
-- Banner Home, Lorem and Height
-- Product Detail, Price and Icons
-- Edit User, Country margin bottom
-- Links to go back, (fix some and add more)
-- CheckOut inputs enchance
-- Change all the anchor points to Links
-- NavBar Icons Size
-////////////////////////////////////////////`);
-
   return (
     <>
       <ScrollRestoration />

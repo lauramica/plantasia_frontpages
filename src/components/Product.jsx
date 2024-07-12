@@ -13,13 +13,13 @@ function Product({ product }) {
     if (cartProduct) {
       if (cartProduct.stock >= cartProduct.quantity + 1) {
         dispatch(increaseProduct({ productId: product.id, productQty: 1 }));
-        // return toast("Product Added to the Cart!");
+        return toast.success("Product Added to the Cart!");
       }
     } else {
       dispatch(addProduct({ ...product, quantity: 1 }));
-      //   return toast("Product Added to the Cart!");
+      return toast.success("Product Added to the Cart!");
     }
-    // return toast("There's not enough stock to add more");
+    return toast.warning("There's not enough stock to add more");
   };
 
   return (

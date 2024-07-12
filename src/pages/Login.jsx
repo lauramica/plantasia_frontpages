@@ -82,9 +82,9 @@ function Login() {
                   placeholder="Password"
                   onChange={(e) => setCustomer({ ...customer, password: e.target.value })}
                 />
-                <a href="#" className="d-flex justify-content-end forms-link mt-2">
+                <Link to="/reset-password" className="d-flex justify-content-end forms-link mt-2">
                   Forgot your password?
-                </a>
+                </Link>
               </div>
               <button className="btn-forms form-control rounded-pill my-4">Log In</button>
             </form>

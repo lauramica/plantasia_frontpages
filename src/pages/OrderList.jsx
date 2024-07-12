@@ -1,11 +1,12 @@
-import "../css/OrderList.css";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "date-fns";
+import { toast } from "react-toastify";
 
 import { increaseProduct, addProduct } from "../redux/cartSlice";
+import "../css/OrderList.css";
 
 function OrderList() {
   const [orders, setOrders] = useState(null);
@@ -28,11 +29,15 @@ function OrderList() {
   const handleAddProduct = (product) => {
     const cartProduct = cart.find((p) => p.id === product.id);
     if (cartProduct) {
-      if (cartProduct.stock >= cartProduct.quantity + 1)
+      if (cartProduct.stock >= cartProduct.quantity + 1) {
         dispatch(increaseProduct({ productId: product.id, productQty: 1 }));
+        return toast.success("Product Added to the Cart!");
+      }
     } else {
       dispatch(addProduct({ ...product, quantity: 1 }));
+      return toast.success("Product Added to the Cart!");
     }
+    return toast.warning("There's not enough stock to add more");
   };
 
   return (

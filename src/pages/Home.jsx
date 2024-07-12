@@ -84,7 +84,7 @@ function Home() {
                 pet. In any case, we have the one for you!
               </p>
               <div className="mb-1 home-section-2-link">
-                <Link to="/products" className="home-section-2-link">
+                <Link to="/products/1" className="home-section-2-link">
                   Discover our plants
                 </Link>
               </div>
@@ -128,8 +128,8 @@ function Home() {
                 you need to make that relationship last even through winter.
               </p>
               <div className="mb-1 home-section-3-link text-end">
-                <Link to="/products" className="home-section-3-link">
-                  Take care of her <i className="bi bi-heart-arrow"></i>
+                <Link to="/products/3" className="home-section-3-link">
+                  Take care of her
                 </Link>
               </div>
               <div className="home-section-3-care-products">
@@ -157,11 +157,6 @@ function Home() {
 
         <section className="home-section-4 mb-2">
           <div className="container p-sm-0 mt-5">
-            <div className="mb-1 home-section-4-link text-end mb-1">
-              <a href="" className="home-section-4-link">
-                <i className="bi bi-instagram me-1"></i>Join our community!
-              </a>
-            </div>
           </div>
           <div className="d-flex justify-content-between">
             <div className="home-carrousel">

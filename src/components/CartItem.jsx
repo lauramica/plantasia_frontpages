@@ -23,7 +23,7 @@ function CartItem({ product }) {
 
   return (
     <>
-      <div className="cart-items d-flex position-relative p-3">
+      <div className="cart-items d-flex position-relative p-3 m-0">
         <div className="d-flex">
           <div className="cart-items-photo">
             <img
@@ -31,9 +31,9 @@ function CartItem({ product }) {
               alt={product.name}
             />
           </div>
-          <div className="d-flex flex-column justify-content-between align-items-start ms-2">
+          <div className="d-flex flex-column justify-content-between align-items-start ms-3">
             <div className="cart-items-text">
-              <h3 className="p-0">{product.name.split("(")[0]}</h3>
+              <h4 className="p-0">{product.name.split("(")[0]}</h4>
             </div>
             <div className="counter-container text-center">
               <button className="counter-container-counterbutton1" onClick={handleDecrement}>

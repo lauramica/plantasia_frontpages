@@ -18,10 +18,25 @@
 
 .label-info-user {
   color: var(--mediumgreen);
-  border-bottom: solid var(--lightgreen);
+  border-bottom: 1px solid var(--lightgreen);
 }
 
 .edit-info-button {
   background-color: var(--mediumgreen);
   color: hsl(0, 0%, 100%);
+}
+
+.profile-view-orders {
+  text-decoration: none;
+  color: var(--mediumgreen);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.profile-logout-button {
+  background-color: var(--almond);
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px;
+  margin-right: 27px;
 }

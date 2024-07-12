@@ -30,9 +30,9 @@ function EditUser() {
   };
 
   return (
-    <div className="container mt-3">
+    <div className="container mt-3 p-sm-0">
       <h3 className="galadali-regular title-admin-user">Account Settings</h3>
-      <form onSubmit={handleUpdateCustomer} className="form-div proxima-nova-regular">
+      <form onSubmit={handleUpdateCustomer} className="form-div proxima-nova-regular mb-3">
         <div className="d-flex flex-column flex-md-row">
           <div className="input-group d-flex flex-column me-md-1 mb-2">
             <label className="label-form" htmlFor="firstName">
@@ -108,7 +108,7 @@ function EditUser() {
             </label>
             <select
               className="mt-1 p-1 w-100 select-form"
-              defaultValue={updateValues.address?.country ?? ""}
+              defaultValue={updateValues.address?.country ?? "Select your country"}
               onChange={(e) =>
                 setUpdateValues({
                   ...updateValues,
@@ -423,10 +423,17 @@ function EditUser() {
           </div>
         </div>
         <div className="d-flex flex-md-row mt-2">
-          <button className="btn delete-button me-auto">Delete</button>
           <button className="btn confirm-button ms-auto">Confirm</button>
         </div>
       </form>
+      <div
+        className="mb-3
+          "
+      >
+        <a className="profile-delete me-auto">
+          <i className="bi bi-trash3 me-2"></i>Delete account
+        </a>
+      </div>
     </div>
   );
 }

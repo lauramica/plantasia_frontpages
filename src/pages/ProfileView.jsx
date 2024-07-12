@@ -26,7 +26,7 @@ function ProfileView() {
       loggedCustomer && (
         <div className="container mt-3 p-sm-0">
           <h3 className="galadali-regular profile-title">Welcome to your profile</h3>
-          <div className="form-div proxima-nova-regular">
+          <div className="form-div proxima-nova-regular mb-3">
             <div className="d-flex flex-column flex-md-row">
               <div className="input-group d-flex flex-column me-md-1 mb-2">
                 <label className="label-info-user" htmlFor="firstName">
@@ -94,9 +94,8 @@ function ProfileView() {
               </Link>
             </div>
           </div>
-          <div className="d-flex justify-content-end">
-            <button className="btn profile-logout-button ms-auto mb-5" onClick={handleSession}>
-              Log Out
+          <div className="d-flex justify-content-start mb-3">
+            <button className="profile-logout" onClick={handleSession}><i className="bi bi-box-arrow-left me-2"></i>Logout
             </button>
           </div>
         </div>

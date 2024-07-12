@@ -1,5 +1,4 @@
 .form-div {
-  margin-bottom: 3rem;
   /* background-color: var(--lightgreen); */
   border: solid;
   border-color: var(--lightgreen);
@@ -30,7 +29,7 @@
   /* border: none; */
   border: solid, 2px;
   border-color: var(--lightgreen);
-  color: var(--almond);
+  color: var(--darkgreen);
 }
 
 .confirm-button {
@@ -38,7 +37,7 @@
   color: hsl(0, 0%, 100%);
 }
 
-.delete-button {
-  background-color: var(--almond);
-  color: var(--capuccino);
+.profile-delete {
+  text-decoration: none;
+  color: var(--mediumgreen);
 }

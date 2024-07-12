@@ -117,6 +117,9 @@ h3 {
   .product-body-content-text .content-text p {
     font-size: 1.2rem;
   }
+  .recomended .product-list .product-item {
+    width: calc(50% - 27px);
+  }
 }
 
 @media (min-width: 577px) and (max-width: 768px) {

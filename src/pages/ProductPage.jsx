@@ -60,12 +60,37 @@ function ProductPage() {
     product && (
       <>
         <div className="container p-sm-0">
-          <section className="product-body mt-5">
+          <section className="product-body mt-4">
             <Link className="product-body-goback" to="/products">
               <i className="bi bi-arrow-left"></i> Back to products
             </Link>
-            <div className="d-flex product-body-content w-100">
-              <div className="photo-product w-100">
+            <div className="d-flex product-body-content">
+              {/*               <div className="side-images d-flex flex-column justify-content-between me-3 d-none d-lg-block">
+                <div className="side-image-item">
+                  {" "}
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
+                    alt="Product"
+                    className="object-fit-cover w-100"
+                  />
+                </div>
+                <div className="side-image-item my-3">
+                  {" "}
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
+                    alt="Product"
+                    className="object-fit-cover w-100"
+                  />
+                </div>
+                <div className="side-image-item">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
+                    alt="Product"
+                    className="object-fit-cover w-100"
+                  />
+                </div>
+              </div> */}
+              <div className="photo-product">
                 <img
                   src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
                   alt="Product"
@@ -73,19 +98,19 @@ function ProductPage() {
                 />
               </div>
               <div className="product-body-content-text w-100 d-flex flex-column justify-content-between">
-                <div className="d-flex flex-column">
-                  <h1 className="darkgreen">{product.name}</h1>
-                  <p className="description-pharagraph proxima-nova-regular border-bottom w-100">
+                <div className="d-flex flex-column content-text">
+                  <h1 className="mediumgreen">{product.name}</h1>
+                  <p className="description-pharagraph proxima-nova-regular w-100 p-0">
                     {product.description}
                   </p>
                 </div>
-                <div className="product-body-content-text-icons border-bottom pb-3">
+                <div className="product-body-content-text-icons border-bottom border-top py-3">
                   <i className="bi bi-droplet"></i>
                   <i className="bi bi-feather"></i>
                   <i className="bi bi-tree"></i>
                   <i className="bi bi-brightness-high"></i>
                 </div>
-                <h2 className="mt-3">$ {product.price}</h2>
+                <h2 className="my-3 text-center">$ {product.price}</h2>
                 <div className="buttons-div text-center mb-1">
                   <div className="counter-container">
                     <button
@@ -110,7 +135,9 @@ function ProductPage() {
             </div>
           </section>
           <section className="recomended">
-            <h2 className="recomended-title galadali-bold mb-4">Recommended for you</h2>
+            <h2 className="recomended-title galadali-regular lightgreen mb-4">
+              Recommended for you
+            </h2>
             <div className="product-list mb-3">
               {products.map((p) => (
                 <div key={p.id} className="product-item ">

@@ -12,12 +12,13 @@
 }
 
 .info-user {
-  color: var(--capuccino);
+  color: var(--darkgreen);
+  border-bottom: 1px solid var(--lightgreen);
+  margin-bottom: 0.7rem;
 }
 
 .label-info-user {
-  color: var(--mediumgreen);
-  border-bottom: 1px solid var(--lightgreen);
+  color: var(--capuccino);
 }
 
 .edit-info-button {

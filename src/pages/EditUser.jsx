@@ -116,6 +116,9 @@ function EditUser() {
                 })
               }
             >
+              <option value="" selected disabled hidden>
+                Choose your country
+              </option>
               <option value="AF">Afghanistan</option>
               <option value="AX">Åland Islands</option>
               <option value="AL">Albania</option>

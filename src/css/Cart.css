@@ -101,6 +101,9 @@
   color: #000;
   font-size: 1.5rem;
 }
+.cart-closebutton:focus {
+  box-shadow: none;
+}
 
 .cart-button {
   border: none;

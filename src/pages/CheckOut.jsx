@@ -32,6 +32,14 @@ function CheckOut() {
           type: product.type,
         };
       }),
+      order_address: {
+        address: loggedCustomer.address?.address ?? "",
+        city: loggedCustomer.address?.city ?? "",
+        state: loggedCustomer.address?.state ?? "",
+        country: loggedCustomer.address?.country ?? "",
+        postalcode: loggedCustomer.address?.postalcode ?? "",
+      },
+      buyer: { firstname: loggedCustomer.firstname, lastname: loggedCustomer.lastname },
       total_price: cart
         .reduce((acc, product) => acc + Number(product.price) * product.quantity, 0)
         .toFixed(2),

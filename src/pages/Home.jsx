@@ -84,7 +84,7 @@ function Home() {
                 pet. In any case, we have the one for you!
               </p>
               <div className="mb-1 home-section-2-link">
-                <Link to="/products" className="home-section-2-link">
+                <Link to="/products/1" className="home-section-2-link">
                   Discover our plants
                 </Link>
               </div>
@@ -128,7 +128,7 @@ function Home() {
                 you need to make that relationship last even through winter.
               </p>
               <div className="mb-1 home-section-3-link text-end">
-                <Link to="/products" className="home-section-3-link">
+                <Link to="/products/3" className="home-section-3-link">
                   Take care of her <i className="bi bi-heart-arrow"></i>
                 </Link>
               </div>

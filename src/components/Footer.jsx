@@ -16,12 +16,22 @@ function Footer() {
           <li className="footer__links-wrapper-title">Shop</li>
           <li className="footer__links-wrapper-item">
             <a className="footer__links-wrapper-item-link" href="#">
-              All houseplants
+              Houseplants
             </a>
           </li>
           <li className="footer__links-wrapper-item">
             <a className="footer__links-wrapper-item-link" href="#">
-              All Baby houseplants
+              Accessories
+            </a>
+          </li>
+          <li className="footer__links-wrapper-item">
+            <a className="footer__links-wrapper-item-link" href="#">
+              Care
+            </a>
+          </li>
+          <li className="footer__links-wrapper-item">
+            <a className="footer__links-wrapper-item-link" href="#">
+              Pots
             </a>
           </li>
 
@@ -56,7 +66,7 @@ function Footer() {
           <li className="footer__links-wrapper-title">About PLNTS</li>
           <li className="footer__links-wrapper-item">
             <a className="footer__links-wrapper-item-link" href="#">
-              Giftcard
+              Giftcards
             </a>
           </li>
           <li className="footer__links-wrapper-item">

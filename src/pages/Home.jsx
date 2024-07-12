@@ -159,8 +159,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="home-section-4 mb-2">
-          <div className="container p-sm-0 mt-5"></div>
+        <section className="home-section-4 mb-2 mt-3">
           <div className="d-flex justify-content-between">
             <div className="home-carrousel">
               <img

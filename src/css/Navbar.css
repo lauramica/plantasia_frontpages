@@ -59,3 +59,20 @@
 .navbar-collapse .nav-link {
   color: var(--darkgreen) !important;
 }
+
+.navbar-plantasia .navbar-anchor i {
+  position: relative;
+}
+
+.navbar-plantasia .cart-quantity {
+  background-color: var(--terracotta);
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

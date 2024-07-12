@@ -39,7 +39,11 @@ function CheckOut() {
         country: loggedCustomer.address?.country ?? "",
         postalcode: loggedCustomer.address?.postalcode ?? "",
       },
-      buyer: { firstname: loggedCustomer.firstname, lastname: loggedCustomer.lastname },
+      buyer: {
+        firstname: loggedCustomer.firstname,
+        lastname: loggedCustomer.lastname,
+        phone: loggedCustomer.phone,
+      },
       total_price: cart
         .reduce((acc, product) => acc + Number(product.price) * product.quantity, 0)
         .toFixed(2),
@@ -608,6 +612,7 @@ function CheckOut() {
                   <p className="proxima-nova-bold darkgreen m-0 mb-3">Payment</p>
                   <div className="d-flex align-items-center mb-2">
                     <input
+                      defaultChecked
                       type="radio"
                       name="paymentOptions"
                       id="creditCard"

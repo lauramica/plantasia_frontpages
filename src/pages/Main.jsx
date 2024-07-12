@@ -15,11 +15,12 @@ function Main() {
     <>
       <ScrollRestoration />
       <div className="main-container">
-        <Navbar navBarCollapse={navBarCollapse} handleNavbarCollapse={handleNavbarCollapse} />
-        <div onClick={() => setNavBarCollapse(false)}>
-          <Outlet />
+        <div>
+          <Navbar navBarCollapse={navBarCollapse} handleNavbarCollapse={handleNavbarCollapse} />
+          <div onClick={() => setNavBarCollapse(false)}>
+            <Outlet />
+          </div>
         </div>
-
         <div className="main-footer" onClick={() => setNavBarCollapse(false)}>
           <Footer />
         </div>

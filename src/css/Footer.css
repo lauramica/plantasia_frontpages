@@ -1,11 +1,13 @@
 .footer {
   background-color: var(--lightgreen);
+  position: relative;
   color: #ffffff;
   font-family: "Proxima Nova Regular";
   font-weight: normal;
   font-style: normal;
   padding-top: 1.7rem;
   padding-bottom: 3rem;
+  margin-top: auto;
 }
 
 .footer__logo-wrapper {
@@ -88,7 +90,6 @@
   background-color: #000000;
 }
 
-/* Tablet and desktop view*/
 @media (min-width: 769px) {
   .footer {
     padding-top: 4rem;

@@ -42,7 +42,7 @@ function CheckOutItem({ product }) {
             {`Only ${product.stock} left in stock!`}
           </small>
         ) : (
-          <small className="proxima-nova-regular lightgreen">In Stock</small>
+          <></>
         )}
       </td>
       <td>

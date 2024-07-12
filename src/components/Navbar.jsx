@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
   const [show, setShow] = useState(false);
+  const cart = useSelector((state) => state.cart);
   const loggedCustomer = useSelector((state) => state.customer);
 
   const handleClose = () => setShow(false);
@@ -60,10 +61,14 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
                 Cart
               </Nav.Link>
             </Nav>
-            <Nav className="d-flex d-none d-lg-flex">
+            <Nav className="d-flex d-none d-lg-flex align-items-center">
               {loggedCustomer.token ? (
-                <Nav.Link as={Link} to="/profile" className="ms-auto navbar-anchor d-flex pe-1">
-                  <p className="proxima-nova-bold m-0 me-1">Welcome plant lover! </p>
+                <Nav.Link
+                  as={Link}
+                  to="/profile"
+                  className="ms-auto navbar-anchor d-flex pe-1 align-items-center"
+                >
+                  <p className="proxima-nova-bold m-0 me-1">Welcome plant lover!</p>
                   <i className="bi bi-person"></i>
                 </Nav.Link>
               ) : (
@@ -77,7 +82,15 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
                 </>
               )}
               <Nav.Link className="navbar-anchor" onClick={handleShow}>
-                <i className="bi bi-cart"></i>
+                <i className="bi bi-cart">
+                  {cart.length > 0 ? (
+                    <span className="cart-quantity rounded-circle position-absolute top-0 left-0 text-white">
+                      {cart.reduce((acc, product) => acc + product.quantity, 0)}
+                    </span>
+                  ) : (
+                    <></>
+                  )}
+                </i>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

@@ -5,6 +5,7 @@
   --terracotta: #703814;
   --capuccino: #ac8d76;
   --almond: #afa195;
+  min-height: 100vh;
 }
 
 body {

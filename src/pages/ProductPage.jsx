@@ -11,7 +11,6 @@ function ProductPage() {
   const [count, setCount] = useState(1);
   const [products, setProducts] = useState(null);
   const [product, setProduct] = useState(null);
-  const [productId, setProducId] = useState(params.id);
   const dispatch = useDispatch();
   const params = useParams();
   const cart = useSelector((state) => state.cart);
@@ -32,31 +31,33 @@ function ProductPage() {
   };
 
   useEffect(() => {
-    const getProducts = async () => {
-      const response = await axios({
-        url: `${import.meta.env.VITE_API_URL}/products`,
-        method: "GET",
-      });
-      setProducts(response.data.products);
-    };
-    getProducts();
-  }, []);
-
-  useEffect(() => {
     const getProduct = async () => {
       const response = await axios({
-        url: `${import.meta.env.VITE_API_URL}/products/${productId}`,
+        url: `${import.meta.env.VITE_API_URL}/products/${params.id}`,
         method: "GET",
       });
       setProduct(response.data.product);
     };
     getProduct();
-  }, [productId]);
+  }, [params.id]);
+
+  useEffect(() => {
+    if (product) {
+      const getProducts = async () => {
+        const response = await axios({
+          url: `${import.meta.env.VITE_API_URL}/products`,
+          method: "GET",
+          params: { typeId: product.type.id },
+        });
+        setProducts(response.data.products);
+      };
+      getProducts();
+    }
+  }, [product]);
 
   return (
     products &&
-    product &&
-    productId && (
+    product && (
       <>
         <div className="container p-sm-0">
           <section className="product-body mt-5">
@@ -91,14 +92,14 @@ function ProductPage() {
                       className="counter-container-counterbutton darkgreen"
                       onClick={handleDecrement}
                     >
-                      <i class="bi bi-dash"></i>
+                      <i className="bi bi-dash"></i>
                     </button>
                     <span className="counter-value">{count}</span>
                     <button
                       className="counter-container-counterbutton darkgreen"
                       onClick={handleIncrement}
                     >
-                      <i class="bi bi-plus"></i>
+                      <i className="bi bi-plus"></i>
                     </button>
                   </div>
                   <button className="product-submitbutton mt-3" onClick={handleAddProduct}>
@@ -110,7 +111,7 @@ function ProductPage() {
           </section>
           <section className="recomended">
             <h2 className="recomended-title galadali-bold mb-4">Recommended for you</h2>
-            <div className="product-list">
+            <div className="product-list mb-3">
               {products.map((p) => (
                 <div key={p.id} className="product-item ">
                   <Product product={p} />

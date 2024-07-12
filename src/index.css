@@ -15,10 +15,6 @@ img {
   border-radius: 2px;
 }
 
-a:hover {
-  color: var(--almond);
-}
-
 .lightgreen {
   color: var(--lightgreen);
 }

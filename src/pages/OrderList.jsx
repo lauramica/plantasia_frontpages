@@ -9,8 +9,8 @@ import { increaseProduct, addProduct } from "../redux/cartSlice";
 function OrderList() {
   const [orders, setOrders] = useState(null);
   const loggedCustomer = useSelector((state) => state.customer);
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getOrders = async () => {
@@ -20,11 +20,12 @@ function OrderList() {
         headers: { Authorization: `Bearer ${loggedCustomer.token}` },
       });
       setOrders(response.data.customer.orders);
+      console.log(response.data.customer.orders);
     };
     getOrders();
   }, []);
 
-  const handleAddProduct = () => {
+  const handleAddProduct = (product) => {
     const cartProduct = cart.find((p) => p.id === product.id);
     if (cartProduct) {
       if (cartProduct.stock >= cartProduct.quantity + 1)
@@ -86,7 +87,7 @@ function OrderList() {
                   </Link>
                   <button
                     className="order-card-item-btn border border-0"
-                    onClick={handleAddProduct}
+                    onClick={() => handleAddProduct(product)}
                   >
                     <i className="bi bi-cart-plus me-1"></i>Buy again
                   </button>

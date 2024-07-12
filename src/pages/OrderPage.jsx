@@ -27,14 +27,14 @@ function OrderPage() {
     order && (
       <>
         <div className="container order-container">
-          <h1 className="oreder_container_title">Order #{order.id}</h1>
+          <h1 className="oreder_container_title">Order #{order.order_id}</h1>
           <div className="row g-6">
             <div className="order_list col-12 col-md-8">
               <table className="table">
                 <thead>
                   <tr>
                     <th scope="col">
-                      <p>item</p>
+                      <p>Products</p>
                     </th>
                     <th scope="col"></th>
                     <th scope="col">
@@ -44,7 +44,7 @@ function OrderPage() {
                       <p>Quantity</p>
                     </th>
                     <th scope="col">
-                      <p>Total</p>
+                      <p>Sub Total</p>
                     </th>
                   </tr>
                 </thead>
@@ -65,19 +65,19 @@ function OrderPage() {
                       </td>
                       <td></td>
                       <td>
-                        <p>${product.price}</p>
+                        <p>$ {product.price}</p>
                       </td>
                       <td className="product_quantity">
                         <p>{product.quantity}</p>
                       </td>
                       <td>
-                        <p>${(product.quantity * product.price).toFixed(2)}</p>
+                        <p>$ {(product.quantity * product.price).toFixed(2)}</p>
                       </td>
                     </tr>
                   ))}
                   <tr>
                     <td>
-                      <p className="totalprice">Total Price: ${order.total_price}</p>
+                      <p className="totalprice">Total Price: $ {order.total_price}</p>
                     </td>
                     <td></td>
                     <td></td>

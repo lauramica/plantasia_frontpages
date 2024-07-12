@@ -13,7 +13,7 @@ function CheckOut() {
   const [modalState, setModalState] = useState(false);
   const [processingOrder, setProcessingOrder] = useState(true);
   const [newOrder, setNewOrder] = useState(null);
-  const [alert, setAlert] = useState("d-none");
+  const [alert, setAlert] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
@@ -47,6 +47,7 @@ function CheckOut() {
       total_price: cart
         .reduce((acc, product) => acc + Number(product.price) * product.quantity, 0)
         .toFixed(2),
+      payment: "creditCard",
     });
   }, [cart]);
 
@@ -64,7 +65,7 @@ function CheckOut() {
       setNewOrder({ ...newOrder, id: storeOrder.data.id });
       dispatch(createOrder(newOrder));
       handleModalToggle();
-    } else setAlert("d-inline");
+    } else setAlert(true);
   };
 
   const handleModalToggle = () => {
@@ -143,7 +144,7 @@ function CheckOut() {
         )}
         <div className="container px-sm-0 py-3">
           <h1 className="galadali-bold darkgreen mb-3">Hi! This is your shopping cart.</h1>
-          <table className="table" onClick={() => setAlert("d-none")}>
+          <table className="table" onClick={() => setAlert(false)}>
             <thead className="galadali-regular fs-4">
               <tr>
                 <th>Product</th>
@@ -229,6 +230,13 @@ function CheckOut() {
                           })
                         }
                       />
+                      <div
+                        className={`${
+                          alert && !newOrder.buyer.firstname ? "d-inline" : "d-none"
+                        } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+                      >
+                        First Name is required
+                      </div>
                     </div>
                     <div className="input-group d-flex flex-column w-md-50 ms-md-1 mb-2 last-name">
                       <label htmlFor="lastName">Last Name</label>
@@ -246,6 +254,13 @@ function CheckOut() {
                           })
                         }
                       />
+                      <div
+                        className={`${
+                          alert && !newOrder.buyer.lastname ? "d-inline" : "d-none"
+                        } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+                      >
+                        Last Name is required
+                      </div>
                     </div>
                   </div>
                   <div className="d-flex flex-column flex-md-row">
@@ -265,6 +280,13 @@ function CheckOut() {
                           })
                         }
                       />
+                      <div
+                        className={`${
+                          alert && !newOrder.order_address.address ? "d-inline" : "d-none"
+                        } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+                      >
+                        Address is required
+                      </div>
                     </div>
                     <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2 city">
                       <label htmlFor="city">City</label>
@@ -282,6 +304,13 @@ function CheckOut() {
                           })
                         }
                       />
+                      <div
+                        className={`${
+                          alert && !newOrder.order_address.city ? "d-inline" : "d-none"
+                        } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+                      >
+                        City is required
+                      </div>
                     </div>
                     <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 mb-2 state-province">
                       <label htmlFor="state">State / Province</label>
@@ -299,6 +328,13 @@ function CheckOut() {
                           })
                         }
                       />
+                      <div
+                        className={`${
+                          alert && !newOrder.order_address.state ? "d-inline" : "d-none"
+                        } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+                      >
+                        State is required
+                      </div>
                     </div>
                   </div>
                   <div className="d-flex flex-column flex-md-row">
@@ -566,6 +602,13 @@ function CheckOut() {
                         <option value="ZM">Zambia</option>
                         <option value="ZW">Zimbabwe</option>
                       </select>
+                      <div
+                        className={`${
+                          alert && !newOrder.order_address.country ? "d-inline" : "d-none"
+                        } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+                      >
+                        Select a Country
+                      </div>
                     </div>
                     <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 me-md-1 mb-2 postal-code">
                       <label htmlFor="postalCode">Postal code</label>
@@ -586,6 +629,13 @@ function CheckOut() {
                           })
                         }
                       />
+                      <div
+                        className={`${
+                          alert && !newOrder.order_address.postalcode ? "d-inline" : "d-none"
+                        } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+                      >
+                        Postal Code is required
+                      </div>
                     </div>
                     <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 mb-2 phone">
                       <label htmlFor="phone">Phone</label>
@@ -603,6 +653,13 @@ function CheckOut() {
                           })
                         }
                       />
+                      <div
+                        className={`${
+                          alert && !newOrder.buyer.phone ? "d-inline" : "d-none"
+                        } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+                      >
+                        Phone is required
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -610,7 +667,7 @@ function CheckOut() {
               <tr>
                 <td colSpan={3}>
                   <p className="proxima-nova-bold darkgreen m-0 mb-3">Payment</p>
-                  <div className="d-flex align-items-center mb-2">
+                  <div className="d-flex align-items-center mb-2 position-relative">
                     <input
                       defaultChecked
                       type="radio"
@@ -660,6 +717,13 @@ function CheckOut() {
                     <label className="me-3" htmlFor="eTransfer">
                       eTransfer
                     </label>
+                    <div
+                      className={`${
+                        alert && !newOrder.payment ? "d-inline" : "d-none"
+                      } position-absolute start-0 bg-white border border-warning p-2 alert rounded-corner`}
+                    >
+                      Select a Payment Method
+                    </div>
                   </div>
                   <div className="d-flex flex-column flex-md-row">
                     <div className="d-flex flex-column flex-md-row card-data-one">
@@ -721,7 +785,9 @@ function CheckOut() {
               Continue to checkout
             </button>
             <div
-              className={`${alert} position-absolute end-0 bg-white border border-warning p-2 alert`}
+              className={`${
+                alert ? "d-inline" : "d-none"
+              } position-absolute end-0 bg-white border border-warning p-2 alert rounded-corner`}
             >
               There are some required fields, that need to be filled
             </div>

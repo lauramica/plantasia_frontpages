@@ -1,16 +1,28 @@
+import { Link } from "react-router-dom";
 import "../css/ErrorPage.css";
 
 function ErrorPage() {
   return (
     <>
-      <div class="error-background">
-        <div class="container">
-          <p class="error-sorry">Sorry,</p>
-          <p class="error-text">We couldn't find that page</p>
-          <button class="btn-error-page">Return to home</button>
-        </div>
-        <div class="logo-position">
-          <img src="./images/8.svg" alt="" class="img-fluid" />
+      <div className="error-background">
+        <div className="container px-2 p-md-0">
+          <div className="h-75 d-flex flex-column justify-content-center">
+            <p className="error-sorry galadali-regular">Sorry,</p>
+            <p className="error-text proxima-nova-regular">We couldn't find that page</p>
+            <Link
+              to="/"
+              className="btn-error-page shadow proxima-nova-regular text-center text-decoration-none"
+            >
+              Return to home
+            </Link>
+          </div>
+          <div className="mt-auto w-50 h-25">
+            <img
+              src={`${import.meta.env.VITE_IMAGES_URL}Plantasia_green.svg`}
+              alt=""
+              className="img-fluid"
+            />
+          </div>
         </div>
       </div>
     </>

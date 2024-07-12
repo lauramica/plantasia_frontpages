@@ -12,6 +12,7 @@ import EditUser from "./pages/EditUser";
 import OrderList from "./pages/OrderList";
 import ProfileView from "./pages/ProfileView";
 import OrderPage from "./pages/OrderPage";
+import PasswordReset from "./pages/PasswordReset";
 
 function App() {
   const router = createBrowserRouter([
@@ -69,6 +70,10 @@ function App() {
     {
       path: "/register",
       element: <SignUp />,
+    },
+    {
+      path: "/reset-password",
+      element: <PasswordReset />,
     },
   ]);
   return <RouterProvider router={router} />;

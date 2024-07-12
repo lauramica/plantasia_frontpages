@@ -60,7 +60,7 @@ function ProductPage() {
     product && (
       <>
         <div className="container p-sm-0">
-          <section className="product-body mt-4">
+          <section className="product-body mt-4 mt-lg-5">
             <Link className="product-body-goback" to="/products">
               <i className="bi bi-arrow-left"></i> Back to products
             </Link>

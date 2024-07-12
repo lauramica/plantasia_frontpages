@@ -41,7 +41,6 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
 }
 .home-section-2-cards {
   width: 23%;
@@ -71,6 +70,13 @@
   width: 12rem;
   font-size: 1.5rem;
   padding: 3px;
+}
+
+.button-see-all:hover {
+  color: white;
+  background-color: #4f62265d;
+  border: none;
+  border-radius: 10px;
 }
 
 @media (max-width: 400px) {

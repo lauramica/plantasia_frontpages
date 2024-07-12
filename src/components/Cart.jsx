@@ -59,7 +59,7 @@ function Cart({ show, handleClose }) {
                   <CartItem product={product} />
                 </div>
               ))}
-              <div className="mx-3">
+              <div className="mx-3 w-100">
                 <button className="cart-button my-2" onClick={handleCheckOut}>
                   Go to checkout
                 </button>

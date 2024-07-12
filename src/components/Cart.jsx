@@ -53,15 +53,17 @@ function Cart({ show, handleClose }) {
               </Link>
             </div>
           ) : (
-            <div className="d-flex flex-column ">
+            <div className="d-flex flex-column">
               {cart.map((product) => (
                 <div key={product.id}>
                   <CartItem product={product} />
                 </div>
               ))}
-              <button className="cart-button" onClick={handleCheckOut}>
-                Go to checkout
-              </button>
+              <div className="mx-3">
+                <button className="cart-button my-2" onClick={handleCheckOut}>
+                  Go to checkout
+                </button>
+              </div>
             </div>
           )}
         </div>

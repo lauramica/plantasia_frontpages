@@ -39,32 +39,32 @@ function Cart({ show, handleClose }) {
             onClick={handleClose}
             aria-label="Close"
           ></button>
-          <h2 className="modal-title">Hi!</h2>
-          <h2>This is your shopping cart</h2>
+          <h2 className="modal-title px-3">Hi!</h2>
+          <h2 className="modal-title px-3">This is your shopping cart</h2>
         </div>
         <div className="modal-body">
           {cart.length < 1 ? (
             <div className="text-center my-5">
-              <h2 className="proxima-nova-bold lightgreen pb-3">Your Cart Is Empty</h2>
-              <Link
-                to="/products"
-                onClick={handleClose}
-                className="cart-button cart-link text-decoration-none"
-              >
-                Add Products
+              <h5 className="proxima-nova-regular lightgreen pb-3">
+                ... and is empty <i className="bi bi-emoji-frown"></i>
+              </h5>
+              <Link to="/products" onClick={handleClose} className="cart-link text-decoration-none">
+                Add Products!
               </Link>
             </div>
           ) : (
-            cart.map((product) => (
-              <div key={product.id}>
-                <CartItem product={product} />
-              </div>
-            ))
+            <div className="d-flex flex-column ">
+              {cart.map((product) => (
+                <div key={product.id}>
+                  <CartItem product={product} />
+                </div>
+              ))}
+              <button className="cart-button" onClick={handleCheckOut}>
+                Go to checkout
+              </button>
+            </div>
           )}
         </div>
-        <button className="cart-button" onClick={handleCheckOut}>
-          Go to checkout
-        </button>
       </div>
     </Modal>
   );

@@ -107,7 +107,7 @@
   padding: 10px;
   padding-left: 50px;
   padding-right: 50px;
-  border-radius: 20px;
+  border-radius: 2px;
   font-family: "Proxima Nova";
   background-color: var(--mediumgreen);
   color: white;
@@ -130,7 +130,8 @@
 }
 
 .cart-link {
-  color: white;
+  color: var(--mediumgreen);
+  font-size: 1.7rem;
 }
 
 .modal-body {

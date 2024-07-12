@@ -31,48 +31,47 @@ function Home() {
           }}
         >
           <div className="container home-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
-            <h1 className="galadali-bold p-0">Growing Happiness</h1>
+            <h1 className="galadali-regular p-0">Growing Happiness </h1>
             <p className="proxima-nova-regular p-0 m-0">
-              We are Plantasia, the online plant shop for everything a plant lover needs!
+              Welcome plant lover! We are Plantasia, your new favorite online plant shop.
             </p>
-            <p>
-              Plantasia is your one-stop shop for all plant related goodness. It’s a place to learn
-              how to become the best possible plant parent and connect with other plant lovers
-              throughout Uruguay.
+            <p className="proxima-nova-regular">
+              Here you will find all plant's related goodness, and lots of tips to become the best
+              plant parent. And if you aren't one yet, please let us introduce you to our childs!
             </p>
             <Link to="/products" className="home-banner-button">
               SHOP NOW
             </Link>
           </div>
         </section>
-        <section className="home-section-2 mt-5">
+        <section className="home-section-2 mt-3">
           <div className="container cards-container p-sm-0">
-            <div className="home-section-2-cards card-one shadow">
+            <Link className="home-section-2-cards card-one shadow" to="/products/1">
               <span className="card-title galadali-regular">Plants</span>
               <Link className="btn button-see-all proxima-nova-regular" to="/products/1">
                 See all
               </Link>
-            </div>
-            <div className="home-section-2-cards card-two">
+            </Link>
+            <Link className="home-section-2-cards card-two" to="/products/2">
               <span className="card-title galadali-regular">Pots</span>
               <Link className="btn button-see-all proxima-nova-regular" to="/products/2">
                 See all
               </Link>
-            </div>
-            <div className="home-section-2-cards card-three">
+            </Link>
+            <Link className="home-section-2-cards card-three" to="/products/3">
               <span className="card-title galadali-regular">Care</span>
               <Link className="btn button-see-all proxima-nova-regular" to="/products/3">
                 See all
               </Link>
-            </div>
-            <div className="home-section-2-cards card-four">
+            </Link>
+            <Link className="home-section-2-cards card-four" to="/products/4">
               <span className="card-title galadali-regular">Accesories</span>
               <Link className="btn button-see-all proxima-nova-regular" to="/products/4">
                 See all
               </Link>
-            </div>
+            </Link>
           </div>
-          <div className="container d-flex flex-column flex-md-row p-sm-0 mt-5">
+          <div className="container d-flex flex-column flex-md-row p-sm-0 mt-3">
             <div className="home-section-2-img order-md-2">
               <img
                 src={`${import.meta.env.VITE_IMAGES_URL}home/fullgreen_section2.png`}
@@ -115,8 +114,8 @@ function Home() {
           </div>
         </section>
 
-        <section className="home-section-3">
-          <div className="container d-flex flex-column flex-md-row p-sm-0 mt-5">
+        <section className="home-section-3 mt-3">
+          <div className="container d-flex flex-column flex-md-row p-sm-0">
             <div className="home-section-3-img">
               <img
                 src={`${import.meta.env.VITE_IMAGES_URL}home/photo_accessories.png`}
@@ -163,28 +162,35 @@ function Home() {
           <div className="d-flex justify-content-between">
             <div className="home-carrousel">
               <img
-                src={`${import.meta.env.VITE_IMAGES_URL}home/photo_plants.png`}
+                src={`${import.meta.env.VITE_IMAGES_URL}carrousell/carrousell_1.png`}
                 alt="House with plants"
                 className="object-fit-cover w-100"
               />
             </div>
             <div className="home-carrousel">
               <img
-                src={`${import.meta.env.VITE_IMAGES_URL}home/photo_plants.png`}
+                src={`${import.meta.env.VITE_IMAGES_URL}carrousell/carrousell_2.png`}
                 alt="House with plants"
                 className="object-fit-cover w-100"
               />
             </div>
             <div className="home-carrousel">
               <img
-                src={`${import.meta.env.VITE_IMAGES_URL}home/photo_plants.png`}
+                src={`${import.meta.env.VITE_IMAGES_URL}carrousell/carrousell_3.png`}
                 alt="House with plants"
                 className="object-fit-cover w-100"
               />
             </div>
             <div className="home-carrousel">
               <img
-                src={`${import.meta.env.VITE_IMAGES_URL}home/photo_plants.png`}
+                src={`${import.meta.env.VITE_IMAGES_URL}carrousell/carrousell_4.png`}
+                alt="Home with plants"
+                className="object-fit-cover w-100"
+              />
+            </div>
+            <div className="home-carrousel">
+              <img
+                src={`${import.meta.env.VITE_IMAGES_URL}carrousell/carrousell_5.png`}
                 alt="Home with plants"
                 className="object-fit-cover w-100"
               />

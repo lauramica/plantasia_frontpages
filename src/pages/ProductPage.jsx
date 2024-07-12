@@ -99,7 +99,7 @@ function ProductPage() {
               </div>
               <div className="product-body-content-text w-100 d-flex flex-column justify-content-between">
                 <div className="d-flex flex-column content-text">
-                  <h1 className="mediumgreen">{product.name}</h1>
+                  <h1 className="mediumgreen pb-2">{product.name}</h1>
                   <p className="description-pharagraph proxima-nova-regular w-100 p-0">
                     {product.description}
                   </p>

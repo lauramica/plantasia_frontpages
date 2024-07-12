@@ -29,7 +29,7 @@ function Main() {
         transition:Bounce
       /> */}
       <ScrollRestoration />
-      <div className="main-container">
+      <div className="main-container d-flex flex-column">
         <div>
           <Navbar navBarCollapse={navBarCollapse} handleNavbarCollapse={handleNavbarCollapse} />
           <div onClick={() => setNavBarCollapse(false)}>
@@ -37,7 +37,7 @@ function Main() {
           </div>
         </div>
         <div className="main-footer" onClick={() => setNavBarCollapse(false)}>
-          <Footer />
+          <Footer className='justify-content-end' />
         </div>
       </div>
     </>

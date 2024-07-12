@@ -11,42 +11,45 @@ function ProductList() {
   const dispatch = useDispatch();
   const params = useParams();
   const products = useSelector((state) => state.products);
-  const [filterValue, setFilterValue] = useState(null);
-  const [productsToShow, setProductsToShow] = useState(null);
+  const [filterValue, setFilterValue] = useState(params.category);
   /*   const [page, setPage] = useState(1);
   const [pageLimit, setPageLimit] = useState(null); */
 
   useEffect(() => {
-    params.type && setFilterValue(params.type);
+    if (filterValue)
+      window.history.pushState({}, "", `/products${filterValue !== "0" ? `/${filterValue}` : ""}`);
     const getProducts = async () => {
       const response = await axios({
         url: `${import.meta.env.VITE_API_URL}/products`,
         method: "GET",
-        // params: { page: page },
+        params: { typeId: filterValue },
       });
       dispatch(setProducts(response.data.products));
-      setProductsToShow(response.data.products);
     };
     getProducts();
     // }, [page]);
-  }, []);
-
-  useEffect(() => {
-    if (filterValue === "0") setFilterValue(null);
-    const getProductsPerType = async () => {
-      const response = await axios({
-        url: `${import.meta.env.VITE_API_URL}/types/${filterValue}`,
-        method: "GET",
-        // params: { page: page },
-      });
-      setProductsToShow(response.data.type.products);
-      // setPageLimit(response.data.totalPages);
-    };
-    filterValue ? getProductsPerType() : setProductsToShow(products);
   }, [filterValue]);
 
+  //   useEffect(() => {
+  //     window.history.pushState({}, "", `/products/${filterValue}`);
+  //     if (filterValue === "0" || filterValue === null) {
+  //       setFilterValue(null);
+  //       window.history.pushState({}, "", "/products");
+  //     }
+  //     const getProductsPerType = async () => {
+  //       const response = await axios({
+  //         url: `${import.meta.env.VITE_API_URL}/types/${filterValue}`,
+  //         method: "GET",
+  //         // params: { page: page },
+  //       });
+  //       setProductsToShow(response.data.type.products);
+  //       // setPageLimit(response.data.totalPages);
+  //     };
+  //     filterValue ? getProductsPerType() : setProductsToShow(products);
+  //   }, [filterValue]);
+
   return (
-    productsToShow && (
+    products && (
       <>
         <div className="container p-sm-0">
           <h1 className="galadali-bold mediumgreen my-3">All products</h1>
@@ -57,11 +60,11 @@ function ProductList() {
               <select
                 name="categories"
                 id="categories"
-                defaultValue="0"
+                defaultValue={params.category}
                 className="select-filter me-2"
                 onChange={(e) => setFilterValue(e.target.value)}
               >
-                <option value="0">Categories</option>
+                <option value="0">All Categories</option>
                 <option value="1">Plants</option>
                 <option value="2">Pots</option>
                 <option value="3">Care</option>
@@ -84,7 +87,7 @@ function ProductList() {
             <small>1-20 of 500 results</small>
           </div>
           <div className="product-list">
-            {productsToShow.map((product) => (
+            {products.map((product) => (
               <div key={product.id} className="product-item ">
                 <Product product={product} />
               </div>

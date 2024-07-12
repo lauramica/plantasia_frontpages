@@ -45,25 +45,25 @@ function Home() {
           <div className="container cards-container p-sm-0">
             <div className="home-section-2-cards card-one shadow">
               <span className="card-title galadali-regular">Plants</span>
-              <Link className="btn button-see-all proxima-nova-regular" to="/products">
+              <Link className="btn button-see-all proxima-nova-regular" to="/products/1">
                 See all
               </Link>
             </div>
             <div className="home-section-2-cards card-two">
               <span className="card-title galadali-regular">Pots</span>
-              <Link className="btn button-see-all proxima-nova-regular" to="/products">
+              <Link className="btn button-see-all proxima-nova-regular" to="/products/2">
                 See all
               </Link>
             </div>
             <div className="home-section-2-cards card-three">
               <span className="card-title galadali-regular">Care</span>
-              <Link className="btn button-see-all proxima-nova-regular" to="/products">
+              <Link className="btn button-see-all proxima-nova-regular" to="/products/3">
                 See all
               </Link>
             </div>
             <div className="home-section-2-cards card-four">
               <span className="card-title galadali-regular">Accesories</span>
-              <Link className="btn button-see-all proxima-nova-regular" to="/products">
+              <Link className="btn button-see-all proxima-nova-regular" to="/products/4">
                 See all
               </Link>
             </div>
@@ -90,7 +90,11 @@ function Home() {
               </div>
               <div className="home-section-2-plants">
                 {products.map((product) => (
-                  <div className="home-plant-product" key={product.id}>
+                  <Link
+                    to={`/product/${product.id}`}
+                    className="home-plant-product"
+                    key={`sectionPlants${product.id}`}
+                  >
                     <img
                       src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${
                         product.image
@@ -100,7 +104,7 @@ function Home() {
                     />
                     <span className="ms-1 home-span-start">{product.name.split("(")[0]}</span>
                     <span className="text-end me-1 home-span-end">See product ⭢</span>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -130,7 +134,11 @@ function Home() {
               </div>
               <div className="home-section-3-care-products">
                 {products.map((product) => (
-                  <div className="home-care-product" key={product.id}>
+                  <Link
+                    to={`/product/${product.id}`}
+                    className="home-care-product"
+                    key={`sectionCare${product.id}`}
+                  >
                     <img
                       src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${
                         product.image
@@ -140,7 +148,7 @@ function Home() {
                     />
                     <span className="ms-1 home-span-start">{product.name.split("(")[0]}</span>
                     <span className="text-end me-1 home-span-end">See product ⭢</span>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

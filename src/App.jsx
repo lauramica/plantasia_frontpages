@@ -29,11 +29,15 @@ function App() {
           element: <AboutPage />,
         },
         {
-          path: "products/:id",
+          path: "product/:id",
           element: <ProductPage />,
         },
         {
           path: "products",
+          element: <ProductList />,
+        },
+        {
+          path: "products/:category",
           element: <ProductList />,
         },
         {

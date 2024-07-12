@@ -45,7 +45,7 @@ function CustomNavbar() {
               <Nav.Link as={Link} to="/profile" className="me-3 ms-auto navbar-anchor">
                 <i className="bi bi-person-fill"></i>
               </Nav.Link>
-              <Nav.Link href="#" className="navbar-anchor" onClick={handleShow}>
+              <Nav.Link className="navbar-anchor" onClick={handleShow}>
                 <i className="bi bi-cart-fill"></i>
               </Nav.Link>
             </Nav>

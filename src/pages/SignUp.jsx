@@ -1,6 +1,6 @@
 import "../css/FormsPages.css";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
@@ -113,9 +113,9 @@ function SignUp() {
             </form>
             <p className="proxima-nova-regular darkgreen text-center">
               Already have an account?
-              <a href="#" className="forms-link proxima-nova-bold text-decoration-none ms-1">
-                Log In
-              </a>
+              <Link to="/login" className="forms-link proxima-nova-bold text-decoration-none ms-1">
+                Log in
+              </Link>
             </p>
           </div>
         </div>

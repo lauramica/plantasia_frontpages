@@ -27,15 +27,96 @@
 
 .about-section-3 .container .about-section-3-box .planning,
 .about-section-3 .container .about-section-3-box .design,
-.about-section-3 .container .tecnologies {
+.about-section-3 .container .technologies,
+.about-section-3 .container .db-deployment {
   border: 3px var(--lightgreen) solid;
   border-radius: 2px;
   padding: 10px;
 }
 
+.duration {
+  align-items: center;
+  height: min-content;
+  padding: 0.5rem;
+}
+.duration img {
+  width: 5rem;
+  padding: 0.5rem;
+}
+.about-introduction {
+  align-content: center;
+}
+.duration,
+.about-introduction {
+  flex: 1;
+}
+
+.about-icons-planning,
+.about-icons-design {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.planning-icon,
+.design-icon,
+.db-deployment-icon {
+  color: #89906f;
+  font-family: "Proxima Nova Regular";
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  max-width: 10rem;
+}
+.planning-icon img,
+.design-icon img,
+.db-deployment-icon img {
+  max-width: 100%;
+  height: auto;
+  width: 65%;
+}
+
+.about-icons-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: row;
+  gap: 2rem;
+}
+.technologies-icon {
+  color: #89906f;
+  font-family: "Proxima Nova Regular";
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+}
+.technologies-icon img {
+  width: 100%;
+}
+.technologies-icon span {
+  margin-top: 0.5rem;
+}
+
+.db-deployment {
+  display: flex;
+  flex-direction: row;
+}
+.about-icons-db-deployment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .about-section-3 .container .about-section-3-box .planning h4,
 .about-section-3 .container .about-section-3-box .design h4,
-.about-section-3 .container .tecnologies h4 {
+.about-section-3 .container .technologies h4,
+.about-section-3 .container .db-deployment h4 {
   font-family: "Galadali Regular";
   font-weight: normal;
   font-style: normal;
@@ -45,7 +126,8 @@
 
 .about-section-3 .container .planning p,
 .about-section-3 .container .design p,
-.about-section-3 .container .tecnologies p {
+.about-section-3 .container .technologies p,
+.about-section-3 .container .db-deployment p {
   font-family: "Proxima Nova Regular";
   font-weight: normal;
   font-style: normal;
@@ -54,7 +136,7 @@
 }
 
 .about-section-4 .container .back-end h4,
-.about-section-5 .container .front-end h4 {
+.about-section-5 .container h4 {
   font-family: "Galadali Regular";
   font-weight: normal;
   font-style: normal;
@@ -69,6 +151,14 @@
   font-style: normal;
   color: var(--darkgreen);
   font-size: 1rem;
+}
+
+.front-end {
+  display: flex;
+  flex-direction: row;
+}
+.front-end img {
+  width: 20%;
 }
 
 .aboutus-team {
@@ -129,13 +219,33 @@
   margin: 0;
 }
 
-@media (min-width: 350px) and (max-width: 576px) {
+@media (max-width: 576px) {
 }
 
-@media (min-width: 577px) and (max-width: 768px) {
+@media (max-width: 768px) {
+  .about-section-2 .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-icons-technologies {
+    gap: 1.2rem;
+  }
+  .technologies-icon {
+    min-width: 50px;
+    flex: 1;
+    font-size: 0.8rem;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
+  .about-icons-technologies {
+    gap: 1.2rem;
+  }
+  .technologies-icon {
+    min-width: 80px;
+    flex: 1;
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {

@@ -1,7 +1,6 @@
 .error-background {
   margin: 0;
   padding: 0;
-  background-image: url("/backup_images/error_bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

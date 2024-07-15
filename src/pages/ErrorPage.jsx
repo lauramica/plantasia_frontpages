@@ -4,7 +4,10 @@ import "../css/ErrorPage.css";
 function ErrorPage() {
   return (
     <>
-      <div className="error-background">
+      <div
+        className="error-background"
+        style={{ backgroundImage: `url("${import.meta.env.VITE_IMAGES_URL}error_bg.png")` }}
+      >
         <div className="container px-2 p-md-0">
           <div className="h-75 d-flex flex-column justify-content-center">
             <p className="error-sorry galadali-regular">Sorry,</p>

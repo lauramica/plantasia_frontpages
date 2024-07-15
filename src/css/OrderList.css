@@ -23,7 +23,6 @@
   flex-direction: column;
   white-space: nowrap;
   padding-inline: 0.5rem;
-  align-content: center;
   margin: auto;
 }
 .order-card-header-status {
@@ -33,7 +32,7 @@
   text-decoration: none;
   font-family: "Proxima Nova Regular";
   color: white !important;
-  background-color: var(--terracotta);
+  background-color: var(--capuccino);
   font-size: 1rem;
   border-radius: 2px;
   padding-inline: 0.5rem;

@@ -15,6 +15,19 @@ function ProductPage() {
   const dispatch = useDispatch();
   const params = useParams();
   const cart = useSelector((state) => state.cart);
+  const loggedCustomer = useSelector((state) => state.customer);
+
+  useEffect(() => {
+    const saveCart = async () => {
+      await axios({
+        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+        method: "POST",
+        data: { cart: cart },
+        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+      });
+    };
+    saveCart();
+  }, [cart]);
 
   const handleIncrement = () => {
     if (count < product.stock) setCount(count + 1);
@@ -97,7 +110,7 @@ function ProductPage() {
               </div> */}
               <div className="photo-product">
                 <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
+                  src={`${import.meta.env.VITE_IMAGES_URL}products/${product.image}`}
                   alt="Product"
                   className="object-fit-cover w-100 h-100"
                 />

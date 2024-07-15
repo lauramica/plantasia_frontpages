@@ -26,6 +26,18 @@ function OrderList() {
     getOrders();
   }, []);
 
+  useEffect(() => {
+    const saveCart = async () => {
+      await axios({
+        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+        method: "POST",
+        data: { cart: cart },
+        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+      });
+    };
+    saveCart();
+  }, [cart]);
+
   const handleAddProduct = (product) => {
     const cartProduct = cart.find((p) => p.id === product.id);
     if (cartProduct) {
@@ -96,7 +108,7 @@ function OrderList() {
               <div className="order-card-item p-3" key={`${order.id}${product.id}`}>
                 <img
                   className="order-card-item-img"
-                  src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
+                  src={`${import.meta.env.VITE_IMAGES_URL}products/${product.image}`}
                   alt={product.image}
                 />
                 <div className="order-card-item-details">

@@ -1,16 +1,20 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import "../css/Cart.css";
 import { increaseProduct, decreaseProduct, removeProduct } from "../redux/cartSlice";
+import axios from "axios";
 
 function CartItem({ product }) {
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const loggedCustomer = useSelector((state) => state.customer);
 
   const handleIncrement = () => {
     if (product.stock >= product.quantity + 1)
       dispatch(increaseProduct({ productId: product.id, productQty: 1 }));
   };
+
   const handleDecrement = () => {
     product.quantity > 1
       ? dispatch(decreaseProduct(product.id))
@@ -20,6 +24,18 @@ function CartItem({ product }) {
   const handleRemove = () => {
     dispatch(removeProduct(product.id));
   };
+
+  useEffect(() => {
+    const saveCart = async () => {
+      await axios({
+        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+        method: "POST",
+        data: { cart: cart },
+        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+      });
+    };
+    saveCart();
+  }, [cart]);
 
   return (
     <>

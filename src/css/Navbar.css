@@ -2,6 +2,10 @@
   height: 1.5rem;
 }
 
+.welcome-text {
+  color: var(--darkgreen);
+}
+
 .navbar-anchor i {
   color: var(--darkgreen);
   font-size: 1.4rem;

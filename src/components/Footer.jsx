@@ -34,13 +34,6 @@ function Footer() {
               Pots
             </a>
           </li>
-
-          <li className="footer__links-wrapper-title">My account</li>
-          <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="/login">
-              Log in
-            </a>
-          </li>
         </ul>
 
         <ul className="footer__links-wrapper">

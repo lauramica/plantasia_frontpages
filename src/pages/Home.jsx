@@ -48,27 +48,19 @@ function Home() {
           <div className="container cards-container p-sm-0">
             <Link className="home-section-2-cards card-one shadow" to="/products/1">
               <span className="card-title galadali-regular">Plants</span>
-              <Link className="btn button-see-all proxima-nova-regular" to="/products/1">
-                See all
-              </Link>
+              <span className="btn button-see-all proxima-nova-regular">See all</span>
             </Link>
             <Link className="home-section-2-cards card-two" to="/products/2">
               <span className="card-title galadali-regular">Pots</span>
-              <Link className="btn button-see-all proxima-nova-regular" to="/products/2">
-                See all
-              </Link>
+              <span className="btn button-see-all proxima-nova-regular">See all</span>
             </Link>
             <Link className="home-section-2-cards card-three" to="/products/3">
               <span className="card-title galadali-regular">Care</span>
-              <Link className="btn button-see-all proxima-nova-regular" to="/products/3">
-                See all
-              </Link>
+              <span className="btn button-see-all proxima-nova-regular">See all</span>
             </Link>
             <Link className="home-section-2-cards card-four" to="/products/4">
               <span className="card-title galadali-regular">Accesories</span>
-              <Link className="btn button-see-all proxima-nova-regular" to="/products/4">
-                See all
-              </Link>
+              <span className="btn button-see-all proxima-nova-regular">See all</span>
             </Link>
           </div>
           <div className="container d-flex flex-column flex-md-row p-sm-0 mt-3">

@@ -34,7 +34,7 @@ function Product({ product }) {
         headers: { Authorization: `Bearer ${loggedCustomer.token}` },
       });
     };
-    saveCart();
+    loggedCustomer.token && saveCart();
   }, [cart]);
 
   return (

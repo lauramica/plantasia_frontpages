@@ -6,7 +6,6 @@ import { clearOrders } from "../redux/orderSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { clearCart } from "../redux/cartSlice";
-import axios from "axios";
 
 function ProfileView() {
   const dispatch = useDispatch();

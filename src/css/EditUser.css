@@ -38,3 +38,38 @@
   text-decoration: none;
   color: var(--mediumgreen);
 }
+
+.modal-delete {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.modal-delete .modal-container {
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal-delete .modal-container .buttons .button-cancel {
+  background-color: var(--almond);
+  color: white;
+  width: 100px;
+  height: 45px;
+}
+
+.modal-delete .modal-container .buttons .button-delete {
+  background-color: var(--terracotta);
+  color: white;
+  width: 100px;
+  height: 45px;
+}
+
+@media (max-width: 372px) {
+  .modal-delete .modal-container .buttons {
+    flex-direction: column;
+  }
+  .modal-delete .modal-container .buttons .button-cancel,
+  .modal-delete .modal-container .buttons .button-delete {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -48,52 +48,42 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
               <Nav.Link as={Link} to="/about-this-project">
                 About this project
               </Nav.Link>
-              {loggedCustomer.token ? (
-                <Nav.Link as={Link} to="/profile" className="d-lg-none">
-                  Profile
-                </Nav.Link>
-              ) : (
-                <Nav.Link as={Link} to="/login" className="d-lg-none">
-                  LogIn
-                </Nav.Link>
-              )}
-              <Nav.Link href="#" className="d-lg-none" onClick={handleShow}>
-                Cart
-              </Nav.Link>
-            </Nav>
-            <Nav className="d-flex d-none d-lg-flex align-items-center">
-              {loggedCustomer.token ? (
-                <Nav.Link
-                  as={Link}
-                  to="/profile"
-                  className="ms-auto navbar-anchor d-flex pe-1 align-items-center"
-                >
-                  <p className="proxima-nova-bold m-0 me-1">Welcome plant lover!</p>
-                  <i className="bi bi-person"></i>
-                </Nav.Link>
-              ) : (
-                <>
-                  <Nav.Link as={Link} to="/login" className="me-1 ms-auto navbar-anchor">
-                    <p className="proxima-nova-regular m-0">Log In</p>
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/register" className="me-1 ms-auto navbar-anchor">
-                    <p className="proxima-nova-regular m-0">Sign Up</p>
-                  </Nav.Link>
-                </>
-              )}
-              <Nav.Link className="navbar-anchor" onClick={handleShow}>
-                <i className="bi bi-cart">
-                  {cart.length > 0 ? (
-                    <span className="cart-quantity rounded-circle position-absolute top-0 left-0 text-white">
-                      {cart.reduce((acc, product) => acc + product.quantity, 0)}
-                    </span>
-                  ) : (
-                    <></>
-                  )}
-                </i>
-              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          <div className="d-flex align-items-center ms-auto">
+            {loggedCustomer.token ? (
+              <Nav.Link
+                as={Link}
+                to="/profile"
+                className="navbar-anchor d-flex align-items-center me-2"
+              >
+                <p className="proxima-nova-bold m-0 me-2 d-none d-lg-block welcome-text">
+                  Welcome plant lover!
+                </p>
+                <i className="bi bi-person"></i>
+              </Nav.Link>
+            ) : (
+              <>
+                <Nav.Link as={Link} to="/login" className="me-2 navbar-anchor">
+                  <p className="proxima-nova-regular m-0">Log In</p>
+                </Nav.Link>
+                <Nav.Link as={Link} to="/register" className="me-1 navbar-anchor">
+                  <p className="proxima-nova-regular m-0">Sign Up</p>
+                </Nav.Link>
+              </>
+            )}
+            <Nav.Link className="navbar-anchor" onClick={handleShow}>
+              <i className="bi bi-cart">
+                {cart.length > 0 ? (
+                  <span className="cart-quantity rounded-circle position-absolute top-0 left-0 text-white">
+                    {cart.reduce((acc, product) => acc + product.quantity, 0)}
+                  </span>
+                ) : (
+                  <></>
+                )}
+              </i>
+            </Nav.Link>
+          </div>
         </Container>
       </Navbar>
       <Cart show={show} handleClose={handleClose} />

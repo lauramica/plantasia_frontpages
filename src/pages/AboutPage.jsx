@@ -13,36 +13,42 @@ function About() {
         }}
       >
         <div className="container about-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
-          <h1 className="galadali-regular p-0">About this project</h1>
-          <p>
-            Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack Academy
-            , como proyecto final de este grupo de estudiantes.
+          <h1 className="galadali-regular p-0">Sobre este proyecto...</h1>
+          <p className="d-none d-md-block">
+            Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack Academy,
+            como nuestro proyecto final.
           </p>
         </div>
       </section>
 
       <section className="about-section-2 mt-3">
-        <div className="container p-sm-0 d-flex">
-          <div className="about-introduction proxima-nova-regular darkgreen">
-            <p className="me-2 mb-0">
+        <div className="container p-sm-0 d-flex flex-column flex-md-row">
+          <div className="about-introduction proxima-nova-regular darkgreen mb-4 mt-4">
+            <p className="me-md-2 mb-0">
               El{" "}
               <Link
                 to="https://ha.dev/cursos/bootcamp-desarrollo-web"
                 target="_blank"
-                className="proxima-nova-bold darkgreen"
+                className="proxima-nova-bold darkgreen text-decoration-none"
               >
                 bootcamp
               </Link>{" "}
               fue un curso intensivo, práctico y de dedicación full time, con una duración total de
               13 semanas y una carga horaria total de +40 horas semanales.
             </p>
+            <p className="d-md-none mt-3">
+            Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack Academy,
+            como nuestro proyecto final.
+          </p>
           </div>
-          <div className="duration d-flex">
-            <img
-              src={`${import.meta.env.VITE_IMAGES_URL}about/calendar.png`}
-              alt="calendar"
-              className="about-calendar img-fluid"
-            />
+          <div className="duration d-flex justify-content-between justify-content-md-end mt-md-4 mt-0 mb-4">
+            <div className="duration-calendar me-2">
+              <img
+                src={`${import.meta.env.VITE_IMAGES_URL}about/calendar.png`}
+                alt="calendar"
+                className="about-calendar h-100 object-fit-contain"
+              />
+            </div>
             <div className="duration-text">
               <h5 className="galadali-regular mediumgreen fs-4">Duración</h5>
               <span className="proxima-nova-regular darkgreen">
@@ -55,177 +61,260 @@ function About() {
 
       <section className="about-section-3 mt-2">
         <div className="container p-sm-0 d-flex">
-          <div className="about-section-3-box me-1">
-            <div className="planning h-50 mb-2">
+          <div className="planning mb-2 d-flex flex-column flex-md-row justify-content-between align-items-md-end w-100">
+            <div className="about-planning-text">
               <h4>Planificación</h4>
               <p>
                 En la gestión del proyecto aplicamos la metodología Scrumban para dividir las tareas
                 en “sprints” semanales y ordenarlas en un tablero según su estado.
               </p>
               <p>Elegimos Miro, Trello y GitHub como herramientas digitales de planificación.</p>
-              <div className="about-icons-planning">
-                <div className="planning-icon">
+            </div>
+            <div className="about-icons-planning">
+              <div>
+                <div className="about-logo-box">
                   <img
                     src={`${import.meta.env.VITE_IMAGES_URL}about/miro.png`}
                     alt="Miro_logo"
-                    className=""
+                    className="object-fit-contain h-100 about-logo"
                   />
-                  <span>Miro</span>
                 </div>
-                <div className="planning-icon">
+                <p className="text-center m-0">Miro</p>
+              </div>
+              <div>
+                <div className="about-logo-box">
                   <img
                     src={`${import.meta.env.VITE_IMAGES_URL}about/trello.png`}
                     alt="Trello_logo"
-                    className=""
+                    className="object-fit-contain h-100 about-logo"
                   />
-                  <span>Trello</span>
                 </div>
-              </div>
-            </div>
-            <div className="design h-50">
-              <h4>Diseño</h4>
-              <p>
-                El diseño del Front-End y del Back-End fue realizado de forma simultánea y
-                colaborativa mediante Drawio y Figma.
-              </p>
-              <div className="about-icons-design">
-                <div className="design-icon">
-                  <img
-                    src={`${import.meta.env.VITE_IMAGES_URL}about/drawio.png`}
-                    alt="Drawio_logo"
-                  />
-                  <span>Drawio</span>
-                </div>
-                <div className="design-icon">
-                  <img src={`${import.meta.env.VITE_IMAGES_URL}about/figma.png`} alt="Figma_logo" />
-                  <span>Figma</span>
-                </div>
+                <p className="text-center m-0">Trello</p>
               </div>
             </div>
           </div>
-
-          <div className="technologies ms-1">
+        </div>
+        <div className="container p-sm-0 d-flex flex-column flex-md-row">
+        <div className="technologies ms-0 ms-md-1 d-flex flex-column justify-content-between order-md-2 mb-2 mb-md-0">
             <h4>Tecnologías</h4>
             <p>
               Desde el inicio del proyecto se utilizó Git y Github, lo que permitió respaldar
               nuestro trabajo y gestionar las versiones, facilitando así la colaboración simultánea.
             </p>
             <p>
-              Para el Front-End del sitio desarrollamos una aplicación en React con Vite y Redux.
+              Para el Front-End del sitio desarrollamos una aplicación en React con Vite y Redux.
               También aplicamos Bootstrap como librería de preferencia.
             </p>
             <p>
-              Respecto al Back-End, construimos una REST API mediante Node.js, Express y mySQL.
+              Respecto al Back-End, construimos una REST API mediante Node.js, Express y mySQL.
               Elegimos Insomnia para testear el funcionamiento de las rutas.
             </p>
-            <div className="about-icons-technologies">
-              <div className="technologies-icon">
-                <img src={`${import.meta.env.VITE_IMAGES_URL}about/html.png`} alt="HTML_logo" />
-                <span>HTML</span>
-              </div>
-              <div className="technologies-icon">
-                <img src={`${import.meta.env.VITE_IMAGES_URL}about/css.png`} alt="CSS_logo" />
-                <span>CSS</span>
-              </div>
-              <div className="technologies-icon">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/javascript.png`}
-                  alt="JavaScript_logo"
-                />
-                <span>JavaScript</span>
-              </div>
-              <div className="technologies-icon">
-                <img src={`${import.meta.env.VITE_IMAGES_URL}about/node.png`} alt="Node_js_logo" />
-                <span>Node.js</span>
-              </div>{" "}
-              <div className="technologies-icon">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/express.png`}
-                  alt="Express_logo"
-                />
-                <span>Express</span>
-              </div>
-              <div className="technologies-icon">
-                <img src={`${import.meta.env.VITE_IMAGES_URL}about/mysql.png`} alt="MySQL_logo" />
-                <span>MySQL</span>
-              </div>{" "}
-              <div className="technologies-icon">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/bootstrap.png`}
-                  alt="Bootstrap_logo"
-                />
-                <span>Bootstrap</span>
-              </div>
-              <div className="technologies-icon">
-                <img src={`${import.meta.env.VITE_IMAGES_URL}about/react.png`} alt="React_logo" />
-                <span>React</span>
-              </div>{" "}
-              <div className="technologies-icon">
-                <img src={`${import.meta.env.VITE_IMAGES_URL}about/redux.png`} alt="Redux_logo" />
-                <span>Redux</span>
-              </div>
-              <div className="technologies-icon">
-                <img src={`${import.meta.env.VITE_IMAGES_URL}about/git.png`} alt="Git_logo" />
-                <span>Git</span>
-              </div>{" "}
-              <div className="technologies-icon">
-                <img src={`${import.meta.env.VITE_IMAGES_URL}about/github.png`} alt="GitHub_logo" />
-                <span>GitHub</span>
-              </div>
-              <div className="technologies-icon">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/insomnia.png`}
-                  alt="Insomnia_logo"
-                />
-                <span>Insomnia</span>
+            <div className="container about-icons-technologies">
+              <div className="row">
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/html.png`}
+                      alt="HTML_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">HTML</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/css.png`}
+                      alt="CSS_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">CSS</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/javascript.png`}
+                      alt="JavaScript_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">JavaScript</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/node.png`}
+                      alt="Node_js_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                    <p className="text-center m-0">Node.js</p>
+                  </div>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/express.png`}
+                      alt="Express_logo"
+                      className="object-fit-cover h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">Express</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/mysql.png`}
+                      alt="MySQL_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">MySQL</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="col-3 about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/bootstrap.png`}
+                      alt="Bootstrap_logo"
+                      className="object-fit-cover h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">Bootstrap</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/redux.png`}
+                      alt="Redux_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">Redux</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/react.png`}
+                      alt="React_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">React</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/git.png`}
+                      alt="Git_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">Git</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/github.png`}
+                      alt="GitHub_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">GitHub</p>
+                </div>
+                <div className="col-3 d-flex flex-column align-items-center mt-3">
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/insomnia.png`}
+                      alt="Insomnia_logo"
+                      className="object-fit-cover h-100 about-logo"
+                    />
+                    <p className="text-center m-0">Insomnia</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="container p-sm-0">
-          <div className="db-deployment mt-2">
-            <div className="db-deployment-text">
+          <div className="about-section-3-box me-1">
+            <div className="design d-flex flex-column justify-content-between mb-2">
+              <h4>Diseño</h4>
+              <p>
+                El diseño del Front-End y del Back-End fue realizado de forma simultánea y
+                colaborativa mediante Drawio y Figma.
+              </p>
+              <div className="about-icons-design">
+                <div>
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/drawio.png`}
+                      alt="Drawio_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">Drawio</p>
+                </div>
+                <div>
+                  <div>
+                    <div className="about-logo-box">
+                      <img
+                        src={`${import.meta.env.VITE_IMAGES_URL}about/figma.png`}
+                        alt="Figma_logo"
+                        className="object-fit-contain h-100 about-logo"
+                      />
+                    </div>
+                    <p className="text-center m-0">Figma</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="db-deployment d-flex flex-column justify-content-between">
               <h4>Almacenamiento y Deployment</h4>
               <p>
                 Nuestra base de datos está almacenada en Supabase y las aplicaciones están
                 deployadas en Vercel.
               </p>
-            </div>
-            <div className="about-icons-db-deployment">
-              <div className="db-deployment-icon">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/supabase.png`}
-                  alt="Supabase_logo"
-                />
-                <span>Supabase</span>
-              </div>
-              <div className="db-deployment-icon">
-                <img src={`${import.meta.env.VITE_IMAGES_URL}about/vercel.png`} alt="Vercel_logo" />
-                <span>Vercel</span>
+
+              <div className="about-icons-db-deployment">
+                <div>
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/supabase.png`}
+                      alt="Supabase_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">Supabase</p>
+                </div>
+                <div>
+                  <div className="about-logo-box">
+                    <img
+                      src={`${import.meta.env.VITE_IMAGES_URL}about/vercel.png`}
+                      alt="Vercel_logo"
+                      className="object-fit-contain h-100 about-logo"
+                    />
+                  </div>
+                  <p className="text-center m-0">Vercel</p>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
       <section className="about-section-4 mt-5">
         <div className="container p-sm-0 d-flex">
           <div className="back-end">
-            <h4>Backend - Explicación del MER</h4>
+            <h4>Estructura del proyecto y Back-End</h4>
             <p>
-              El proyecto se estructuró en tres aplicaciones independientes: el sitio web “público”
-              , el backoffice o panel de control (al que únicamente acceden los administradores) y
-              la API (REST) con la que se comunican las dos primeras. En relación al Back-End, si
-              bien inicialmente definimos más entidades y relaciones (categorías y subcategorías),
-              el tiempo disponible y la complejidad de su aplicación nos obligó a simplicar la
-              estructura.
+              El proyecto se estructuró en tres aplicaciones independientes: el sitio web “público”, el backoffice (al que únicamente acceden los administradores) y
+              la API (REST) con la que se comunican las dos primeras. En relación al Back-End, si bien inicialmente definimos más entidades y relaciones (categorías y subcategorías), el tiempo disponible y la complejidad de su desarrollo nos obligó a simplicar la estructura.
             </p>
           </div>
           <div className="mer-diagram me-3">
             <img
               src={`${import.meta.env.VITE_IMAGES_URL}about/plantasiaMer.drawio.png`}
               alt="Plantasia Mer"
-              className="object-fit-cover w-100"
+              className="object-fit-contain w-100"
             />
           </div>
         </div>
@@ -249,7 +338,7 @@ function About() {
                 de Mort Garson.
               </p>
               <p>
-                En nuestra alicación optamos por una estética simple donde destaquen los productos,
+                En nuestra aplicación optamos por una estética simple donde destaquen los productos,
                 y textos simpáticos que capten la atención de los usuarios.
               </p>
               <p>

@@ -111,7 +111,7 @@ function OrderList() {
               <div className="order-card-item p-3" key={`${order.id}${product.id}`}>
                 <img
                   className="order-card-item-img"
-                  src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
+                  src={`${import.meta.env.VITE_IMAGES_URL}products/${product.image}`}
                   alt={product.image}
                 />
                 <div className="order-card-item-details">

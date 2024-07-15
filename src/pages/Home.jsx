@@ -46,19 +46,47 @@ function Home() {
         </section>
         <section className="home-section-2 mt-3">
           <div className="container cards-container p-sm-0">
-            <Link className="home-section-2-cards card-one shadow" to="/products/1">
+            <Link
+              className="home-section-2-cards card-one shadow"
+              style={{
+                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%),
+    url(${import.meta.env.VITE_IMAGES_URL}home/photo_plants.png)`,
+              }}
+              to="/products/1"
+            >
               <span className="card-title galadali-regular">Plants</span>
               <span className="btn button-see-all proxima-nova-regular">See all</span>
             </Link>
-            <Link className="home-section-2-cards card-two" to="/products/2">
+            <Link
+              className="home-section-2-cards card-two"
+              style={{
+                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%),
+        url(${import.meta.env.VITE_IMAGES_URL}home/photo_pots.png)`,
+              }}
+              to="/products/2"
+            >
               <span className="card-title galadali-regular">Pots</span>
               <span className="btn button-see-all proxima-nova-regular">See all</span>
             </Link>
-            <Link className="home-section-2-cards card-three" to="/products/3">
+            <Link
+              className="home-section-2-cards card-three"
+              style={{
+                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%),
+    url(${import.meta.env.VITE_IMAGES_URL}home/photo_care.png)`,
+              }}
+              to="/products/3"
+            >
               <span className="card-title galadali-regular">Care</span>
               <span className="btn button-see-all proxima-nova-regular">See all</span>
             </Link>
-            <Link className="home-section-2-cards card-four" to="/products/4">
+            <Link
+              className="home-section-2-cards card-four"
+              style={{
+                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%),
+    url(${import.meta.env.VITE_IMAGES_URL}home/photo_accessories.png)`,
+              }}
+              to="/products/4"
+            >
               <span className="card-title galadali-regular">Accesories</span>
               <span className="btn button-see-all proxima-nova-regular">See all</span>
             </Link>

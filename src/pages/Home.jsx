@@ -5,22 +5,33 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Home() {
-  const [products, setProducts] = useState(null);
+  const [careProducts, setCareProducts] = useState(null);
+  const [plants, setPlants] = useState(null);
 
   useEffect(() => {
-    const products = async () => {
+    const getPlants = async () => {
       const response = await axios({
         url: `${import.meta.env.VITE_API_URL}/products`,
         method: "GET",
-        params: { limit: 3 },
+        params: { limit: 3, type: 1 },
       });
-      setProducts(response.data.products);
+      setPlants(response.data.products);
     };
-    products();
+    getPlants();
+    const getCareProducts = async () => {
+      const response = await axios({
+        url: `${import.meta.env.VITE_API_URL}/products`,
+        method: "GET",
+        params: { limit: 3, type: 3 },
+      });
+      setCareProducts(response.data.products);
+    };
+    getCareProducts();
   }, []);
 
   return (
-    products && (
+    careProducts &&
+    plants && (
       <>
         <section
           className="home-banner d-flex align-items-center"
@@ -112,16 +123,14 @@ function Home() {
                 </Link>
               </div>
               <div className="home-section-2-plants">
-                {products.map((product) => (
+                {plants.map((product) => (
                   <Link
                     to={`/product/${product.id}`}
                     className="home-plant-product"
                     key={`sectionPlants${product.id}`}
                   >
                     <img
-                      src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${
-                        product.image
-                      }`}
+                      src={`${import.meta.env.VITE_IMAGES_URL}products/${product.image}`}
                       alt={product.name}
                       className="object-fit-cover w-100 shadow"
                     />
@@ -133,7 +142,6 @@ function Home() {
             </div>
           </div>
         </section>
-
         <section className="home-section-3 mt-3">
           <div className="container d-flex flex-column flex-md-row p-sm-0">
             <div className="home-section-3-img">
@@ -143,7 +151,6 @@ function Home() {
                 className="object-fit-cover w-100 shadow"
               />
             </div>
-
             <div className="d-flex flex-column justify-content-between home-section-3-box">
               <h4 className="galadali-bold">Because love is not enough...</h4>
               <p className="proxima-nova">
@@ -156,16 +163,14 @@ function Home() {
                 </Link>
               </div>
               <div className="home-section-3-care-products">
-                {products.map((product) => (
+                {careProducts.map((product) => (
                   <Link
                     to={`/product/${product.id}`}
                     className="home-care-product"
                     key={`sectionCare${product.id}`}
                   >
                     <img
-                      src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${
-                        product.image
-                      }`}
+                      src={`${import.meta.env.VITE_IMAGES_URL}products/${product.image}`}
                       alt={product.name}
                       className="object-fit-cover w-100 shadow"
                     />
@@ -177,7 +182,6 @@ function Home() {
             </div>
           </div>
         </section>
-
         <section className="home-section-4 mb-2 mt-3">
           <div className="d-flex justify-content-between">
             <div className="home-carrousel">

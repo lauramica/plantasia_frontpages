@@ -110,7 +110,7 @@ function ProductPage() {
               </div> */}
               <div className="photo-product">
                 <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
+                  src={`${import.meta.env.VITE_IMAGES_URL}products/${product.image}`}
                   alt="Product"
                   className="object-fit-cover w-100 h-100"
                 />

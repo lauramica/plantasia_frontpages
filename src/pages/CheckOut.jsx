@@ -14,6 +14,7 @@ function CheckOut() {
   const [processingOrder, setProcessingOrder] = useState(true);
   const [newOrder, setNewOrder] = useState(null);
   const [alert, setAlert] = useState(false);
+  const [alertNoItems, setAlertNoItems] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
@@ -42,7 +43,6 @@ function CheckOut() {
       buyer: {
         firstname: loggedCustomer.firstname,
         lastname: loggedCustomer.lastname,
-        phone: loggedCustomer.phone,
       },
       total_price: cart
         .reduce((acc, product) => acc + Number(product.price) * product.quantity, 0)
@@ -55,17 +55,29 @@ function CheckOut() {
     if (!loggedCustomer.token) {
       return navigate("/login");
     }
+    if (cart.length === 0) {
+      setAlertNoItems(true);
+      return;
+    }
     if (checkAllInputs()) {
-      const storeOrder = await axios({
-        url: `${import.meta.env.VITE_API_URL}/orders/create`,
-        method: "POST",
-        data: { ...newOrder },
-        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
-      });
-      setNewOrder({ ...newOrder, id: storeOrder.data.id });
-      dispatch(createOrder(newOrder));
-      handleModalToggle();
-    } else setAlert(true);
+      try {
+        const storeOrder = await axios({
+          url: `${import.meta.env.VITE_API_URL}/orders/create`,
+          method: "POST",
+          data: { ...newOrder },
+          headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+        });
+        const createdOrder = { ...newOrder, id: storeOrder.data.id };
+        setNewOrder(createdOrder);
+        dispatch(createOrder(createdOrder));
+        handleModalToggle();
+      } catch (error) {
+        console.error("Error creating order:", error);
+        setAlert(true);
+      }
+    } else {
+      setAlert(true);
+    }
   };
 
   const handleModalToggle = () => {
@@ -751,6 +763,13 @@ function CheckOut() {
               } position-absolute end-0 bg-white border border-warning p-2 alert rounded-corner`}
             >
               There are some required fields, that need to be filled
+            </div>
+            <div
+              className={`${
+                alertNoItems ? "d-inline" : "d-none"
+              } position-absolute end-0 bg-white border border-warning p-2 alert rounded-corner`}
+            >
+              There are no items in the cart
             </div>
           </div>
         </div>

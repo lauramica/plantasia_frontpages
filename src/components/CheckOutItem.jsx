@@ -1,9 +1,13 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { increaseProduct, decreaseProduct, removeProduct } from "../redux/cartSlice";
+import { useEffect } from "react";
+import axios from "axios";
 
 function CheckOutItem({ product }) {
   const dispatch = useDispatch();
   const subtotal = (product.price * product.quantity).toFixed(2);
+  const cart = useSelector((state) => state.cart);
+  const loggedCustomer = useSelector((state) => state.customer);
 
   const handleIncrement = () => {
     if (product.stock >= product.quantity + 1) {

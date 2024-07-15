@@ -22,7 +22,7 @@ function Login() {
           method: "GET",
           headers: { Authorization: `Bearer ${loggedCustomer.token}` },
         });
-        dispatch(initCart(response.data.cart));
+        response.data.customer.cart && dispatch(initCart(response.data.customer.cart));
       };
       getCart();
       return navigate("/");

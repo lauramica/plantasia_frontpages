@@ -15,6 +15,7 @@ function ProductPage() {
   const dispatch = useDispatch();
   const params = useParams();
   const cart = useSelector((state) => state.cart);
+  const loggedCustomer = useSelector((state) => state.customer);
 
   useEffect(() => {
     const saveCart = async () => {

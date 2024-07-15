@@ -1,23 +1,38 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { increaseProduct, decreaseProduct, removeProduct } from "../redux/cartSlice";
+import { useEffect } from "react";
+import axios from "axios";
 
 function CheckOutItem({ product }) {
   const dispatch = useDispatch();
   const subtotal = (product.price * product.quantity).toFixed(2);
+  const cart = useSelector((state) => state.cart);
+  const loggedCustomer = useSelector((state) => state.customer);
 
-  const handleModalToggle = () => {
-    modalState ? setModalState(false) : setModalState(true);
-  };
   const handleIncrement = () => {
     if (product.stock >= product.quantity + 1) {
       dispatch(increaseProduct({ productId: product.id, productQty: 1 }));
     }
   };
+
   const handleDecrement = () => {
     product.quantity > 1
       ? dispatch(decreaseProduct(product.id))
       : dispatch(removeProduct(product.id));
   };
+
+  useEffect(() => {
+    const saveCart = async () => {
+      await axios({
+        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+        method: "POST",
+        data: { cart: cart },
+        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+      });
+    };
+    saveCart();
+  }, [cart]);
+
   return (
     <>
       <td>

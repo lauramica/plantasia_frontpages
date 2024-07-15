@@ -5,6 +5,7 @@ import { clearOrders } from "../redux/orderSlice";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
+import { clearCart } from "../redux/cartSlice";
 
 function ProfileView() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function ProfileView() {
 
   const handleSession = () => {
     dispatch(logoutCustomer());
+    dispatch(clearCart());
     dispatch(clearOrders());
     return navigate("/login");
   };
@@ -95,7 +97,8 @@ function ProfileView() {
             </div>
           </div>
           <div className="d-flex justify-content-start mb-3">
-            <button className="profile-logout" onClick={handleSession}><i className="bi bi-box-arrow-left me-2"></i>Logout
+            <button className="profile-logout" onClick={handleSession}>
+              <i className="bi bi-box-arrow-left me-2"></i>Logout
             </button>
           </div>
         </div>

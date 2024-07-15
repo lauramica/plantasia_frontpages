@@ -21,6 +21,15 @@ function CheckOut() {
   const loggedCustomer = useSelector((state) => state.customer);
 
   useEffect(() => {
+    const saveCart = async () => {
+      await axios({
+        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+        method: "POST",
+        data: { cart: cart },
+        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+      });
+    };
+    saveCart();
     setNewOrder({
       ...newOrder,
       products: cart.map((product) => {
@@ -52,6 +61,7 @@ function CheckOut() {
   }, [cart]);
 
   const handleSubmit = async () => {
+    setProcessingOrder(true);
     if (!loggedCustomer.token) {
       return navigate("/login");
     }
@@ -105,7 +115,6 @@ function CheckOut() {
 
   useEffect(() => {
     if (modalState) {
-      setProcessingOrder(true);
       const findOrder = async () => {
         const response = await axios({
           url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,

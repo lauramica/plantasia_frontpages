@@ -1,7 +1,7 @@
 import "../css/EditUser.css";
 
 import { useDispatch, useSelector } from "react-redux";
-import { updateCustomer } from "../redux/customerSlice";
+import { logoutCustomer, updateCustomer } from "../redux/customerSlice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -10,7 +10,18 @@ function EditUser() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loggedCustomer = useSelector((state) => state.customer);
-  const [updateValues, setUpdateValues] = useState({});
+  const [updateValues, setUpdateValues] = useState({
+    firstname: "",
+    lastname: "",
+    address: {
+      address: "",
+      state: "",
+      city: "",
+      country: "",
+      postalcode: "",
+    },
+    phone: "",
+  });
 
   useEffect(() => {
     const { firstname, lastname, address, phone } = loggedCustomer;
@@ -27,6 +38,16 @@ function EditUser() {
     });
     dispatch(updateCustomer(updateValues));
     return navigate("/profile");
+  };
+
+  const handleDeleteCustomer = async () => {
+    await axios({
+      url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}/delete`,
+      method: "GET",
+      headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+    });
+    dispatch(logoutCustomer());
+    return navigate("/");
   };
 
   return (
@@ -108,7 +129,7 @@ function EditUser() {
             </label>
             <select
               className="mt-1 p-1 w-100 select-form"
-              defaultValue={updateValues.address?.country ?? "Select your country"}
+              value={updateValues.address?.country ?? ""}
               onChange={(e) =>
                 setUpdateValues({
                   ...updateValues,
@@ -116,9 +137,7 @@ function EditUser() {
                 })
               }
             >
-              <option value="" selected disabled hidden>
-                Choose your country
-              </option>
+              <option value="">Select your country</option>
               <option value="AF">Afghanistan</option>
               <option value="AX">Åland Islands</option>
               <option value="AL">Albania</option>
@@ -429,13 +448,13 @@ function EditUser() {
           <button className="btn confirm-button ms-auto">Confirm</button>
         </div>
       </form>
-      <div
-        className="mb-3
-          "
-      >
-        <a className="profile-delete me-auto">
+      <div className="mb-3">
+        <button
+          className="profile-delete me-auto border-0 bg-white p-0"
+          onClick={handleDeleteCustomer}
+        >
           <i className="bi bi-trash3 me-2"></i>Delete account
-        </a>
+        </button>
       </div>
     </div>
   );

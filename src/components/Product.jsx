@@ -22,6 +22,18 @@ function Product({ product }) {
     return toast.warning("There's not enough stock to add more");
   };
 
+  useEffect(() => {
+    const saveCart = async () => {
+      await axios({
+        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+        method: "POST",
+        data: { cart: cart },
+        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+      });
+    };
+    saveCart();
+  }, [cart]);
+
   return (
     <>
       <div>

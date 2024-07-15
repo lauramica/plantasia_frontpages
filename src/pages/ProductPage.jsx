@@ -16,6 +16,18 @@ function ProductPage() {
   const params = useParams();
   const cart = useSelector((state) => state.cart);
 
+  useEffect(() => {
+    const saveCart = async () => {
+      await axios({
+        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+        method: "POST",
+        data: { cart: cart },
+        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+      });
+    };
+    saveCart();
+  }, [cart]);
+
   const handleIncrement = () => {
     if (count < product.stock) setCount(count + 1);
   };

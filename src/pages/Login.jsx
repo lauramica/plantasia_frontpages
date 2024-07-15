@@ -1,10 +1,11 @@
 import "../css/FormsPages.css";
-import { loginCustomer, logoutCustomer } from "../redux/customerSlice";
+import { loginCustomer } from "../redux/customerSlice";
 
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { initCart } from "../redux/cartSlice";
 
 function Login() {
   const dispatch = useDispatch();
@@ -14,12 +15,22 @@ function Login() {
   const loggedCustomer = useSelector((state) => state.customer);
 
   useEffect(() => {
-    if (loggedCustomer.token) return navigate("/");
+    if (loggedCustomer.token) {
+      const getCart = async () => {
+        const response = await axios({
+          url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+          method: "GET",
+          headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+        });
+        dispatch(initCart(response.data.cart));
+      };
+      getCart();
+      return navigate("/");
+    }
   }, [loggedCustomer]);
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     const login = async () => {
       const response = await axios({
         url: `${import.meta.env.VITE_API_URL}/customers/tokens`,

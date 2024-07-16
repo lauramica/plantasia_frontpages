@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Analytics } from "@vercel/analytics/react";
 
 import "../css/App.css";
 import Navbar from "../components/Navbar";
@@ -16,6 +17,7 @@ function Main() {
 
   return (
     <>
+      <Analytics />
       <ScrollRestoration />
       <div className="main-container d-flex flex-column">
         <div>

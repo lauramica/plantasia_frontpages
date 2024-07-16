@@ -1,6 +1,12 @@
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import "../css/Footer.css";
 
 function Footer() {
+  const handleUnderDevelopment = () => {
+    return toast.warning("This function is under development");
+  };
+
   return (
     <footer className="footer">
       <nav className="footer__nav-bar container px-sm-0">
@@ -15,77 +21,83 @@ function Footer() {
         <ul className="footer__links-wrapper">
           <li className="footer__links-wrapper-title">Shop</li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Houseplants
-            </a>
+            </Link>
           </li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Accessories
-            </a>
+            </Link>
           </li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Care
-            </a>
+            </Link>
           </li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Pots
-            </a>
+            </Link>
           </li>
         </ul>
 
         <ul className="footer__links-wrapper">
           <li className="footer__links-wrapper-title">Customer service</li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Frequently asked questions
-            </a>
+            </Link>
           </li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Contact
-            </a>
+            </Link>
           </li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Payments
-            </a>
+            </Link>
           </li>
         </ul>
 
         <ul className="footer__links-wrapper">
           <li className="footer__links-wrapper-title">About PLNTS</li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Giftcards
-            </a>
+            </Link>
           </li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               About us
-            </a>
+            </Link>
           </li>
           <li className="footer__links-wrapper-item">
-            <a className="footer__links-wrapper-item-link" href="#">
+            <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Sustainability
-            </a>
+            </Link>
           </li>
         </ul>
-        <a className="footer__log-in-link" href="/login">
+        <Link className="footer__log-in-link" href="/login">
           Log in
-        </a>
+        </Link>
         <ul className="footer__social-media-links-wrapper">
           <li className="footer__social-media-links-wrapper-item">
-            <a className="footer__social-media-links-wrapper-link" href="#">
+            <Link
+              className="footer__social-media-links-wrapper-link"
+              onClick={handleUnderDevelopment}
+            >
               <i className="footer__social-media-links-wrapper-icon bi bi-instagram"></i>
-            </a>
+            </Link>
           </li>
           <li className="footer__social-media-links-wrapper-item">
-            <a className="footer__social-media-links-wrapper-link" href="#">
+            <Link
+              className="footer__social-media-links-wrapper-link"
+              onClick={handleUnderDevelopment}
+            >
               <i className="footer__social-media-links-wrapper-icon bi bi-facebook"></i>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

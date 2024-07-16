@@ -17,7 +17,7 @@ function Main() {
 
   return (
     <>
-      <Analytics />
+      {/* <Analytics /> */}
       <ScrollRestoration />
       <div className="main-container d-flex flex-column">
         <div>

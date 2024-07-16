@@ -451,136 +451,147 @@ function About() {
         </div>
       </section>
 
-      {/*       <section className="aboutus-team container mt-5">
-        <div className="container p-sm-0 d-flex flex-column align-items-center">
-          <h1>
-            <b>Equipo</b>
-          </h1>
+      <section className="container about-team-container p-sm-0 border-top">
+        <h4 className="text-center my-3">Equipo</h4>
+        <div className="about-team">
+          <div className="about-team-card mb-sm-4">
+            <img
+              src={`${import.meta.env.VITE_IMAGES_URL}about/dammiel.png`}
+              alt="dammiel_profile"
+              className="shadow"
+            />
+            <div className="about-team-card-text">
+              <p>Dámmiel</p>
+              <span>Full Stack Developer Jr.</span>
+            </div>
+            <div className="about-team-card-icons">
+              <Link to={"https://www.linkedin.com/"} target="_blank">
+                {" "}
+                <i className="bi bi-linkedin me-2"></i>
+              </Link>
+              <Link to={"https://github.com/gurix-hue"} target="_blank">
+                {" "}
+                <i className="bi bi-github"></i>
+              </Link>
+            </div>
+          </div>
+          <div className="about-team-card">
+            <img
+              src={`${import.meta.env.VITE_IMAGES_URL}about/denisse.png`}
+              alt="denisse_profile"
+              className="shadow"
+            />
+            <div className="about-team-card-text">
+              <p>Denisse</p>
+              <span>Full Stack Developer Jr.</span>
+            </div>
+            <div className="about-team-card-icons">
+              <Link to={"https://www.linkedin.com/in/denissemajul"} target="_blank">
+                {" "}
+                <i className="bi bi-linkedin me-2"></i>
+              </Link>
+              <Link to={"https://github.com/denisse2911"} target="_blank">
+                {" "}
+                <i className="bi bi-github"></i>
+              </Link>
+            </div>
+          </div>
+          <div className="about-team-card">
+            <img
+              src={`${import.meta.env.VITE_IMAGES_URL}about/federica.png`}
+              alt="federica_profile"
+              className="shadow"
+            />
+            <div className="about-team-card-text">
+              <p>Federica</p>
+              <span>Full Stack Developer Jr.</span>
+            </div>
+            <div className="about-team-card-icons">
+              <Link
+                to={"https://www.linkedin.com/in/federica-rodriguez-64881817b/"}
+                target="_blank"
+              >
+                {" "}
+                <i className="bi bi-linkedin me-2"></i>
+              </Link>
+              <Link to={"https://github.com/Feder17"} target="_blank">
+                {" "}
+                <i className="bi bi-github"></i>
+              </Link>
+            </div>
+          </div>
+          <div className="about-team-card">
+            <img
+              src={`${import.meta.env.VITE_IMAGES_URL}about/ivan.png`}
+              alt="ivan_profile"
+              className="shadow"
+            />
+            <div className="about-team-card-text">
+              <p>Iván</p>
+              <span>Full Stack Developer Jr.</span>
+            </div>
+            <div className="about-team-card-icons">
+              <Link to={"https://www.linkedin.com/in/iván-de-león-lino-1a85b5225/"} target="_blank">
+                {" "}
+                <i className="bi bi-linkedin me-2"></i>
+              </Link>
+              <Link to={"https://github.com/Lino-OTM"} target="_blank">
+                {" "}
+                <i className="bi bi-github"></i>
+              </Link>
+            </div>
+          </div>
+          <div className="about-team-card">
+            <img
+              src={`${import.meta.env.VITE_IMAGES_URL}about/laura.png`}
+              alt="laura_profile"
+              className="shadow"
+            />
+            <div className="about-team-card-text">
+              <p>Laura</p>
+              <span>Full Stack Developer Jr.</span>
+            </div>
+            <div className="about-team-card-icons">
+              <Link to={"https://www.linkedin.com/in/lauraperezbetarte"} target="_blank">
+                {" "}
+                <i className="bi bi-linkedin me-2"></i>
+              </Link>
+              <Link to={"https://github.com/lauramica"} target="_blank">
+                {" "}
+                <i className="bi bi-github"></i>
+              </Link>
+            </div>
+          </div>
+          <div className="about-team-card">
+            <img
+              src={`${import.meta.env.VITE_IMAGES_URL}about/niki.png`}
+              alt="niki_profile"
+              className="shadow"
+            />
+            <div className="about-team-card-text">
+              <p>Niki</p>
+              <span>Full Stack Developer Jr.</span>
+            </div>
+            <div className="about-team-card-icons">
+              <Link
+                to={"https://www.linkedin.com/in/nicolás-buela-san-martín-1ba6a71ba/"}
+                target="_blank"
+              >
+                {" "}
+                <i className="bi bi-linkedin me-2"></i>
+              </Link>
+              <Link to={"https://github.com/NikuzoKO"} target="_blank">
+                {" "}
+                <i className="bi bi-github"></i>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="row gx-5 aboutus-team-memberscontainer ">
-          <div className="col-lg-4 col-md-6 col-12 aboutus-team-member">
-            <div className="aboutus-team-picture">
-              <img
-                src={`${import.meta.env.VITE_IMAGES_URL}man_user_color_icon.svg`}
-                alt="Dammiel Profile Picture"
-              />
-            </div>
-            <h3>
-              <b>Dammiel</b>
-            </h3>
-            <h5>
-              <b>Junior Full Stack Developer</b>
-            </h5>
-            <button className="aboutus-team-button">
-              <i className="bi bi-github"></i>
-            </button>
-            <button className="aboutus-team-button">
-              <i className="bi bi-linkedin"></i>
-            </button>
-          </div>
-          <div className="col-lg-4 col-md-6 col-12 aboutus-team-member">
-            <div className="aboutus-team-picture">
-              <img
-                src={`${import.meta.env.VITE_IMAGES_URL}man_user_color_icon.svg`}
-                alt="Dammiel Profile Picture"
-              />
-            </div>
-            <h3>
-              <b>Federica</b>
-            </h3>
-            <h5>
-              <b>Junior Full Stack Developer</b>
-            </h5>
-            <button className="aboutus-team-button">
-              <i className="bi bi-github"></i>
-            </button>
-            <button className="aboutus-team-button">
-              <i className="bi bi-linkedin"></i>
-            </button>
-          </div>
-          <div className="col-lg-4 col-md-6 col-12 aboutus-team-member">
-            <div className="aboutus-team-picture">
-              <img
-                src={`${import.meta.env.VITE_IMAGES_URL}man_user_color_icon.svg`}
-                alt="Dammiel Profile Picture"
-              />
-            </div>
-            <h3>
-              <b>Dennisse</b>
-            </h3>
-            <h5>
-              <b>Junior Full Stack Developer</b>
-            </h5>
-            <button className="aboutus-team-button">
-              <i className="bi bi-github"></i>
-            </button>
-            <button className="aboutus-team-button">
-              <i className="bi bi-linkedin"></i>
-            </button>
-          </div>
-          <div className="col-lg-4 col-md-6 col-12 aboutus-team-member">
-            <div className="aboutus-team-picture">
-              <img
-                src={`${import.meta.env.VITE_IMAGES_URL}man_user_color_icon.svg`}
-                alt="Dammiel Profile Picture"
-              />
-            </div>
-            <h3>
-              <b>Laura</b>
-            </h3>
-            <h5>
-              <b>Junior Full Stack Developer</b>
-            </h5>
-            <button className="aboutus-team-button">
-              <i className="bi bi-github"></i>
-            </button>
-            <button className="aboutus-team-button">
-              <i className="bi bi-linkedin"></i>
-            </button>
-          </div>
-          <div className="col-lg-4 col-md-6 col-12 aboutus-team-member">
-            <div className="aboutus-team-picture">
-              <img
-                src={`${import.meta.env.VITE_IMAGES_URL}man_user_color_icon.svg`}
-                alt="Dammiel Profile Picture"
-              />
-            </div>
-            <h3>
-              <b>Ivan</b>
-            </h3>
-            <h5>
-              <b>Junior Full Stack Developer</b>
-            </h5>
-            <button className="aboutus-team-button">
-              <i className="bi bi-github"></i>
-            </button>
-            <button className="aboutus-team-button">
-              <i className="bi bi-linkedin"></i>
-            </button>
-          </div>
-          <div className="col-lg-4 col-md-6 col-12 aboutus-team-member">
-            <div className="aboutus-team-picture">
-              <img
-                src={`${import.meta.env.VITE_IMAGES_URL}man_user_color_icon.svg`}
-                alt="Dammiel Profile Picture"
-              />
-            </div>
-            <h3>
-              <b>Nicole</b>
-            </h3>
-            <h5>
-              <b>Junior Full Stack Developer</b>
-            </h5>
-            <button className="aboutus-team-button">
-              <i className="bi bi-github"></i>
-            </button>
-            <button className="aboutus-team-button">
-              <i className="bi bi-linkedin"></i>
-            </button>
-          </div>
-        </div>
-        <p>Gracias por llegar hasta aquí!</p>
-      </section> */}
+
+        <p className="text-center galadali-bold lightgreen fs-3 mt-3">
+          ¡Gracias por llegar hasta aquí!
+        </p>
+      </section>
     </div>
   );
 }

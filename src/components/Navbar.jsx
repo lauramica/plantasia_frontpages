@@ -45,7 +45,7 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
               <Nav.Link as={Link} to="/products">
                 Products
               </Nav.Link>
-              <Nav.Link as={Link} to="/about-this-project">
+              <Nav.Link as={Link} to="/about-this-project/en">
                 About this project
               </Nav.Link>
             </Nav>

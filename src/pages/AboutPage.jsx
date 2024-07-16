@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function About() {
   return (
-    <>
+    <div className="about-page">
       <section
         className="about-banner d-flex align-items-center"
         style={{
@@ -29,7 +29,7 @@ function About() {
               <Link
                 to="https://ha.dev/cursos/bootcamp-desarrollo-web"
                 target="_blank"
-                className="proxima-nova-bold darkgreen text-decoration-none"
+                className="proxima-nova-bold lightgreen text-decoration-none"
               >
                 bootcamp
               </Link>{" "}
@@ -59,7 +59,7 @@ function About() {
         </div>
       </section>
 
-      <section className="about-section-3 mt-2">
+      <section className="about-section-3 h-100 mt-2">
         <div className="container p-sm-0 d-flex">
           <div className="planning mb-2 d-flex flex-column flex-md-row justify-content-between align-items-md-end w-100">
             <div className="about-planning-text">
@@ -97,11 +97,11 @@ function About() {
         <div className="container p-sm-0 d-flex flex-column flex-md-row">
           <div className="technologies ms-0 ms-md-1 d-flex flex-column justify-content-between order-md-2 mb-2 mb-md-0">
             <h4>Tecnologías</h4>
-            <p className="technologies-description">
-              Desde el inicio del proyecto se utilizó Git y Github, lo que permitió respaldar
-              nuestro trabajo y gestionar las versiones, facilitando así la colaboración simultánea.
+            <p className="mb-2">
+              Durante el proyecto, respaldamos nuestro trabajo y gestionamos las versiones con Git y
+              Github, lo que permitió respaldar, facilitando así la colaboración simultánea.
             </p>
-            <p>
+            <p className="mb-2">
               Para el Front-End del sitio desarrollamos una aplicación en React con Vite y Redux.
               También aplicamos Bootstrap como librería de preferencia.
             </p>
@@ -156,7 +156,7 @@ function About() {
                     <img
                       src={`${import.meta.env.VITE_IMAGES_URL}about/express.png`}
                       alt="Express_logo"
-                      className="object-fit-cover h-100 about-logo"
+                      className="object-fit-contain h-100 about-logo"
                     />
                   </div>
                   <p className="text-center m-0">Express</p>
@@ -176,7 +176,7 @@ function About() {
                     <img
                       src={`${import.meta.env.VITE_IMAGES_URL}about/bootstrap.png`}
                       alt="Bootstrap_logo"
-                      className="object-fit-cover h-100 about-logo"
+                      className="object-fit-contain h-100 about-logo"
                     />
                   </div>
                   <p className="text-center m-0">Bootstrap</p>
@@ -226,7 +226,7 @@ function About() {
                     <img
                       src={`${import.meta.env.VITE_IMAGES_URL}about/insomnia.png`}
                       alt="Insomnia_logo"
-                      className="object-fit-cover h-100 about-logo"
+                      className="object-fit-contain h-100 about-logo"
                     />
                     <p className="text-center m-0">Insomnia</p>
                   </div>
@@ -236,12 +236,14 @@ function About() {
           </div>
           <div className="about-section-3-box me-1">
             <div className="design d-flex flex-column justify-content-between mb-2">
-              <h4>Diseño</h4>
-              <p className="technologies-description">
-                El diseño del Front-End y del Back-End fue realizado de forma simultánea y
-                colaborativa mediante Drawio y Figma.
-              </p>
-              <div className="about-icons-design">
+              <div>
+                <h4>Diseño</h4>
+                <p className="technologies-description">
+                  El diseño del Front-End y del Back-End fue construido de forma simultánea y
+                  colaborativa mediante Drawio y Figma.
+                </p>
+              </div>
+              <div className="about-icons-design mb-2 d-flex">
                 <div className="about-icons-design-box">
                   <div className="about-logo-box">
                     <img
@@ -270,7 +272,7 @@ function About() {
               <h4>Almacenamiento y Deployment</h4>
               <p className="technologies-description">
                 Nuestra base de datos está almacenada en Supabase y las aplicaciones están
-                deployadas en Vercel.
+                deployadas y accesibles a través de Vercel.
               </p>
 
               <div className="about-icons-db-deployment">
@@ -302,15 +304,15 @@ function About() {
 
       <section className="about-section-4 mt-5">
         <div className="container p-sm-0">
-          <div className="front-end">
-            <div className="front-end-description me-4">
-              <h4>Estética de la aplicación</h4>
+          <h4 className="mb-3">Estética de la aplicación</h4>
+          <div className="front-end d-flex">
+            <div className="front-end-description me-md-4">
               <p>
                 El diseño del Front-End se inspiró en la página web{" "}
                 <Link
                   to="https://plnts.com/en"
                   target="_blank"
-                  className="proxima-nova-bold darkgreen text-decoration-none"
+                  className="proxima-nova-bold lightgreen text-decoration-none"
                 >
                   Plnts
                 </Link>
@@ -318,55 +320,68 @@ function About() {
                 <Link
                   to="https://youtu.be/SZkR3PyHTs0"
                   target="_blank"
-                  className="proxima-nova-bold darkgreen text-decoration-none"
+                  className="proxima-nova-bold lightgreen text-decoration-none"
                 >
                   Mother Earth's Plantasia
                 </Link>{" "}
                 de Mort Garson.
               </p>
               <p>
-                En nuestra aplicación optamos por una estética simple donde destaquen los productos,
-                y textos simpáticos que capten la atención de los usuarios.
-              </p>
-              <p>
-                Las imágenes y la información de los productos fue obtenida de la referida página
-                web, y en armonía con ello definimos una paleta de colores, fuentes y los logos
-                utilzamos.
+                Optamos por una estética simple donde destaquen los productos, y textos simpáticos
+                que capten la atención de los usuarios. Las imágenes y la información de los
+                productos fueron obtenidas de la referida página web, y en armonía con ello,
+                definimos una paleta de colores, fuentes y creamos los logos.
               </p>
             </div>
-            <img
-              src={`${import.meta.env.VITE_IMAGES_URL}about/MortGarson_MotherEarthsPlantasia.png`}
-              alt="MortGarson_MotherEarthsPlantasia_Album"
-            />
+            <div className="plantasia-album d-none d-md-block">
+              <img
+                src={`${import.meta.env.VITE_IMAGES_URL}about/MortGarson_MotherEarthsPlantasia.png`}
+                alt="MortGarson_MotherEarthsPlantasia_Album"
+                className="object-fit-contain w-100"
+              />
+            </div>
           </div>
-          <div className="about-logos">
-            <h4>Logo</h4>
-            <img
-              src={`${import.meta.env.VITE_IMAGES_URL}/Plantasia_green.svg`}
-              alt="logos_plantasia"
-              className="img-fluid w-50"
-            />
-            <h4>Logotipos alternativos</h4>
-            <img
-              src={`${import.meta.env.VITE_IMAGES_URL}about/logos_about.svg`}
-              alt="logos_plantasia"
-              className="img-fluid w-50 "
-            />
+          <div>
+            <div className="about-logos d-flex flex-column flex-md-row justify-content-evenly align-items-center mb-5">
+              <div className="frontend-main-logo mb-5 mb-md-0">
+                <h5>Logo</h5>
+                <img
+                  src={`${import.meta.env.VITE_IMAGES_URL}/Plantasia_green.svg`}
+                  alt="logos_plantasia"
+                  className="img-fluid"
+                />
+              </div>
+              <div className="frontend-secondary-logos">
+                <h5>Logotipos alternativos</h5>
+                <img
+                  src={`${import.meta.env.VITE_IMAGES_URL}about/logos_about.svg`}
+                  alt="logos_plantasia"
+                  className="img-fluid"
+                />
+              </div>
+            </div>
           </div>
-          <div className="about-colors-fonts">
-            <h4>Paleta de colores</h4>
-            <img
-              src={`${import.meta.env.VITE_IMAGES_URL}about/colores.svg`}
-              alt="paleta_colores_plantasia"
-              className="img-fluid w-50 "
-            />
-            <h4>Fuentes en uso</h4>
-            <img
-              src={`${import.meta.env.VITE_IMAGES_URL}about/fuentes.svg`}
-              alt="fonts_plantasia"
-              className="img-fluid w-50 "
-            />
+          <div>
+            <div className="about-colors-fonts d-flex flex-column flex-md-row justify-content-evenly align-items-center align-items-md-start mb-5">
+              <div className="frontend-colors-palette  mb-5 mb-md-0">
+                <h5>Paleta de colores</h5>
+                <img
+                  src={`${import.meta.env.VITE_IMAGES_URL}about/colores.svg`}
+                  alt="paleta_colores_plantasia"
+                  className="img-fluid"
+                />
+              </div>
+              <div className="frontend-fonts">
+                <h5>Fuentes en uso</h5>
+                <img
+                  src={`${import.meta.env.VITE_IMAGES_URL}about/fuentes.svg`}
+                  alt="fonts_plantasia"
+                  className="img-fluid"
+                />
+              </div>
+            </div>
           </div>
+
           <div className="mer-diagram me-3"></div>
         </div>
       </section>
@@ -436,7 +451,7 @@ function About() {
         </div>
       </section>
 
-      <section className="aboutus-team container mt-5">
+      {/*       <section className="aboutus-team container mt-5">
         <div className="container p-sm-0 d-flex flex-column align-items-center">
           <h1>
             <b>Equipo</b>
@@ -565,8 +580,8 @@ function About() {
           </div>
         </div>
         <p>Gracias por llegar hasta aquí!</p>
-      </section>
-    </>
+      </section> */}
+    </div>
   );
 }
 

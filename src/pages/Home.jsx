@@ -55,7 +55,7 @@ function Home() {
             </Link>
           </div>
         </section>
-        <section className="home-section-2 mt-3">
+        <section className="home-section-2">
           <div className="container cards-container p-sm-0">
             <Link
               className="home-section-2-cards card-one shadow"
@@ -142,7 +142,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <section className="home-section-3 mt-3">
+        <section className="home-section-3">
           <div className="container d-flex flex-column flex-md-row p-sm-0">
             <div className="home-section-3-img">
               <img
@@ -182,7 +182,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <section className="home-section-4 mb-2 mt-3">
+        <section className="home-section-4">
           <div className="d-flex justify-content-between">
             <div className="home-carrousel">
               <img

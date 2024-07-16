@@ -1,3 +1,11 @@
+.about-page .about-section-2 p,
+.about-page .about-section-3 p,
+.about-page .about-section-4 p,
+.about-page .about-section-5 p {
+  color: var(--darkgreen);
+  font-size: 1.2rem;
+}
+
 .about-banner {
   background: rgb(0, 0, 0);
   background-size: cover;
@@ -48,13 +56,20 @@
   width: 60%;
 }
 
-.about-section-3 .container .planning,
-.about-section-3 .container .design,
-.about-section-3 .container .technologies,
-.about-section-3 .container .db-deployment {
+.about-section-3 .planning,
+.about-section-3 .design,
+.about-section-3 .technologies,
+.about-section-3 .db-deployment {
   border: 3px var(--lightgreen) solid;
   border-radius: 2px;
   padding: 10px;
+}
+
+.about-section-3 .planning p,
+.about-section-3 .design p,
+.about-section-3 .technologies p,
+.about-section-3 .db-deployment p {
+  font-size: 1.1rem;
 }
 
 .about-planning-text {
@@ -76,12 +91,13 @@
   color: var(--darkgreen);
 }
 
-.about-icons-planning-box p,
-.about-icons-design-box p,
+.about-icons-planning .about-icons-planning-box p,
+.about-icons-design .about-icons-design-box p,
 .about-icons-technologies .row .col-3 p,
-.about-icons-db-deployment-box p {
+.about-icons-db-deployment .about-icons-db-deployment-box p {
   font-family: "Proxima Nova Regular";
   color: var(--lightgreen);
+  font-size: 1rem;
 }
 
 .about-icons-technologies {
@@ -93,8 +109,8 @@
 }
 
 .about-logo-box {
-  height: 50px;
-  width: 70px;
+  height: 45px;
+  width: 65px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -104,13 +120,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  height: 53.8%;
 }
 
-.about-icons-db-deployment {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 100px;
+.design {
+  height: 45%;
 }
 
 .about-section-3 .container .planning h4,
@@ -158,6 +172,14 @@
   max-width: 130px;
 }
 
+.about-section-3 .container .design h5 {
+  font-family: "Galadali Regular";
+  font-weight: normal;
+  font-style: normal;
+  color: var(--mediumgreen);
+  font-size: 1.8rem;
+}
+
 .about-section-5-text p,
 .front-end p {
   font-family: "Proxima Nova Regular";
@@ -167,16 +189,28 @@
   font-size: 1rem;
 }
 
-.front-end {
-  display: flex;
-  flex-direction: row;
+.about-logos h5,
+.about-colors-fonts h5 {
+  font-family: "Galadali Regular";
+  font-weight: normal;
+  font-style: normal;
+  color: var(--almond);
+  font-size: 1.6rem;
+  margin-bottom: 10px;
 }
 
-.front-end img {
-  width: 20%;
+.plantasia-album {
+  max-width: 230px;
 }
 
-.aboutus-team {
+.frontend-main-logo,
+.frontend-secondary-logos,
+.frontend-colors-palette,
+.frontend-fonts {
+  max-width: 40%;
+}
+
+/* .aboutus-team {
   font-family: "Proxima Nova";
   color: var(--darkgreen);
   font-size: 20px;
@@ -232,7 +266,7 @@
   align-items: center;
   justify-content: center;
   margin: 0;
-}
+} */
 
 @media (max-width: 576px) {
   .about-section-3-box {
@@ -257,17 +291,24 @@
     width: 100%;
   }
 
-  .diagram-1 {
-    max-width: 70%;
+  .frontend-main-logo,
+  .frontend-secondary-logos,
+  .frontend-colors-palette,
+  .frontend-fonts {
+    max-width: 80%;
   }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .about-section-3-box {
-    width: 50%;
+    width: 40%;
   }
   .technologies {
-    width: 50%;
+    width: 60%;
+  }
+  .about-icons-planning {
+    flex-direction: column;
+    height: 190px;
   }
 }
 

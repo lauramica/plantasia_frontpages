@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage";
+import AboutPageEs from "./pages/AboutPageEs";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./pages/ProductList";
 import EditUser from "./pages/EditUser";
@@ -26,8 +27,12 @@ function App() {
           element: <Home />,
         },
         {
-          path: "about-this-project",
+          path: "about-this-project/en",
           element: <AboutPage />,
+        },
+        {
+          path: "about-this-project/es",
+          element: <AboutPageEs />,
         },
         {
           path: "product/:id",

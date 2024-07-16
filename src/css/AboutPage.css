@@ -1,3 +1,33 @@
+.about-page{
+  position: relative;
+}
+
+.about-page .change-lenguage {
+  background-color: var(--terracotta);
+  width: 184px;
+  position: absolute;
+  right: 0;
+  top: 1rem;
+  padding: 5px 9px;
+}
+
+.about-page .change-lenguage .change-lenguage-link {
+  color: white;
+  font-family: "Proxima Nova Regular";
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.about-page .change-lenguage:hover {
+  background-color: white;
+}
+
+.about-page .change-lenguage .change-lenguage-link:hover {
+  color: var(--terracotta);
+  font-family: "Proxima Nova Bold";
+}
+
+
 .about-page .about-section-2 p,
 .about-page .about-section-3 p,
 .about-page .about-section-4 p,

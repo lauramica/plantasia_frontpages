@@ -306,15 +306,15 @@ function About() {
             <div className="front-end-description me-4">
               <h4>Estética de la aplicación</h4>
               <p>
-                El diseño del Front-End se inspiró en la página web 
-                {" "}
+                El diseño del Front-End se inspiró en la página web{" "}
                 <Link
                   to="https://plnts.com/en"
                   target="_blank"
                   className="proxima-nova-bold darkgreen text-decoration-none"
                 >
                   Plnts
-                </Link>, mientras que el nombre del proyecto es un homenaje al album{" "}
+                </Link>
+                , mientras que el nombre del proyecto es un homenaje al album{" "}
                 <Link
                   to="https://youtu.be/SZkR3PyHTs0"
                   target="_blank"
@@ -325,10 +325,13 @@ function About() {
                 de Mort Garson.
               </p>
               <p>
-                En nuestra aplicación optamos por una estética simple donde destaquen los productos, y textos simpáticos que capten la atención de los usuarios.
+                En nuestra aplicación optamos por una estética simple donde destaquen los productos,
+                y textos simpáticos que capten la atención de los usuarios.
               </p>
               <p>
-                Las imágenes y la información de los productos fue obtenida de la referida página web, y en armonía con ello definimos una paleta de colores, fuentes y los logos utilzamos.
+                Las imágenes y la información de los productos fue obtenida de la referida página
+                web, y en armonía con ello definimos una paleta de colores, fuentes y los logos
+                utilzamos.
               </p>
             </div>
             <img
@@ -371,54 +374,57 @@ function About() {
       <section className="about-section-5 mt-5">
         <div className="container p-sm-0 d-flex flex-column">
           <h4 className="about-section-5-title mb-3">Estructura del proyecto y Back-End</h4>
-          <div className="d-flex flex-column flex-md-row  justify-content-between">
+          <div className="d-flex flex-column flex-md-row justify-content-between">
             <div className="about-section-5-text">
               <p>
                 El proyecto se estructuró en tres aplicaciones independientes: el sitio web
-                “público”, el backoffice (al que únicamente acceden los administradores) y la API (REST) con la que se comunican las dos primeras.
+                “público”, el backoffice (al que únicamente acceden los administradores) y la API
+                (REST) con la que se comunican las dos primeras.
               </p>
               <p>
-                En relación al Back-End, si bien inicialmente definimos más entidades y relaciones (categorías y subcategorías), el tiempo disponible y la complejidad de su desarrollo nos obligó a simplicar la estructura.
+                En relación al Back-End, si bien inicialmente definimos más entidades y relaciones
+                (categorías y subcategorías), el tiempo disponible y la complejidad de su desarrollo
+                nos obligó a simplicar la estructura.
               </p>
+              <div className="about-models d-flex flex-wrap justify-content-between mt-5 order-md-3 mb-5 mb-md-0">
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/admin.png`}
+                    alt="Admin model"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/customer.png`}
+                    alt="Customer model"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/product.png`}
+                    alt="Product model"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/order.png`}
+                    alt="Order model"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/type.png`}
+                    alt="Plantasia Diagram 2"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+              </div>
             </div>
-            <div className="about-models d-flex flex-wrap justify-content-between mt-5">
-              <div className="about-model">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/admin.png`}
-                  alt="Admin model"
-                  className="object-fit-contain w-100"
-                />
-              </div>
-              <div className="about-model">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/customer.png`}
-                  alt="Customer model"
-                  className="object-fit-contain w-100"
-                />
-              </div>
-              <div className="about-model">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/product.png`}
-                  alt="Product model"
-                  className="object-fit-contain w-100"
-                />
-              </div>
-              <div className="about-model">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/order.png`}
-                  alt="Order model"
-                  className="object-fit-contain w-100"
-                />
-              </div>
-              <div className="about-model">
-                <img
-                  src={`${import.meta.env.VITE_IMAGES_URL}about/type.png`}
-                  alt="Plantasia Diagram 2"
-                  className="object-fit-contain w-100"
-                />
-              </div>
-            </div>
-            <div className="diagram-1 ms-md-5">
+            <div className="diagram-1 ms-md-5 mb-3 align-self-center align-self-md-start">
               <img
                 src={`${import.meta.env.VITE_IMAGES_URL}about/mer.png`}
                 alt="Plantasia Diagram 1"
@@ -430,15 +436,11 @@ function About() {
         </div>
       </section>
 
-      <section className="aboutus-team container">
+      <section className="aboutus-team container mt-5">
         <div className="container p-sm-0 d-flex flex-column align-items-center">
           <h1>
-            <b>Team</b>
+            <b>Equipo</b>
           </h1>
-          <p className="aboutus-team-subtitle">
-            Estos somos nosotros. Seis estudiantes de Hack Academy que trabajaron en conjunto para
-            llevar a cabo este proyecto de e-commerce
-          </p>
         </div>
         <div className="row gx-5 aboutus-team-memberscontainer ">
           <div className="col-lg-4 col-md-6 col-12 aboutus-team-member">
@@ -454,10 +456,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -478,10 +476,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -502,10 +496,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -526,10 +516,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -550,10 +536,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -574,10 +556,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -586,6 +564,7 @@ function About() {
             </button>
           </div>
         </div>
+        <p>Gracias por llegar hasta aquí!</p>
       </section>
     </>
   );

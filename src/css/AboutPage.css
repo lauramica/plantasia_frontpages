@@ -145,16 +145,17 @@
   font-size: 2.2rem;
 }
 
+.about-section-5-text {
+  width: 65%;
+}
+
 .diagram-1 {
   max-width: 350px;
 }
 
-.about-models {
-  width: 500px;
-}
-
 .about-model {
-  width: 150px;
+  min-width: 100px;
+  max-width: 130px;
 }
 
 .about-section-5-text p,
@@ -250,6 +251,14 @@
 
   .about-icons-planning {
     width: 100%;
+  }
+
+  .about-section-5-text {
+    width: 100%;
+  }
+
+  .diagram-1 {
+    max-width: 70%;
   }
 }
 

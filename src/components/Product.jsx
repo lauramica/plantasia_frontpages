@@ -3,13 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { increaseProduct, addProduct } from "../redux/cartSlice";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
-import axios from "axios";
 
 function Product({ product }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  const loggedCustomer = useSelector((state) => state.customer);
 
   const handleAddProduct = () => {
     const cartProduct = cart.find((p) => p.id === product.id);
@@ -25,17 +22,7 @@ function Product({ product }) {
     return toast.warning("There's not enough stock to add more");
   };
 
-  useEffect(() => {
-    const saveCart = async () => {
-      await axios({
-        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
-        method: "POST",
-        data: { cart: cart },
-        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
-      });
-    };
-    loggedCustomer.token && saveCart();
-  }, [cart]);
+
 
   return (
     <>

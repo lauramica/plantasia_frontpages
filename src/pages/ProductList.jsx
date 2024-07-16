@@ -3,50 +3,28 @@ import Product from "../components/Product";
 import { setProducts } from "../redux/productsSlice";
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 function ProductList() {
   const dispatch = useDispatch();
-  const params = useParams();
+  const { category } = useParams();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const products = useSelector((state) => state.products);
-  const [filterValue, setFilterValue] = useState(params.category);
-  /*   const [page, setPage] = useState(1);
-  const [pageLimit, setPageLimit] = useState(null); */
 
   useEffect(() => {
-    if (filterValue)
-      window.history.pushState({}, "", `/products${filterValue !== "0" ? `/${filterValue}` : ""}`);
     const getProducts = async () => {
-      const response = await axios({
+      const { data } = await axios({
         url: `${import.meta.env.VITE_API_URL}/products`,
         method: "GET",
-        params: { typeId: filterValue },
+        params: { typeId: category },
       });
-      dispatch(setProducts(response.data.products));
+      dispatch(setProducts(data.products));
     };
     getProducts();
-    // }, [page]);
-  }, [filterValue]);
-
-  //   useEffect(() => {
-  //     window.history.pushState({}, "", `/products/${filterValue}`);
-  //     if (filterValue === "0" || filterValue === null) {
-  //       setFilterValue(null);
-  //       window.history.pushState({}, "", "/products");
-  //     }
-  //     const getProductsPerType = async () => {
-  //       const response = await axios({
-  //         url: `${import.meta.env.VITE_API_URL}/types/${filterValue}`,
-  //         method: "GET",
-  //         // params: { page: page },
-  //       });
-  //       setProductsToShow(response.data.type.products);
-  //       // setPageLimit(response.data.totalPages);
-  //     };
-  //     filterValue ? getProductsPerType() : setProductsToShow(products);
-  //   }, [filterValue]);
+  }, [pathname]);
 
   return (
     products && (
@@ -60,9 +38,13 @@ function ProductList() {
               <select
                 name="categories"
                 id="categories"
-                defaultValue={params.category}
+                defaultValue={category}
                 className="select-filter me-2"
-                onChange={(e) => setFilterValue(e.target.value)}
+                onChange={(e) =>
+                  navigate(`/products${e.target.value !== "0" ? `/${e.target.value}` : ""}`, {
+                    replace: true,
+                  })
+                }
               >
                 <option value="0">All Categories</option>
                 <option value="1">Plants</option>
@@ -93,10 +75,6 @@ function ProductList() {
               </div>
             ))}
           </div>
-          {/*           <div className="d-flex justify-content-around">
-            <button onClick={() => setPage(page > 1 ? page - 1 : page)}>Previous</button>
-            <button onClick={() => setPage(page + 1)}>Next</button>
-          </div> */}
         </div>
       </>
     )

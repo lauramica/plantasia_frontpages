@@ -25,8 +25,6 @@
   width: 75%;
 }
 
-
-
 .duration {
   align-items: center;
   height: min-content;
@@ -78,12 +76,12 @@
   color: var(--darkgreen);
 }
 
-.about-icons-planning span,
-.about-icons-design span,
-.about-icons-technologies span,
-.about-icons-db-deployment span {
+.about-icons-planning-box p,
+.about-icons-design-box p,
+.about-icons-technologies .row .col-3 p,
+.about-icons-db-deployment-box p {
   font-family: "Proxima Nova Regular";
-  color: var(--darkgreen);
+  color: var(--lightgreen);
 }
 
 .about-icons-technologies {
@@ -93,22 +91,22 @@
   flex-direction: row;
   gap: 2rem;
 }
-  
-  .about-logo-box {
-    height: 50px;
-    width: 70px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-  }
 
-  .db-deployment {
+.about-logo-box {
+  height: 50px;
+  width: 70px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.db-deployment {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.about-icons-db-deployment{
+.about-icons-db-deployment {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -127,12 +125,10 @@
   font-size: 1.8rem;
 }
 
-.about-section-3 .container .planning p,
-.about-section-3 .container .design p,
-.about-section-3 .container .technologies p,
-.about-section-3 .container .db-deployment p 
-.about-section-3 .container .db-deployment p
-{
+.planning-description,
+.design-description,
+.technologies-description,
+.db-deployment-description {
   font-family: "Proxima Nova Regular";
   font-weight: normal;
   font-style: normal;
@@ -140,8 +136,8 @@
   font-size: 1rem;
 }
 
-.about-section-4 .container .back-end h4,
-.about-section-5 .container h4 {
+.about-section-5-title,
+.about-section-4 h4 {
   font-family: "Galadali Regular";
   font-weight: normal;
   font-style: normal;
@@ -149,8 +145,20 @@
   font-size: 2.2rem;
 }
 
-.about-section-4 .container .back-end p,
-.about-section-5 .container .front-end p {
+.diagram-1 {
+  max-width: 350px;
+}
+
+.about-models {
+  width: 500px;
+}
+
+.about-model {
+  width: 150px;
+}
+
+.about-section-5-text p,
+.front-end p {
   font-family: "Proxima Nova Regular";
   font-weight: normal;
   font-style: normal;
@@ -162,6 +170,7 @@
   display: flex;
   flex-direction: row;
 }
+
 .front-end img {
   width: 20%;
 }
@@ -238,7 +247,7 @@
   .about-planning-text {
     width: 100%;
   }
-  
+
   .about-icons-planning {
     width: 100%;
   }

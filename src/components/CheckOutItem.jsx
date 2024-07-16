@@ -38,7 +38,7 @@ function CheckOutItem({ product }) {
       <td>
         <div className="d-flex flex-wrap">
           <img
-            src={`${import.meta.env.VITE_IMAGES_URL}${product.type.name}/${product.image}`}
+            src={`${import.meta.env.VITE_IMAGES_URL}products/${product.image}`}
             className="img-fluid me-3 mb-3 mb-lg-0 product-img rounded-corner shadow"
             alt={product.name}
           />

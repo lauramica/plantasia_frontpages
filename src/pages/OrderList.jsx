@@ -55,10 +55,13 @@ function OrderList() {
   return (
     orders && (
       <div className="container p-sm-0">
-        <h1 className="galadali-bold mediumgreen my-3">Your Orders</h1>
-        <Link to={"/profile"} className="mediumgreen mb-3">
-          <i className="bi bi-arrow-left"></i> Back to profile
+        <Link
+          to={"/profile"}
+          className="text-decoration-none mediumgreen d-flex align-items-center mt-2"
+        >
+          <i className="bi bi-arrow-left me-2"></i>Back to profile
         </Link>
+        <h1 className="galadali-bold mediumgreen my-3">Your Orders</h1>
         {orders.map((order) => (
           <div className="order-card mb-3" key={order.id}>
             <div className="order-card-header p-3">
@@ -100,7 +103,7 @@ function OrderList() {
                   )}
                 </p>
               </div>
-              <Link to={`/order/${order.id}`} className="order-card-header-btn">
+              <Link to={`/order/${order.id}`} className="order-card-header-btn shadow">
                 Order details
               </Link>
             </div>

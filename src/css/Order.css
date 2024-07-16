@@ -1,95 +1,68 @@
 .order-container {
-  margin-bottom: 100px;
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Regular";
   color: var(--darkgreen);
-  padding: 0px;
-  padding-top: 20px;
-  padding-bottom: 72px;
   text-align: center;
-  margin-top: 20px;
-}
-.order-container p {
-  color: var(--mediumgreen);
 }
 
-.order_list {
-  margin-top: 20px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+table th,
+table td {
+  color: var(--mediumgreen) !important;
+  align-content: center;
+  white-space: nowrap;
 }
 
 thead th {
-  border-bottom: 2px solid #ccc;
-  padding: 10px;
-  text-align: left;
-  vertical-align: middle;
+  border-bottom: 1px solid var(--lightgreen);
 }
 
 tbody td {
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-  vertical-align: middle;
+  border-bottom: 1px solid var(--lightgreen);
 }
-
+.product_img_name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .product-img {
-  width: 70px;
+  width: 100px;
   height: auto;
-  vertical-align: middle;
-  margin-right: 20px;
-  margin-left: 0px;
-  display: inline;
 }
 .product_name {
-  display: inline;
-}
-.order_addresses,
-.order_total {
-  margin-top: 20px;
+  white-space: wrap;
+  padding-left: 0.2rem;
 }
 
-.order_addresses {
+.order-list {
+  display: flex;
+  flex-direction: row;
+}
+.order_address {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin: 0px;
-  padding: 0px;
-  padding-left: 50px;
+  padding: 0.5rem;
 }
-
-.totalprice {
-  margin: 0px;
-  padding: 0px;
-}
-.oreder_container_title {
-  font-family: "Galadali";
+.order_address p {
+  width: 75%;
+  align-self: center;
 }
 
 @media (max-width: 576px) {
-  .order_addresses {
-    padding: 0px;
-    margin-top: 20px;
+  .order-list {
+    display: flex;
+    flex-direction: column;
   }
-  .order-container {
-    padding: 10px;
-  }
-  .product-img {
-    display: block;
-  }
-  .product_name {
-    display: block;
-  }
-  .order_addresses {
-    padding: 10px;
+  .product_img_name {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: start;
   }
 }
 @media (min-width: 577px) and (max-width: 768px) {
-  .order_addresses {
-    padding: 0px;
-    margin-top: 20px;
+  .order-list {
+    display: flex;
+    flex-direction: column;
   }
+}
+@media (min-width: 768px) {
 }

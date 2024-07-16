@@ -22,12 +22,6 @@ h3 {
   padding: 30px;
 }
 
-.product-body-goback {
-  text-decoration: none;
-  color: var(--lightgreen);
-  font-family: "Proxima Nova Regular";
-}
-
 .product-body-goback:hover {
   color: #000;
   text-decoration: underline;

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import "../css/ProductPage.css";
@@ -13,6 +13,7 @@ function ProductPage() {
   const [products, setProducts] = useState(null);
   const [product, setProduct] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const params = useParams();
   const cart = useSelector((state) => state.cart);
   const loggedCustomer = useSelector((state) => state.customer);
@@ -54,7 +55,7 @@ function ProductPage() {
         url: `${import.meta.env.VITE_API_URL}/products/${params.id}`,
         method: "GET",
       });
-      setProduct(response.data.product);
+      response.data.product ? setProduct(response.data.product) : navigate("/error");
     };
     getProduct();
   }, [params.id]);
@@ -78,10 +79,13 @@ function ProductPage() {
     product && (
       <>
         <div className="container p-sm-0">
+          <Link
+            className="text-decoration-none mediumgreen proxima-nova-regular d-flex align-items-center my-2"
+            to="/products"
+          >
+            <i className="bi bi-arrow-left me-2"></i> Back to products
+          </Link>
           <section className="product-body mt-4 mt-lg-5">
-            <Link className="product-body-goback" to="/products">
-              <i className="bi bi-arrow-left"></i> Back to products
-            </Link>
             <div className="d-flex product-body-content">
               {/*               <div className="side-images d-flex flex-column justify-content-between me-3 d-none d-lg-block">
                 <div className="side-image-item">

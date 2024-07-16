@@ -19,7 +19,7 @@ function ErrorPage() {
           <div className="mt-auto w-50 h-25">
             <img
               src={`${import.meta.env.VITE_IMAGES_URL}Plantasia_green.svg`}
-              alt=""
+              alt="Logo de Plantasia"
               className="img-fluid"
             />
           </div>

@@ -42,7 +42,7 @@ function Main() {
           <Footer className="justify-content-end" />
         </div>
       </div>
-      <Analytics />
+      {/* <Analytics /> */}
     </>
   );
 }

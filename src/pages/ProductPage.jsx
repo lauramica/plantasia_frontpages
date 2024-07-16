@@ -78,14 +78,14 @@ function ProductPage() {
     products &&
     product && (
       <>
-        <div className="container p-sm-0">
+        <div className="container p-sm-0 mt-4 mt-lg-5">
           <Link
             className="text-decoration-none mediumgreen proxima-nova-regular d-flex align-items-center my-2"
             to="/products"
           >
             <i className="bi bi-arrow-left me-2"></i> Back to products
           </Link>
-          <section className="product-body mt-4 mt-lg-5">
+          <section className="product-body">
             <div className="d-flex product-body-content">
               {/*               <div className="side-images d-flex flex-column justify-content-between me-3 d-none d-lg-block">
                 <div className="side-image-item">

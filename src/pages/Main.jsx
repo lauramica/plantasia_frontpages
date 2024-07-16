@@ -17,7 +17,6 @@ function Main() {
 
   return (
     <>
-      {/* <Analytics /> */}
       <ScrollRestoration />
       <div className="main-container d-flex flex-column">
         <div>
@@ -43,6 +42,7 @@ function Main() {
           <Footer className="justify-content-end" />
         </div>
       </div>
+      <Analytics />
     </>
   );
 }

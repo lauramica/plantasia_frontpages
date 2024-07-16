@@ -37,9 +37,9 @@ function About() {
               13 semanas y una carga horaria total de +40 horas semanales.
             </p>
             <p className="d-md-none mt-3">
-            Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack Academy,
-            como nuestro proyecto final.
-          </p>
+              Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack
+              Academy, como nuestro proyecto final.
+            </p>
           </div>
           <div className="duration d-flex justify-content-between justify-content-md-end mt-md-4 mt-0 mb-4">
             <div className="duration-calendar me-2">
@@ -64,14 +64,14 @@ function About() {
           <div className="planning mb-2 d-flex flex-column flex-md-row justify-content-between align-items-md-end w-100">
             <div className="about-planning-text">
               <h4>Planificación</h4>
-              <p>
+              <p className="planning-description">
                 En la gestión del proyecto aplicamos la metodología Scrumban para dividir las tareas
                 en “sprints” semanales y ordenarlas en un tablero según su estado.
               </p>
               <p>Elegimos Miro, Trello y GitHub como herramientas digitales de planificación.</p>
             </div>
             <div className="about-icons-planning">
-              <div>
+              <div className="about-icons-planning-box">
                 <div className="about-logo-box">
                   <img
                     src={`${import.meta.env.VITE_IMAGES_URL}about/miro.png`}
@@ -81,7 +81,7 @@ function About() {
                 </div>
                 <p className="text-center m-0">Miro</p>
               </div>
-              <div>
+              <div className="about-icons-planning-box">
                 <div className="about-logo-box">
                   <img
                     src={`${import.meta.env.VITE_IMAGES_URL}about/trello.png`}
@@ -95,9 +95,9 @@ function About() {
           </div>
         </div>
         <div className="container p-sm-0 d-flex flex-column flex-md-row">
-        <div className="technologies ms-0 ms-md-1 d-flex flex-column justify-content-between order-md-2 mb-2 mb-md-0">
+          <div className="technologies ms-0 ms-md-1 d-flex flex-column justify-content-between order-md-2 mb-2 mb-md-0">
             <h4>Tecnologías</h4>
-            <p>
+            <p className="technologies-description">
               Desde el inicio del proyecto se utilizó Git y Github, lo que permitió respaldar
               nuestro trabajo y gestionar las versiones, facilitando así la colaboración simultánea.
             </p>
@@ -237,12 +237,12 @@ function About() {
           <div className="about-section-3-box me-1">
             <div className="design d-flex flex-column justify-content-between mb-2">
               <h4>Diseño</h4>
-              <p>
+              <p className="technologies-description">
                 El diseño del Front-End y del Back-End fue realizado de forma simultánea y
                 colaborativa mediante Drawio y Figma.
               </p>
               <div className="about-icons-design">
-                <div>
+                <div className="about-icons-design-box">
                   <div className="about-logo-box">
                     <img
                       src={`${import.meta.env.VITE_IMAGES_URL}about/drawio.png`}
@@ -252,7 +252,7 @@ function About() {
                   </div>
                   <p className="text-center m-0">Drawio</p>
                 </div>
-                <div>
+                <div className="about-icons-design-box">
                   <div>
                     <div className="about-logo-box">
                       <img
@@ -268,13 +268,13 @@ function About() {
             </div>
             <div className="db-deployment d-flex flex-column justify-content-between">
               <h4>Almacenamiento y Deployment</h4>
-              <p>
+              <p className="technologies-description">
                 Nuestra base de datos está almacenada en Supabase y las aplicaciones están
                 deployadas en Vercel.
               </p>
 
               <div className="about-icons-db-deployment">
-                <div>
+                <div className="about-icons-db-deployment-box">
                   <div className="about-logo-box">
                     <img
                       src={`${import.meta.env.VITE_IMAGES_URL}about/supabase.png`}
@@ -284,7 +284,7 @@ function About() {
                   </div>
                   <p className="text-center m-0">Supabase</p>
                 </div>
-                <div>
+                <div className="about-icons-db-deployment-box">
                   <div className="about-logo-box">
                     <img
                       src={`${import.meta.env.VITE_IMAGES_URL}about/vercel.png`}
@@ -297,41 +297,28 @@ function About() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
       <section className="about-section-4 mt-5">
-        <div className="container p-sm-0 d-flex">
-          <div className="back-end">
-            <h4>Estructura del proyecto y Back-End</h4>
-            <p>
-              El proyecto se estructuró en tres aplicaciones independientes: el sitio web “público”, el backoffice (al que únicamente acceden los administradores) y
-              la API (REST) con la que se comunican las dos primeras. En relación al Back-End, si bien inicialmente definimos más entidades y relaciones (categorías y subcategorías), el tiempo disponible y la complejidad de su desarrollo nos obligó a simplicar la estructura.
-            </p>
-          </div>
-          <div className="mer-diagram me-3">
-            <img
-              src={`${import.meta.env.VITE_IMAGES_URL}about/plantasiaMer.drawio.png`}
-              alt="Plantasia Mer"
-              className="object-fit-contain w-100"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="about-section-5 mt5">
         <div className="container p-sm-0">
           <div className="front-end">
-            <div className="front-end-description">
+            <div className="front-end-description me-4">
               <h4>Estética de la aplicación</h4>
               <p>
-                El diseño del Front-End se inspiró en una página web existente del mismo rubro. Por
-                su parte, el nombre se inspiró en el album{" "}
+                El diseño del Front-End se inspiró en la página web{" "}
+                <Link
+                  to="https://plnts.com/en"
+                  target="_blank"
+                  className="proxima-nova-bold darkgreen text-decoration-none"
+                >
+                  Plnts
+                </Link>
+                , mientras que el nombre del proyecto es un homenaje al album{" "}
                 <Link
                   to="https://youtu.be/SZkR3PyHTs0"
                   target="_blank"
-                  className="proxima-nova-bold darkgreen"
+                  className="proxima-nova-bold darkgreen text-decoration-none"
                 >
                   Mother Earth's Plantasia
                 </Link>{" "}
@@ -384,15 +371,76 @@ function About() {
         </div>
       </section>
 
-      <section className="aboutus-team container">
+      <section className="about-section-5 mt-5">
+        <div className="container p-sm-0 d-flex flex-column">
+          <h4 className="about-section-5-title mb-3">Estructura del proyecto y Back-End</h4>
+          <div className="d-flex flex-column flex-md-row justify-content-between">
+            <div className="about-section-5-text">
+              <p>
+                El proyecto se estructuró en tres aplicaciones independientes: el sitio web
+                “público”, el backoffice (al que únicamente acceden los administradores) y la API
+                (REST) con la que se comunican las dos primeras.
+              </p>
+              <p>
+                En relación al Back-End, si bien inicialmente definimos más entidades y relaciones
+                (categorías y subcategorías), el tiempo disponible y la complejidad de su desarrollo
+                nos obligó a simplicar la estructura.
+              </p>
+              <div className="about-models d-flex flex-wrap justify-content-between mt-5 order-md-3 mb-5 mb-md-0">
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/admin.png`}
+                    alt="Admin model"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/customer.png`}
+                    alt="Customer model"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/product.png`}
+                    alt="Product model"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/order.png`}
+                    alt="Order model"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+                <div className="about-model mb-3">
+                  <img
+                    src={`${import.meta.env.VITE_IMAGES_URL}about/type.png`}
+                    alt="Plantasia Diagram 2"
+                    className="object-fit-contain w-100"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="diagram-1 ms-md-5 mb-3 align-self-center align-self-md-start">
+              <img
+                src={`${import.meta.env.VITE_IMAGES_URL}about/mer.png`}
+                alt="Plantasia Diagram 1"
+                className="object-fit-contain w-100"
+              />
+            </div>
+          </div>
+          <div className="about-diagrams"></div>
+        </div>
+      </section>
+
+      <section className="aboutus-team container mt-5">
         <div className="container p-sm-0 d-flex flex-column align-items-center">
           <h1>
-            <b>Team</b>
+            <b>Equipo</b>
           </h1>
-          <p className="aboutus-team-subtitle">
-            Estos somos nosotros. Seis estudiantes de Hack Academy que trabajaron en conjunto para
-            llevar a cabo este proyecto de e-commerce
-          </p>
         </div>
         <div className="row gx-5 aboutus-team-memberscontainer ">
           <div className="col-lg-4 col-md-6 col-12 aboutus-team-member">
@@ -408,10 +456,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -432,10 +476,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -456,10 +496,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -480,10 +516,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -504,10 +536,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -528,10 +556,6 @@ function About() {
             <h5>
               <b>Junior Full Stack Developer</b>
             </h5>
-            <p>
-              Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris
-              sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.
-            </p>
             <button className="aboutus-team-button">
               <i className="bi bi-github"></i>
             </button>
@@ -540,6 +564,7 @@ function About() {
             </button>
           </div>
         </div>
+        <p>Gracias por llegar hasta aquí!</p>
       </section>
     </>
   );

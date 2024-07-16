@@ -29,7 +29,7 @@ function OrderPage() {
         <div className="container p-sm-0 order-container">
           <Link
             to={"/orders"}
-            className="text-decoration-none mediumgreen d-flex justify-content-left align-items-center"
+            className="text-decoration-none mediumgreen d-flex justify-content-left align-items-center mt-2"
           >
             <i className="bi bi-arrow-left me-2"></i>
             Back to orders

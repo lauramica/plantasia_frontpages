@@ -61,7 +61,7 @@ function Footer() {
           </li>
         </ul>
         <ul className="footer__links-wrapper">
-          <li className="footer__links-wrapper-title">About PLNTS</li>
+          <li className="footer__links-wrapper-title">About Plantasia</li>
           <li className="footer__links-wrapper-item">
             <Link className="footer__links-wrapper-item-link" onClick={handleUnderDevelopment}>
               Giftcards

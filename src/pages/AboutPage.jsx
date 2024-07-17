@@ -1,5 +1,6 @@
-import "../css/AboutPage.css";
 import { Link } from "react-router-dom";
+
+import "../css/AboutPage.css";
 
 function About() {
   return (

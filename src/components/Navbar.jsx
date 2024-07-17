@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
 import "../css/Navbar.css";
 import Cart from "./Cart";
-import { useSelector } from "react-redux";
 
 function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
   const [show, setShow] = useState(false);
+
   const cart = useSelector((state) => state.cart);
   const loggedCustomer = useSelector((state) => state.customer);
 

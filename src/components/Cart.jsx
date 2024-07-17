@@ -7,19 +7,12 @@ import "../css/Cart.css";
 import CartItem from "./CartItem";
 
 function Cart({ show, handleClose }) {
-  const cart = useSelector((state) => state.cart);
-  const customer = useSelector((state) => state.customer);
-
   const navigate = useNavigate();
+
+  const cart = useSelector((state) => state.cart);
 
   const handleCheckOut = () => {
     handleClose();
-    if (customer.token) {
-      if (cart.length < 1) {
-        return navigate("/products");
-      }
-      return navigate("/cart");
-    }
     return navigate("/login");
   };
 

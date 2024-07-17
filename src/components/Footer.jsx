@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+
 import "../css/Footer.css";
 
 function Footer() {
@@ -17,7 +18,6 @@ function Footer() {
             alt="Plantasia logo"
           />
         </figure>
-
         <ul className="footer__links-wrapper">
           <li className="footer__links-wrapper-title">Shop</li>
           <li className="footer__links-wrapper-item">
@@ -41,7 +41,6 @@ function Footer() {
             </Link>
           </li>
         </ul>
-
         <ul className="footer__links-wrapper">
           <li className="footer__links-wrapper-title">Customer service</li>
           <li className="footer__links-wrapper-item">
@@ -60,7 +59,6 @@ function Footer() {
             </Link>
           </li>
         </ul>
-
         <ul className="footer__links-wrapper">
           <li className="footer__links-wrapper-title">About PLNTS</li>
           <li className="footer__links-wrapper-item">

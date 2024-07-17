@@ -13,6 +13,7 @@ function CheckOutItem({ product }) {
     if (product.stock >= product.quantity + 1) {
       dispatch(increaseProduct({ productId: product.id, productQty: 1 }));
     }
+    return toast.warning("There's not enough stock to add more");
   };
 
   const handleDecrement = () => {

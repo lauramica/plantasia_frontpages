@@ -16,6 +16,11 @@ img {
   border-radius: 2px;
 }
 
+::selection {
+  color: white;
+  background: var(--capuccino);
+}
+
 .lightgreen {
   color: var(--lightgreen);
 }

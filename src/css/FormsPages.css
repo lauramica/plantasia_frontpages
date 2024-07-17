@@ -61,7 +61,7 @@
 }
 
 @media (max-width: 400px) {
-  .window-box {
+  body {
     height: 100dvh;
   }
 }

@@ -589,7 +589,9 @@ function About() {
             </div>
           </div>
         </div>
-        <p className="text-center galadali-bold lightgreen fs-3 mt-3">Thank you for your time!</p>
+        <p className="text-center galadali-bold lightgreen fs-3 mt-5 mb-5">
+          Thank you for your time!
+        </p>
       </section>
     </div>
   );

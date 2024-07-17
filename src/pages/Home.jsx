@@ -55,6 +55,7 @@ function Home() {
             </Link>
           </div>
         </section>
+
         <section className="home-section-2">
           <div className="container cards-container p-sm-0">
             <Link

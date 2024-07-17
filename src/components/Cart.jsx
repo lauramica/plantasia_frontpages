@@ -24,7 +24,7 @@ function Cart({ show, handleClose }) {
       className="right-slide-modal"
     >
       <div className="modal-content">
-        <div className="cart-title pb-0">
+        <div className="cart-title ps-3 pb-0 pt-2">
           <button
             type="button"
             className="btn-close cart-closebutton"
@@ -51,8 +51,8 @@ function Cart({ show, handleClose }) {
                   <CartItem product={product} />
                 </div>
               ))}
-              <div className="mx-3 w-100">
-                <button className="cart-button my-2" onClick={handleCheckOut}>
+              <div className="w-100">
+                <button className="cart-button" onClick={handleCheckOut}>
                   Go to checkout
                 </button>
               </div>

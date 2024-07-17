@@ -1,4 +1,4 @@
-.about-page{
+.about-page {
   position: relative;
 }
 
@@ -26,7 +26,6 @@
   color: var(--terracotta);
   font-family: "Proxima Nova Bold";
 }
-
 
 .about-page .about-section-2 p,
 .about-page .about-section-3 p,
@@ -279,6 +278,10 @@
 .about-team-card-icons i {
   color: var(--almond);
   font-size: 1.5rem;
+}
+.about-team-card-icons .bi-linkedin:hover,
+.about-team-card-icons .bi-github:hover {
+  color: var(--terracotta);
 }
 
 @media (max-width: 576px) {

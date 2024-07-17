@@ -67,7 +67,7 @@ function Login() {
             style={{
               background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${
                 import.meta.env.VITE_IMAGES_URL
-              }/home/home_banner.png)`,
+              }home/home_banner.png)`,
             }}
             className="desktop-form-container"
           >

@@ -13,10 +13,12 @@ import { logoutCustomer } from "../redux/customerSlice";
 
 function Main() {
   const dispatch = useDispatch();
-  const [navBarCollapse, setNavBarCollapse] = useState(false);
-  const [customerValidated, setCustomerValidated] = useState(false);
+
   const cart = useSelector((state) => state.cart);
   const loggedCustomer = useSelector((state) => state.customer);
+
+  const [navBarCollapse, setNavBarCollapse] = useState(false);
+  const [customerValidated, setCustomerValidated] = useState(false);
 
   const handleNavbarCollapse = () => {
     navBarCollapse ? setNavBarCollapse(false) : setNavBarCollapse(true);
@@ -25,12 +27,18 @@ function Main() {
   useEffect(() => {
     if (loggedCustomer.token) {
       const customerValidation = async () => {
-        const response = await axios({
-          url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
-          method: "GET",
-          headers: { Authorization: `Bearer ${loggedCustomer.token}` },
-        });
-        if (!response.data.customer) {
+        try {
+          const response = await axios({
+            url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+            method: "GET",
+            headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+          });
+          if (!response.data.customer) {
+            dispatch(logoutCustomer());
+            dispatch(clearCart());
+          }
+        } catch (err) {
+          console.log(err);
           dispatch(logoutCustomer());
           dispatch(clearCart());
         }

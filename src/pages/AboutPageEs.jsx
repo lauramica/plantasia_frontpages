@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-
 import "../css/AboutPage.css";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
@@ -14,15 +13,15 @@ function About() {
         }}
       >
         <span className="change-lenguage align-self-start">
-          <Link to={"/about-this-project/es"} className="text-decoration-none change-lenguage-link">
-            Change to Spanish <i className="bi bi-arrow-right"></i>
+          <Link to={"/about-this-project/en"} className="text-decoration-none change-lenguage-link">
+            Change to English <i className="bi bi-arrow-right"></i>
           </Link>
         </span>
         <div className="container about-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
-          <h1 className="galadali-regular p-0">About This Project</h1>
+          <h1 className="galadali-regular p-0">Sobre este proyecto...</h1>
           <p className="d-none d-md-block">
-            This website was built as the final project of Hack Academy’s Web Development Bootcamp.
-            The objective was to apply the tools and knowledge that were acquired throughout it.
+            Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack Academy,
+            como nuestro proyecto final.
           </p>
         </div>
       </section>
@@ -31,20 +30,20 @@ function About() {
         <div className="container p-sm-0 d-flex flex-column flex-md-row">
           <div className="about-introduction proxima-nova-regular darkgreen mb-4 mt-4">
             <p className="me-md-2 mb-0">
-              The{" "}
+              El{" "}
               <Link
                 to="https://ha.dev/cursos/bootcamp-desarrollo-web"
                 target="_blank"
                 className="proxima-nova-bold lightgreen text-decoration-none"
               >
-                Bootcamp
+                bootcamp
               </Link>{" "}
-              is a full time, practical, intensive course. For 13 weeks, students submerge on 40+
-              hour weeks of web developing.
+              fue un curso intensivo, práctico y de dedicación full time, con una duración total de
+              13 semanas y una carga horaria total de +40 horas semanales.
             </p>
             <p className="d-md-none mt-3">
-              This website was built as the final project of Hack Academy’s Web Development
-              Bootcamp.
+              Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack
+              Academy, como nuestro proyecto final.
             </p>
           </div>
           <div className="duration d-flex justify-content-between justify-content-md-end mt-md-4 mt-0 mb-4">
@@ -56,10 +55,9 @@ function About() {
               />
             </div>
             <div className="duration-text">
-              <h5 className="galadali-regular mediumgreen fs-4">Duration of the poject</h5>
+              <h5 className="galadali-regular mediumgreen fs-4">Duración</h5>
               <span className="proxima-nova-regular darkgreen">
-                This project was developed throughout the last 3 weeks of the Bootcamp, during the
-                months of June and July.
+                El proyecto se desarrolló en 3 semanas, entre junio y julio de 2024.
               </span>
             </div>
           </div>
@@ -70,12 +68,12 @@ function About() {
         <div className="container p-sm-0 d-flex">
           <div className="planning mb-2 d-flex flex-column flex-md-row justify-content-between align-items-md-end w-100">
             <div className="about-planning-text">
-              <h4>Planning</h4>
+              <h4>Planificación</h4>
               <p className="planning-description">
-                To manage this project, we applied the Scrumban methodology. We divided tasks into
-                weekly sprints, which we separated into tables according to their state.
+                En la gestión del proyecto aplicamos la metodología Scrumban para dividir las tareas
+                en “sprints” semanales y ordenarlas en un tablero según su estado.
               </p>
-              <p>We used Miro, Trello and GitHub as our digital planning tools.</p>
+              <p>Elegimos Miro, Trello y GitHub como herramientas digitales de planificación.</p>
             </div>
             <div className="about-icons-planning">
               <div className="about-icons-planning-box">
@@ -103,19 +101,18 @@ function About() {
         </div>
         <div className="container p-sm-0 d-flex flex-column flex-md-row">
           <div className="technologies ms-0 ms-md-1 d-flex flex-column justify-content-between order-md-2 mb-2 mb-md-0">
-            <h4>Technologies</h4>
+            <h4>Tecnologías</h4>
             <p className="mb-2">
-              From the very beginning, we worked with Git and GitHub. This allowed us to back up our
-              work and manage the different versions of the project. Thanks to this, the team was
-              able to collaborate remotely, and work on the project simultaneously.
+              Durante el proyecto, respaldamos nuestro trabajo y gestionamos las versiones con Git y
+              Github, lo que permitió respaldar, facilitando así la colaboración simultánea.
             </p>
             <p className="mb-2">
-              For the Front-End of this website, we developed an application with React + Vite and
-              Redux. We also chose React Bootstrap as our preferred library.
+              Para el Front-End del sitio desarrollamos una aplicación en React con Vite y Redux.
+              También aplicamos Bootstrap como librería de preferencia.
             </p>
             <p>
-              For the Back-End of this project, we built a REST API with Node.js, Express and mySQL.
-              We chose Insomnia to test the correct functioning of the routes.
+              Respecto al Back-End, construimos una REST API mediante Node.js, Express y mySQL.
+              Elegimos Insomnia para testear el funcionamiento de las rutas.
             </p>
             <div className="container about-icons-technologies">
               <div className="row">
@@ -245,10 +242,10 @@ function About() {
           <div className="about-section-3-box me-1">
             <div className="design d-flex flex-column justify-content-between mb-2">
               <div>
-                <h4>Design</h4>
+                <h4>Diseño</h4>
                 <p className="technologies-description">
-                  Both the Front-End and Back-end design were created simultaneously, and
-                  collaboratively with Drawio and Figma.
+                  El diseño del Front-End y del Back-End fue construido de forma simultánea y
+                  colaborativa mediante Drawio y Figma.
                 </p>
               </div>
               <div className="about-icons-design mb-2 d-flex">
@@ -277,9 +274,10 @@ function About() {
               </div>
             </div>
             <div className="db-deployment d-flex flex-column justify-content-between">
-              <h4>Data Storage and Deployment</h4>
+              <h4>Almacenamiento y Deployment</h4>
               <p className="technologies-description">
-                Our data is stored using Supabase, and the applications are deployed with Vercel.
+                Nuestra base de datos está almacenada en Supabase y las aplicaciones están
+                deployadas y accesibles a través de Vercel.
               </p>
 
               <div className="about-icons-db-deployment">
@@ -311,11 +309,11 @@ function About() {
 
       <section className="about-section-4 mt-5">
         <div className="container p-sm-0">
-          <h4 className="mb-3">Application Aesthetics</h4>
+          <h4 className="mb-3">Estética de la aplicación</h4>
           <div className="front-end d-flex">
             <div className="front-end-description me-md-4">
               <p>
-                Our Front-End design was inspired by an existing website{" "}
+                El diseño del Front-End se inspiró en la página web{" "}
                 <Link
                   to="https://plnts.com/en"
                   target="_blank"
@@ -323,7 +321,7 @@ function About() {
                 >
                   Plnts
                 </Link>
-                .The name Plantasia was inspired by Mort Garson’s album{" "}
+                , mientras que el nombre del proyecto es un homenaje al album{" "}
                 <Link
                   to="https://youtu.be/SZkR3PyHTs0"
                   target="_blank"
@@ -331,14 +329,13 @@ function About() {
                 >
                   Mother Earth's Plantasia
                 </Link>{" "}
+                de Mort Garson.
               </p>
               <p>
-                We chose clean and simple lines for the application, which allows for the product
-                stand out. Our titles and texts are written in a friendly, personal way, to
-                captivate our customers. The photos and product information were obtained from our
-                reference website. We chose a colour palette that will harmonize with it, and also
-                translates the warmth that plants bring to homes. We also created our personalized
-                logo.
+                Optamos por una estética simple donde destaquen los productos, y textos simpáticos
+                que capten la atención de los usuarios. Las imágenes y la información de los
+                productos fueron obtenidas de la referida página web, y en armonía con ello,
+                definimos una paleta de colores, fuentes y creamos los logos.
               </p>
             </div>
             <div className="plantasia-album d-none d-md-block">
@@ -360,7 +357,7 @@ function About() {
                 />
               </div>
               <div className="frontend-secondary-logos">
-                <h5>Alternative Logos</h5>
+                <h5>Logotipos alternativos</h5>
                 <img
                   src={`${import.meta.env.VITE_IMAGES_URL}about/logos_about.svg`}
                   alt="logos_plantasia"
@@ -372,7 +369,7 @@ function About() {
           <div>
             <div className="about-colors-fonts d-flex flex-column flex-md-row justify-content-evenly align-items-center align-items-md-start mb-5">
               <div className="frontend-colors-palette  mb-5 mb-md-0">
-                <h5>Colour Palette</h5>
+                <h5>Paleta de colores</h5>
                 <img
                   src={`${import.meta.env.VITE_IMAGES_URL}about/colores.svg`}
                   alt="paleta_colores_plantasia"
@@ -380,7 +377,7 @@ function About() {
                 />
               </div>
               <div className="frontend-fonts">
-                <h5>Fonts</h5>
+                <h5>Fuentes en uso</h5>
                 <img
                   src={`${import.meta.env.VITE_IMAGES_URL}about/fuentes.svg`}
                   alt="fonts_plantasia"
@@ -396,19 +393,18 @@ function About() {
 
       <section className="about-section-5 mt-5">
         <div className="container p-sm-0 d-flex flex-column">
-          <h4 className="about-section-5-title mb-3">Project structure and Back-End</h4>
+          <h4 className="about-section-5-title mb-3">Estructura del proyecto y Back-End</h4>
           <div className="d-flex flex-column flex-md-row justify-content-between">
             <div className="about-section-5-text">
               <p>
-                There are three different applications which compose our project: the public view of
-                the website, the back office or control panels (for admins only), and the API
-                (REST). The latter enables the communication amongst the public view and back
-                office.
+                El proyecto se estructuró en tres aplicaciones independientes: el sitio web
+                “público”, el backoffice (al que únicamente acceden los administradores) y la API
+                (REST) con la que se comunican las dos primeras.
               </p>
               <p>
-                The Back-End started more complex than how it actually ended. We decided to reduce
-                the amount of entities and relations (and categories and subcategories) due to the
-                time available to complete the project.
+                En relación al Back-End, si bien inicialmente definimos más entidades y relaciones
+                (categorías y subcategorías), el tiempo disponible y la complejidad de su desarrollo
+                nos obligó a simplicar la estructura.
               </p>
               <div className="about-models d-flex flex-wrap justify-content-between mt-5 order-md-3 mb-5 mb-md-0">
                 <div className="about-model mb-3">
@@ -461,7 +457,7 @@ function About() {
       </section>
 
       <section className="container about-team-container p-sm-0 border-top">
-        <h4 className="text-center my-3">The team</h4>
+        <h4 className="text-center my-3">Equipo</h4>
         <div className="about-team">
           <div className="about-team-card mb-sm-4">
             <img
@@ -597,7 +593,9 @@ function About() {
           </div>
         </div>
 
-        <p className="text-center galadali-bold lightgreen fs-3 mt-3">Thank you for your time!</p>
+        <p className="text-center galadali-bold lightgreen fs-3 mt-3">
+          ¡Gracias por llegar hasta aquí!
+        </p>
       </section>
     </div>
   );

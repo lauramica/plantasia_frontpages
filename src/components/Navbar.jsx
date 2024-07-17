@@ -25,7 +25,7 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
         sticky="top"
         className="navbar-plantasia"
       >
-        <Container className="p-sm-0">
+        <Container className="p-sm-0 d-flex">
           <Navbar.Brand as={Link} to="/" className="text-warning">
             <img
               src={`${import.meta.env.VITE_IMAGES_URL}Plantasia_green.svg`}
@@ -33,25 +33,7 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
               className="navbar-logo"
             />
           </Navbar.Brand>
-          <Navbar.Toggle
-            aria-controls="navbarNav"
-            className="navbar-hamburger"
-            onClick={handleNavbarCollapse}
-          />
-          <Navbar.Collapse id="navbarNav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/products">
-                Products
-              </Nav.Link>
-              <Nav.Link as={Link} to="/about-this-project">
-                About this project
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-          <div className="d-flex align-items-center ms-auto">
+          <div className="d-flex align-items-center ms-auto icons-div">
             {loggedCustomer.token ? (
               <Nav.Link
                 as={Link}
@@ -85,6 +67,24 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
               </i>
             </Nav.Link>
           </div>
+          <Navbar.Toggle
+            aria-controls="navbarNav"
+            className="navbar-hamburger"
+            onClick={handleNavbarCollapse}
+          />
+          <Navbar.Collapse id="navbarNav">
+            <Nav className="">
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/products">
+                Products
+              </Nav.Link>
+              <Nav.Link as={Link} to="/about-this-project/en">
+                About this project
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
       <Cart show={show} handleClose={handleClose} />

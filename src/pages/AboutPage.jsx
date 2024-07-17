@@ -55,7 +55,7 @@ function About() {
               />
             </div>
             <div className="duration-text">
-              <h5 className="galadali-regular mediumgreen fs-4">Duration of the poject</h5>
+              <h5 className="galadali-regular mediumgreen fs-4">Duration of the project</h5>
               <span className="proxima-nova-regular darkgreen">
                 This project was developed throughout the last 3 weeks of the Bootcamp, during the
                 months of June and July.

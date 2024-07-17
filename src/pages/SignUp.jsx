@@ -52,7 +52,7 @@ function SignUp() {
             style={{
               background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${
                 import.meta.env.VITE_IMAGES_URL
-              }/home/home_banner.png)`,
+              }home/home_banner.png)`,
             }}
           >
             <h2 className="title-welcome proxima-nova-regular">Become a plant lover</h2>

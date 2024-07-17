@@ -15,7 +15,7 @@ function About() {
       >
         <span className="change-lenguage align-self-start">
           <Link to={"/about-this-project/es"} className="text-decoration-none change-lenguage-link">
-            Change to Spanish <i className="bi bi-arrow-right"></i>
+            Switch to Spanish <i className="bi bi-arrow-right"></i>
           </Link>
         </span>
         <div className="container about-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">

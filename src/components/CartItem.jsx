@@ -1,4 +1,3 @@
-import React from "react";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 
@@ -11,7 +10,7 @@ function CartItem({ product }) {
   const { id, image, name, price, stock, quantity } = product;
 
   const handleIncrement = () => {
-    if (stock >= quantity + 1) {
+    if (quantity < stock) {
       dispatch(increaseProduct({ productId: id, productQty: 1 }));
       return;
     }

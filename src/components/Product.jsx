@@ -6,19 +6,23 @@ import { increaseProduct, addProduct } from "../redux/cartSlice";
 
 function Product({ product }) {
   const dispatch = useDispatch();
+
   const { id, name, price, image } = product;
+
   const cart = useSelector((state) => state.cart);
 
   const handleAddProduct = () => {
     const cartProduct = cart.find((p) => p.id === id);
     if (cartProduct) {
-      if (cartProduct.stock >= cartProduct.quantity + 1) {
+      if (cartProduct.quantity < product.stock) {
         dispatch(increaseProduct({ productId: id, productQty: 1 }));
         return toast.success("Product Added to the Cart!");
       }
     } else {
-      dispatch(addProduct({ ...product, quantity: 1 }));
-      return toast.success("Product Added to the Cart!");
+      if (product.stock > 0) {
+        dispatch(addProduct({ ...product, quantity: 1 }));
+        return toast.success("Product Added to the Cart!");
+      }
     }
     return toast.warning("There's not enough stock to add more");
   };

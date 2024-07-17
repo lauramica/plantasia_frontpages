@@ -1,5 +1,6 @@
-import "../css/AboutPage.css";
 import { Link } from "react-router-dom";
+
+import "../css/AboutPage.css";
 
 function About() {
   return (
@@ -25,7 +26,6 @@ function About() {
           </p>
         </div>
       </section>
-
       <section className="about-section-2 mt-3">
         <div className="container p-sm-0 d-flex flex-column flex-md-row">
           <div className="about-introduction proxima-nova-regular darkgreen mb-4 mt-4">
@@ -63,7 +63,6 @@ function About() {
           </div>
         </div>
       </section>
-
       <section className="about-section-3 h-100 mt-2">
         <div className="container p-sm-0 d-flex">
           <div className="planning mb-2 d-flex flex-column flex-md-row justify-content-between align-items-md-end w-100">
@@ -279,7 +278,6 @@ function About() {
                 Nuestra base de datos está almacenada en Supabase y las aplicaciones están
                 deployadas y accesibles a través de Vercel.
               </p>
-
               <div className="about-icons-db-deployment">
                 <div className="about-icons-db-deployment-box">
                   <div className="about-logo-box">
@@ -306,7 +304,6 @@ function About() {
           </div>
         </div>
       </section>
-
       <section className="about-section-4 mt-5">
         <div className="container p-sm-0">
           <h4 className="mb-3">Estética de la aplicación</h4>
@@ -386,11 +383,9 @@ function About() {
               </div>
             </div>
           </div>
-
           <div className="mer-diagram me-3"></div>
         </div>
       </section>
-
       <section className="about-section-5 mt-5">
         <div className="container p-sm-0 d-flex flex-column">
           <h4 className="about-section-5-title mb-3">Estructura del proyecto y Back-End</h4>
@@ -455,7 +450,6 @@ function About() {
           <div className="about-diagrams"></div>
         </div>
       </section>
-
       <section className="container about-team-container p-sm-0 border-top">
         <h4 className="text-center my-3">Equipo</h4>
         <div className="about-team">
@@ -592,7 +586,6 @@ function About() {
             </div>
           </div>
         </div>
-
         <p className="text-center galadali-bold lightgreen fs-3 mt-3">
           ¡Gracias por llegar hasta aquí!
         </p>

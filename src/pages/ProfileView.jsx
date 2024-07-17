@@ -1,15 +1,16 @@
-import { useEffect } from "react";
-import "../css/ProfileView.css";
 import { logoutCustomer } from "../redux/customerSlice";
-import { clearOrders } from "../redux/orderSlice";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
+import { clearOrders } from "../redux/orderSlice";
+import { useEffect } from "react";
+
+import "../css/ProfileView.css";
 import { clearCart } from "../redux/cartSlice";
 
 function ProfileView() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const loggedCustomer = useSelector((state) => state.customer);
 
   const handleSession = () => {
@@ -24,6 +25,8 @@ function ProfileView() {
       return navigate("/login");
     }, []);
   } else {
+    const { firstname, lastname, address, phone } = loggedCustomer;
+
     return (
       loggedCustomer && (
         <div className="container mt-3 p-sm-0">
@@ -34,13 +37,13 @@ function ProfileView() {
                 <label className="label-info-user" htmlFor="firstName">
                   First Name
                 </label>
-                <span className="info-user">{loggedCustomer.firstname}</span>
+                <span className="info-user">{firstname || "First Name"}</span>
               </div>
               <div className="input-group d-flex flex-column w-md-50 ms-md-1 mb-2">
                 <label className="label-info-user" htmlFor="lastName">
                   Last Name
                 </label>
-                <span className="info-user">{loggedCustomer.lastname}</span>
+                <span className="info-user">{lastname || "Last Name"}</span>
               </div>
             </div>
             <div className="d-flex flex-column flex-md-row">
@@ -48,43 +51,39 @@ function ProfileView() {
                 <label className="label-info-user" htmlFor="address">
                   Address
                 </label>
-                <span className="info-user">{loggedCustomer.address?.address ?? "Adress"}</span>
+                <span className="info-user">{address?.address ?? "Adress"}</span>
               </div>
               <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2">
                 <label className="label-info-user" htmlFor="city">
                   City
                 </label>
-                <span className="info-user">{loggedCustomer.address?.city ?? "City"}</span>
+                <span className="info-user">{address?.city ?? "City"}</span>
               </div>
-              <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2">
-                <label className="label-info-user" htmlFor="city">
-                  Country
-                </label>
-                <span className="info-user">{loggedCustomer.address?.country ?? "Country"}</span>
-              </div>
-            </div>
-            <div className="d-flex flex-column flex-md-row">
-              <div className="input-group d-flex flex-column justify-content-between w-md-50 me-md-1 mb-2 state-province">
+              <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 mb-2 state-province">
                 <label className="label-info-user" htmlFor="state">
                   State / Province
                 </label>
-                <span className="info-user">
-                  {loggedCustomer.address?.state ?? "State/Province"}
-                </span>
+                <span className="info-user">{address?.state ?? "State/Province"}</span>
+              </div>
+            </div>
+            <div className="d-flex flex-column flex-md-row">
+              <div className="input-group d-flex flex-column me-md-1 w-md-50 mb-2">
+                <label className="label-info-user" htmlFor="country">
+                  Country
+                </label>
+                <span className="info-user">{address?.country ?? "Country"}</span>
               </div>
               <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 me-md-1 mb-2 postal-code">
                 <label className="label-info-user" htmlFor="postalCode">
                   Postal Code
                 </label>
-                <span className="info-user">
-                  {loggedCustomer.address?.postalcode ?? "Postal Code"}
-                </span>
+                <span className="info-user">{address?.postalcode ?? "Postal Code"}</span>
               </div>
               <div className="input-group d-flex flex-column ms-md-1 mb-1 phone">
                 <label className="label-info-user" htmlFor="phone">
                   Phone
                 </label>
-                <span className="info-user">{loggedCustomer.phone}</span>
+                <span className="info-user">{phone || "Phone Number"}</span>
               </div>
             </div>
             <div className="d-flex justify-content-between mt-2">

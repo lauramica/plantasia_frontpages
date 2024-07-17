@@ -11,7 +11,8 @@
 .filter-container {
   position: sticky;
   top: 52px;
-  padding: 5px;
+  padding: 3px;
+  padding-top: 5px;
   background-color: white;
   z-index: 2;
 }
@@ -94,10 +95,6 @@
   background-color: var(--lightgreen);
 }
 
-.filter-container {
-  top: 48px;
-}
-
 @media (max-width: 576px) {
   .product-list-container {
     padding: 10px;
@@ -115,9 +112,6 @@
     justify-content: center;
     width: 100%;
   }
-  .filter-container {
-    top: 37px;
-  }
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
@@ -129,9 +123,6 @@
 
   .product-item {
     width: calc(50% - 27px);
-  }
-  .filter-container {
-    top: 37px;
   }
 }
 
@@ -145,9 +136,6 @@
   }
   .product-item-img:hover img {
     transform: scale(1.05);
-  }
-  .filter-container {
-    top: 37px;
   }
 }
 

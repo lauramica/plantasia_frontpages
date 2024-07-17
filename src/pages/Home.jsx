@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
-import "../css/Home.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+import "../css/Home.css";
 
 function Home() {
   const [careProducts, setCareProducts] = useState(null);
@@ -12,7 +13,7 @@ function Home() {
       const response = await axios({
         url: `${import.meta.env.VITE_API_URL}/products`,
         method: "GET",
-        params: { limit: 3, type: 1 },
+        params: { limit: 3, typeId: 1 },
       });
       setPlants(response.data.products);
     };
@@ -21,7 +22,7 @@ function Home() {
       const response = await axios({
         url: `${import.meta.env.VITE_API_URL}/products`,
         method: "GET",
-        params: { limit: 3, type: 3 },
+        params: { limit: 3, typeId: 3 },
       });
       setCareProducts(response.data.products);
     };
@@ -59,8 +60,9 @@ function Home() {
             <Link
               className="home-section-2-cards card-one shadow"
               style={{
-                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%),
-    url(${import.meta.env.VITE_IMAGES_URL}home/photo_plants.png)`,
+                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url(${
+                  import.meta.env.VITE_IMAGES_URL
+                }home/photo_plants.png)`,
               }}
               to="/products/1"
             >
@@ -70,8 +72,9 @@ function Home() {
             <Link
               className="home-section-2-cards card-two"
               style={{
-                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%),
-        url(${import.meta.env.VITE_IMAGES_URL}home/photo_pots.png)`,
+                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url(${
+                  import.meta.env.VITE_IMAGES_URL
+                }home/photo_pots.png)`,
               }}
               to="/products/2"
             >
@@ -81,8 +84,9 @@ function Home() {
             <Link
               className="home-section-2-cards card-three"
               style={{
-                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%),
-    url(${import.meta.env.VITE_IMAGES_URL}home/photo_care.png)`,
+                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url(${
+                  import.meta.env.VITE_IMAGES_URL
+                }home/photo_care.png)`,
               }}
               to="/products/3"
             >
@@ -92,8 +96,9 @@ function Home() {
             <Link
               className="home-section-2-cards card-four"
               style={{
-                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%),
-    url(${import.meta.env.VITE_IMAGES_URL}home/photo_accessories.png)`,
+                backgroundImage: `linear-gradient(180deg, rgba(32, 9, 3, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url(${
+                  import.meta.env.VITE_IMAGES_URL
+                }home/photo_accessories.png)`,
               }}
               to="/products/4"
             >
@@ -158,7 +163,7 @@ function Home() {
               </p>
               <div className="mb-1 home-section-3-link text-end">
                 <Link to="/products/3" className="home-section-3-link">
-                  Take care of her
+                  Take care of them
                 </Link>
               </div>
               <div className="home-section-3-care-products">

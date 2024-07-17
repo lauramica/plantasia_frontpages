@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Navbar, Nav, Container } from "react-bootstrap";
 

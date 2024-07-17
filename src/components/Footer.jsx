@@ -4,7 +4,8 @@ import { toast } from "react-toastify";
 import "../css/Footer.css";
 
 function Footer() {
-  const handleUnderDevelopment = () => {
+  const handleUnderDevelopment = (e) => {
+    e.preventDefault();
     return toast.warning("This function is under development");
   };
 

@@ -1,18 +1,24 @@
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
+import axios from "axios";
+
 import "../css/ProductList.css";
 import Product from "../components/Product";
 import { setProducts } from "../redux/productsSlice";
 
-import axios from "axios";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-
 function ProductList() {
   const dispatch = useDispatch();
-  const { category } = useParams();
   const navigate = useNavigate();
+  const { category } = useParams();
   const { pathname } = useLocation();
+
   const products = useSelector((state) => state.products);
+
+  const handleUnderDevelopment = () => {
+    return toast.warning("This function is under development");
+  };
 
   useEffect(() => {
     const getProducts = async () => {
@@ -33,7 +39,7 @@ function ProductList() {
           <h1 className="galadali-bold mediumgreen my-3">All products</h1>
         </div>
         <div className="filter-container">
-          <div className="container p-sm-0 filter-container">
+          <div className="container filter-container">
             <div className="product-list-filter">
               <select
                 name="categories"
@@ -52,7 +58,12 @@ function ProductList() {
                 <option value="3">Care</option>
                 <option value="4">Accessories</option>
               </select>
-              <select name="sort-by" id="sort-by" className="select-filter">
+              <select
+                name="sort-by"
+                id="sort-by"
+                className="select-filter"
+                onChange={handleUnderDevelopment}
+              >
                 <option defaultValue="sort-by">Sort by</option>
                 <option value="name-asc">Name: ascending</option>
                 <option value="name-desc">Name: descending</option>
@@ -65,9 +76,6 @@ function ProductList() {
           </div>
         </div>
         <div className="container product-list-container mb-5">
-          <div className="filter-results lightgreen mb-2">
-            <small>1-20 of 500 results</small>
-          </div>
           <div className="product-list">
             {products.map((product) => (
               <div key={product.id} className="product-item ">

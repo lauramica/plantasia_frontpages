@@ -1,16 +1,20 @@
-import "../css/EditUser.css";
-
 import { useDispatch, useSelector } from "react-redux";
-import { logoutCustomer, updateCustomer } from "../redux/customerSlice";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
+
+import "../css/EditUser.css";
+import { logoutCustomer, updateCustomer } from "../redux/customerSlice";
 
 function EditUser() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const loggedCustomer = useSelector((state) => state.customer);
+
   const [modalState, setModalState] = useState(false);
+  const [alert, setAlert] = useState(false);
+
   const [updateValues, setUpdateValues] = useState({
     firstname: "",
     lastname: "",
@@ -31,14 +35,44 @@ function EditUser() {
 
   const handleUpdateCustomer = async (e) => {
     e.preventDefault();
-    await axios({
-      url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
-      method: "POST",
-      data: { ...updateValues },
-      headers: { Authorization: `Bearer ${loggedCustomer.token}` },
-    });
-    dispatch(updateCustomer(updateValues));
-    return navigate("/profile");
+    try {
+      if (checkAllInputs()) {
+        await axios({
+          url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+          method: "POST",
+          data: { ...updateValues },
+          headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+        });
+        dispatch(updateCustomer(updateValues));
+        return navigate("/profile");
+      }
+      setAlert(true);
+      return;
+    } catch (err) {
+      console.log(err);
+      setAlert(true);
+      return;
+    }
+  };
+
+  const checkAllInputs = () => {
+    try {
+      if (
+        updateValues.firstname &&
+        updateValues.lastname &&
+        updateValues.address.address &&
+        updateValues.address.city &&
+        updateValues.address.state &&
+        updateValues.address.country &&
+        updateValues.address.postalcode &&
+        updateValues.phone
+      )
+        return true;
+      return false;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
   };
 
   const handleModalToggle = () => {
@@ -91,7 +125,7 @@ function EditUser() {
       <div className="container mt-3 p-sm-0">
         <h3 className="galadali-regular title-admin-user">Account Settings</h3>
         <form onSubmit={handleUpdateCustomer} className="form-div proxima-nova-regular mb-3">
-          <div className="d-flex flex-column flex-md-row">
+          <div className="d-flex flex-column flex-md-row" onClick={() => setAlert(false)}>
             <div className="input-group d-flex flex-column me-md-1 mb-2">
               <label className="label-form" htmlFor="firstName">
                 First Name
@@ -105,6 +139,13 @@ function EditUser() {
                 value={updateValues.firstname}
                 onChange={(e) => setUpdateValues({ ...updateValues, firstname: e.target.value })}
               />
+              <div
+                className={`${
+                  alert && !updateValues.firstname ? "d-inline" : "d-none"
+                } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                First Name is required
+              </div>
             </div>
             <div className="input-group d-flex flex-column w-md-50 ms-md-1 mb-2">
               <label className="label-form" htmlFor="lastName">
@@ -119,9 +160,16 @@ function EditUser() {
                 value={updateValues.lastname}
                 onChange={(e) => setUpdateValues({ ...updateValues, lastname: e.target.value })}
               />
+              <div
+                className={`${
+                  alert && !updateValues.lastname ? "d-inline" : "d-none"
+                } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                Last Name is required
+              </div>
             </div>
           </div>
-          <div className="d-flex flex-column flex-md-row">
+          <div className="d-flex flex-column flex-md-row" onClick={() => setAlert(false)}>
             <div className="input-group d-flex flex-column mb-2 me-md-1">
               <label className="label-form" htmlFor="address">
                 Address
@@ -140,6 +188,13 @@ function EditUser() {
                   })
                 }
               />
+              <div
+                className={`${
+                  alert && !updateValues.address.address ? "d-inline" : "d-none"
+                } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                Address is required
+              </div>
             </div>
             <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2">
               <label className="label-form" htmlFor="city">
@@ -159,22 +214,60 @@ function EditUser() {
                   })
                 }
               />
+              <div
+                className={`${
+                  alert && !updateValues.address.city ? "d-inline" : "d-none"
+                } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                City is required
+              </div>
             </div>
-            <div className="input-group d-flex flex-column ms-md-1 w-md-50 ms-md-1 mb-2">
+            <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 mb-2 state-province">
+              <label className="label-form" htmlFor="state">
+                State / Province
+              </label>
+              <input
+                type="text"
+                name="state"
+                id="state"
+                placeholder="Type your state/province"
+                className="mt-1 p-1 input-form"
+                value={updateValues.address?.state ?? ""}
+                onChange={(e) =>
+                  setUpdateValues({
+                    ...updateValues,
+                    address: { ...updateValues.address, state: e.target.value },
+                  })
+                }
+              />
+              <div
+                className={`${
+                  alert && !updateValues.address.state ? "d-inline" : "d-none"
+                } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                State is required
+              </div>
+            </div>
+          </div>
+          <div className="d-flex flex-column flex-md-row" onClick={() => setAlert(false)}>
+            <div className="input-group d-flex flex-column w-md-50 me-md-1 mb-2">
               <label className="label-form" htmlFor="country">
                 Country
               </label>
               <select
-                className="mt-1 p-1 w-100 select-form"
-                value={updateValues.address?.country ?? ""}
+                className="mt-1 p-1 w-100 select-form form-select"
+                value={updateValues.address?.country ?? "no-country"}
                 onChange={(e) =>
                   setUpdateValues({
                     ...updateValues,
-                    address: { ...updateValues.address, country: e.target.value },
+                    address: {
+                      ...updateValues.address,
+                      country: e.target.value !== "no-country" ? e.target.value : "",
+                    },
                   })
                 }
               >
-                <option value="">Select your country</option>
+                <option value="no-country">Select your country</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AX">Åland Islands</option>
                 <option value="AL">Albania</option>
@@ -425,27 +518,13 @@ function EditUser() {
                 <option value="ZM">Zambia</option>
                 <option value="ZW">Zimbabwe</option>
               </select>
-            </div>
-          </div>
-          <div className="d-flex flex-column flex-md-row">
-            <div className="input-group d-flex flex-column justify-content-between w-md-50 me-md-1 mb-2 state-province">
-              <label className="label-form" htmlFor="state">
-                State / Province
-              </label>
-              <input
-                type="text"
-                name="state"
-                id="state"
-                placeholder="Type your state/province"
-                className="mt-1 p-1 input-form"
-                value={updateValues.address?.state ?? ""}
-                onChange={(e) =>
-                  setUpdateValues({
-                    ...updateValues,
-                    address: { ...updateValues.address, state: e.target.value },
-                  })
-                }
-              />
+              <div
+                className={`${
+                  alert && !updateValues.address.country ? "d-inline" : "d-none"
+                } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                Select a Country
+              </div>
             </div>
             <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 me-md-1 mb-2 postal-code">
               <label className="label-form" htmlFor="postalCode">
@@ -465,6 +544,13 @@ function EditUser() {
                   })
                 }
               />
+              <div
+                className={`${
+                  alert && !updateValues.address.postalcode ? "d-inline" : "d-none"
+                } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                Postalcode is required
+              </div>
             </div>
             <div className="input-group d-flex flex-column ms-md-1 mb-1 phone">
               <label className="label-form" htmlFor="phone">
@@ -479,10 +565,27 @@ function EditUser() {
                 value={updateValues.phone}
                 onChange={(e) => setUpdateValues({ ...updateValues, phone: e.target.value })}
               />
+              <div
+                className={`${
+                  alert && !updateValues.phone ? "d-inline" : "d-none"
+                } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                Phone is required
+              </div>
             </div>
           </div>
-          <div className="d-flex flex-md-row mt-2">
+          <div className="d-flex flex-md-row mt-2 align-items-center">
+            <Link to="/profile" className="profile-view-orders">
+              Cancel
+            </Link>
             <button className="btn confirm-button ms-auto">Confirm</button>
+            <div
+              className={`${
+                alert ? "d-inline" : "d-none"
+              } position-absolute end-0 bg-white border border-warning p-2 alert rounded-corner`}
+            >
+              There are some required fields, that need to be filled
+            </div>
           </div>
         </form>
         <div className="mb-3">

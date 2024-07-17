@@ -1,4 +1,3 @@
-import React from "react";
 import { Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
@@ -13,7 +12,7 @@ function Cart({ show, handleClose }) {
 
   const handleCheckOut = () => {
     handleClose();
-    return navigate("/login");
+    return navigate("/cart");
   };
 
   return (

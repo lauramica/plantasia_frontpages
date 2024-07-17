@@ -1,18 +1,19 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import Main from "./pages/Main";
 import Home from "./pages/Home";
-import ProductPage from "./pages/ProductPage";
-import CheckOut from "./pages/CheckOut";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import EditUser from "./pages/EditUser";
+import CheckOut from "./pages/CheckOut";
 import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage";
-import AboutPageEs from "./pages/AboutPageEs";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ProductList from "./pages/ProductList";
-import EditUser from "./pages/EditUser";
 import OrderList from "./pages/OrderList";
-import ProfileView from "./pages/ProfileView";
 import OrderPage from "./pages/OrderPage";
+import ProductPage from "./pages/ProductPage";
+import AboutPageEs from "./pages/AboutPageEs";
+import ProductList from "./pages/ProductList";
+import ProfileView from "./pages/ProfileView";
 import PasswordReset from "./pages/PasswordReset";
 
 function App() {

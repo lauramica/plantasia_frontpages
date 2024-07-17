@@ -1,74 +1,57 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-import "../css/CheckOut.css";
 import "../css/Loader.css";
-import CheckOutItem from "../components/CheckOutItem";
-import { createOrder } from "../redux/orderSlice";
+import "../css/CheckOut.css";
 import { clearCart } from "../redux/cartSlice";
+import { createOrder } from "../redux/orderSlice";
+import CheckOutItem from "../components/CheckOutItem";
 
 function CheckOut() {
-  const [modalState, setModalState] = useState(false);
-  const [processingOrder, setProcessingOrder] = useState(true);
-  const [newOrder, setNewOrder] = useState(null);
-  const [alert, setAlert] = useState(false);
-  const [alertNoItems, setAlertNoItems] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const cart = useSelector((state) => state.cart);
   const loggedCustomer = useSelector((state) => state.customer);
 
+  const [processingOrder, setProcessingOrder] = useState(true);
+  const [modalState, setModalState] = useState(false);
+  const [alert, setAlert] = useState(false);
+
+  const [newOrder, setNewOrder] = useState({
+    order_address: {
+      address: loggedCustomer.address?.address ?? "",
+      city: loggedCustomer.address?.city ?? "",
+      state: loggedCustomer.address?.state ?? "",
+      country: loggedCustomer.address?.country ?? "",
+      postalcode: loggedCustomer.address?.postalcode ?? "",
+    },
+    buyer: {
+      firstname: loggedCustomer.firstname,
+      lastname: loggedCustomer.lastname,
+      phone: loggedCustomer.phone,
+    },
+    total_price: cart
+      .reduce((acc, product) => acc + Number(product.price) * product.quantity, 0)
+      .toFixed(2),
+    payment: "creditCard",
+  });
+
   useEffect(() => {
-    const saveCart = async () => {
-      await axios({
-        url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
-        method: "POST",
-        data: { cart: cart },
-        headers: { Authorization: `Bearer ${loggedCustomer.token}` },
-      });
-    };
-    saveCart();
     setNewOrder({
       ...newOrder,
       products: cart.map((product) => {
-        return {
-          id: product.id,
-          name: product.name,
-          image: product.image,
-          price: product.price,
-          quantity: product.quantity,
-          type: product.type,
-        };
+        const { id, name, image, stock, price, quantity, type } = product;
+        return { id, name, image, stock, price, quantity, type };
       }),
-      order_address: {
-        address: loggedCustomer.address?.address ?? "",
-        city: loggedCustomer.address?.city ?? "",
-        state: loggedCustomer.address?.state ?? "",
-        country: loggedCustomer.address?.country ?? "",
-        postalcode: loggedCustomer.address?.postalcode ?? "",
-      },
-      buyer: {
-        firstname: loggedCustomer.firstname,
-        lastname: loggedCustomer.lastname,
-      },
-      total_price: cart
-        .reduce((acc, product) => acc + Number(product.price) * product.quantity, 0)
-        .toFixed(2),
-      payment: "creditCard",
     });
   }, [cart]);
 
   const handleSubmit = async () => {
     setProcessingOrder(true);
-    if (!loggedCustomer.token) {
-      return navigate("/login");
-    }
-    if (cart.length === 0) {
-      setAlertNoItems(true);
-      return;
-    }
+    setModalState(true);
     if (checkAllInputs()) {
       try {
         const storeOrder = await axios({
@@ -78,16 +61,23 @@ function CheckOut() {
           headers: { Authorization: `Bearer ${loggedCustomer.token}` },
         });
         const createdOrder = { ...newOrder, id: storeOrder.data.id };
-        setNewOrder(createdOrder);
         dispatch(createOrder(createdOrder));
-        handleModalToggle();
-      } catch (error) {
-        console.error("Error creating order:", error);
+        setNewOrder(createdOrder);
+        return;
+      } catch (err) {
+        console.log({ error: err });
+        setModalState(false);
         setAlert(true);
+        return;
       }
-    } else {
-      setAlert(true);
     }
+    setModalState(false);
+    setAlert(true);
+    return;
+  };
+
+  const handleSetAlertsOff = () => {
+    setAlert(false);
   };
 
   const handleModalToggle = () => {
@@ -95,8 +85,11 @@ function CheckOut() {
   };
 
   const checkAllInputs = () => {
+    if (!loggedCustomer.token) return navigate("/login");
     try {
       if (
+        loggedCustomer.token &&
+        cart.length > 0 &&
         newOrder.buyer.firstname &&
         newOrder.buyer.lastname &&
         newOrder.buyer.phone &&
@@ -111,24 +104,30 @@ function CheckOut() {
     } catch (err) {
       return false;
     }
+    return false;
   };
 
   useEffect(() => {
     if (modalState) {
-      const findOrder = async () => {
-        const response = await axios({
-          url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
-          method: "GET",
-          headers: { Authorization: `Bearer ${loggedCustomer.token}` },
-        });
-        if (response.data.customer.orders.find((o) => o.id === Number(newOrder.id))) {
-          dispatch(clearCart());
-          setProcessingOrder(false);
-        }
-      };
-      findOrder();
+      try {
+        const findOrder = async () => {
+          const response = await axios({
+            url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
+            method: "GET",
+            headers: { Authorization: `Bearer ${loggedCustomer.token}` },
+          });
+          if (response.data.customer.orders.find((o) => o.order_id === newOrder.id)) {
+            dispatch(clearCart());
+            setProcessingOrder(false);
+          }
+        };
+        findOrder();
+      } catch (err) {
+        console.log(err);
+        setModalState(false);
+      }
     }
-  }, [modalState]);
+  }, [modalState, newOrder?.id ?? null]);
 
   return (
     newOrder && (
@@ -144,8 +143,8 @@ function CheckOut() {
               ) : (
                 <>
                   <i
-                    className="bi bi-x position-absolute top-0 end-0 fs-2 p-2 almond"
-                    onClick={() => handleModalToggle()}
+                    className="close-modal-button bi bi-x position-absolute top-0 end-0 fs-2 p-2 almond"
+                    onClick={handleModalToggle}
                   ></i>
                   <div className="links">
                     <Link to={"/products"} className="continue proxima-nova-regular darkgreen fs-5">
@@ -165,7 +164,7 @@ function CheckOut() {
         )}
         <div className="container px-sm-0 py-3">
           <h1 className="galadali-bold lightgreen mb-3">Hi! This is your shopping cart.</h1>
-          <table className="table" onClick={() => setAlert(false)}>
+          <table className="table" onClick={handleSetAlertsOff}>
             <thead className="galadali-regular fs-4">
               <tr>
                 <th className="section-title">Product</th>
@@ -365,17 +364,18 @@ function CheckOut() {
                       <select
                         className="mt-1 p-1 w-100"
                         id="country"
-                        defaultValue={newOrder.order_address?.country ?? ""}
+                        defaultValue={newOrder.order_address?.country ?? "no-country"}
                         onChange={(e) =>
                           setNewOrder({
                             ...newOrder,
-                            order_address: { ...newOrder.order_address, country: e.target.value },
+                            order_address: {
+                              ...newOrder.order_address,
+                              country: e.target.value !== "no-country" ? e.target.value : "",
+                            },
                           })
                         }
                       >
-                        <option value="" selected disabled hidden>
-                          Choose a country
-                        </option>
+                        <option value="no-country">Choose a country</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Åland Islands</option>
                         <option value="AL">Albania</option>
@@ -766,20 +766,23 @@ function CheckOut() {
             <button className="form-button mb-2 shadow" onClick={handleSubmit}>
               Continue to Checkout
             </button>
-            <div
-              className={`${
-                alert ? "d-inline" : "d-none"
-              } position-absolute end-0 bg-white border border-warning p-2 alert rounded-corner`}
-            >
-              There are some required fields, that need to be filled
-            </div>
-            <div
-              className={`${
-                alertNoItems ? "d-inline" : "d-none"
-              } position-absolute end-0 bg-white border border-warning p-2 alert rounded-corner`}
-            >
-              There are no items in the cart
-            </div>
+            {cart.length > 0 ? (
+              <div
+                className={`${
+                  alert ? "d-inline" : "d-none"
+                } position-absolute end-0 bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                There are some required fields, that need to be filled
+              </div>
+            ) : (
+              <div
+                className={`${
+                  alert ? "d-inline" : "d-none"
+                } position-absolute end-0 bg-white border border-warning p-2 alert rounded-corner`}
+              >
+                There are no items in the cart
+              </div>
+            )}
           </div>
         </div>
       </div>

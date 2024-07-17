@@ -24,17 +24,17 @@ function Cart({ show, handleClose }) {
       className="right-slide-modal"
     >
       <div className="modal-content">
-        <div className="cart-title">
+        <div className="cart-title pb-0">
           <button
             type="button"
             className="btn-close cart-closebutton"
             onClick={handleClose}
             aria-label="Close"
           ></button>
-          <h2 className="modal-title px-3 mediumgreen">Hi!</h2>
-          <h2 className="modal-title px-3 mediumgreen">This is your shopping cart</h2>
+          <h2 className="modal-title mediumgreen">Hi!</h2>
+          <h2 className="modal-title mediumgreen">This is your shopping cart</h2>
         </div>
-        <div className="modal-body">
+        <div className="modal-body pt-0">
           {cart.length < 1 ? (
             <div className="text-center my-5">
               <h5 className="proxima-nova-regular lightgreen pb-3">

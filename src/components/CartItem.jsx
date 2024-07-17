@@ -26,7 +26,7 @@ function CartItem({ product }) {
   };
 
   return (
-    <div className="cart-items d-flex position-relative p-3 m-0">
+    <div className="cart-items d-flex position-relative py-3 m-0">
       <div className="d-flex">
         <div className="cart-items-photo">
           <img src={`${import.meta.env.VITE_IMAGES_URL}products/${image}`} alt={name} />

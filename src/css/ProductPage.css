@@ -35,11 +35,11 @@ h3 {
 }
 
 .product-body-content-text-icons {
-  display: flex;
-  justify-content: space-around;
   color: var(--lightgreen);
   font-size: 3.5rem;
+  text-align: center;
 }
+
 .counter-container-counterbutton {
   border: none;
   border-radius: 30px;
@@ -136,5 +136,8 @@ h3 {
 @media (max-width: 768px) {
   .photo-product {
     height: 50vh !important;
+  }
+  .productpage-productname {
+    width: 90%;
   }
 }

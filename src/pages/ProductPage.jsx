@@ -96,19 +96,21 @@ function ProductPage() {
               />
             </div>
             <div className="product-body-content-text w-100 d-flex flex-column justify-content-between">
-              <div className="d-flex flex-column content-text">
-                <h1 className="mediumgreen pb-2">{product.name}</h1>
-                <p className="description-pharagraph proxima-nova-regular w-100 p-0 d-none d-md-block">
-                  {product.description}
-                </p>
+              <div className="d-flex flex-md-column">
+                <div className="d-flex flex-column content-text">
+                  <h1 className="mediumgreen pb-2 productpage-productname">{product.name}</h1>
+                  <p className="description-pharagraph proxima-nova-regular w-100 p-0 d-none d-md-block">
+                    {product.description}
+                  </p>
+                </div>
+                <div className="product-body-content-text-icons border-bottom border-top py-3 d-none d-md-block">
+                  <i className="bi bi-droplet me-md-5"></i>
+                  <i className="bi bi-feather ms-lg-5 me-lg-5"></i>
+                  <i className="bi bi-tree ms-md-5 me-lg-5"></i>
+                  <i className="bi bi-brightness-high ms-md-5"></i>
+                </div>
+                <h2 className="my-3 text-center text-nowrap mt-1 mt-md-4">$ {product.price}</h2>
               </div>
-              <div className="product-body-content-text-icons border-bottom border-top py-3  d-none d-md-block">
-                <i className="bi bi-droplet"></i>
-                <i className="bi bi-feather"></i>
-                <i className="bi bi-tree"></i>
-                <i className="bi bi-brightness-high"></i>
-              </div>
-              <h2 className="my-3 text-center">$ {product.price}</h2>
               <div className="buttons-div text-center mb-1">
                 <div className="counter-container">
                   <button

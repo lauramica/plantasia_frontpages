@@ -337,20 +337,17 @@
 }
 
 @media (max-width: 400px) {
-  .home-banner-container h1 {
-    font-size: 1.9rem;
+  .home-banner {
+    max-height: 50vh;
   }
 
   .home-banner-container p {
-    font-size: 1rem;
     text-align: center;
-    align-self: center;
-    width: 90%;
+
+    width: 100%;
   }
 
   .home-banner-button {
-    font-size: 0.6rem;
-    padding: 3px 11px;
     align-self: center;
   }
 

@@ -6,7 +6,7 @@ function About() {
   return (
     <div className="about-page">
       <section
-        className="about-banner d-flex flex-column flex-md-row align-items-center"
+        className="about-banner d-flex flex-column align-items-center"
         style={{
           backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.37) 100%, rgba(29, 0, 0, 0.329) 100%), url(${
             import.meta.env.VITE_IMAGES_URL
@@ -25,7 +25,7 @@ function About() {
             The objective was to apply the tools and knowledge that were acquired throughout it.
           </p>
         </div>
-        <p className="text-center d-md-none">
+        <p className="text-center d-md-none about-row">
           <i className="bi bi-arrow-down"></i>
         </p>
       </section>

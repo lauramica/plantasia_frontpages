@@ -1,10 +1,18 @@
+.about-page {
+  position: relative;
+}
 
 .about-page .change-lenguage {
   background-color: var(--terracotta);
   width: 184px;
-margin-top: 1rem;
+  position: absolute;
+  right: 0;
   top: 1rem;
   padding: 5px 9px;
+}
+
+.about-page .about-row {
+  margin-top: -1.5rem;
 }
 
 .about-page .change-lenguage .change-lenguage-link {
@@ -48,7 +56,6 @@ margin-top: 1rem;
 .about-banner-container h1 {
   font-size: 3rem;
   margin-bottom: 0.7rem;
-  margin-top: -1rem;
 }
 
 .about-banner-container p {
@@ -330,16 +337,6 @@ margin-top: 1rem;
   .about-icons-planning {
     flex-direction: column;
     height: 190px;
-  }
-  .about-page {
-    position: relative;
-  }
-  
-  .about-page .change-lenguage {
-    position: absolute;
-    right: 0;
-    top: 1rem;
-  }
   }
 }
 

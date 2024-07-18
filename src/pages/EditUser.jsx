@@ -96,7 +96,7 @@ function EditUser() {
           <div className="modal-container text-center position-absolute top-50 start-50 translate-middle bg-white">
             <div className="shadow p-5 position-relative">
               <h3 className="proxima-nova-bold darkgreen mb-5">
-                Are you sure you want to delete your user?
+                Are you sure you want to delete your account?
               </h3>
               <>
                 <i
@@ -104,10 +104,7 @@ function EditUser() {
                   onClick={handleModalToggle}
                 ></i>
                 <div className="buttons d-flex justify-content-between">
-                  <button
-                    className="btn shadow proxima-nova-regular button-cancel"
-                    onClick={handleModalToggle}
-                  >
+                  <button className="btn shadow button-cancel" onClick={handleModalToggle}>
                     Cancel
                   </button>
                   <button
@@ -528,7 +525,7 @@ function EditUser() {
             </div>
             <div className="input-group d-flex flex-column justify-content-between w-md-50 ms-md-1 me-md-1 mb-2 postal-code">
               <label className="label-form" htmlFor="postalCode">
-                Postal code
+                Postal Code
               </label>
               <input
                 type="text"
@@ -549,7 +546,7 @@ function EditUser() {
                   alert && !updateValues.address.postalcode ? "d-inline" : "d-none"
                 } position-absolute bg-white border border-warning p-2 alert rounded-corner`}
               >
-                Postalcode is required
+                Postal Code is required
               </div>
             </div>
             <div className="input-group d-flex flex-column ms-md-1 mb-1 phone">

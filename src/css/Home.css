@@ -381,6 +381,7 @@
   .home-section-2-img,
   .home-section-3-img {
     width: 100%;
+    max-height: 60vh;
   }
 
   .home-section-3-box a,
@@ -423,6 +424,7 @@
   .button-see-all {
     width: 20rem;
     font-size: 1.7rem;
+    font-family: "Proxima Nova Regular";
   }
   .card-one {
     margin-bottom: 0.8rem;
@@ -480,6 +482,7 @@
   .home-section-2-img,
   .home-section-3-img {
     width: 100%;
+    max-height: 60vh;
   }
   .home-section-3-box {
     width: 100%;
@@ -578,7 +581,7 @@
 
   .home-section-2-img,
   .home-section-3-img {
-    width: 100%;
+    max-height: 60vh;
   }
 
   .home-section-3-care-products {
@@ -627,11 +630,11 @@
     font-size: 1.8rem;
   }
   .card-one {
-    margin-bottom: 0.8rem;
+    margin-bottom: 2.5rem;
   }
 
   .card-two {
-    margin-bottom: 0.8rem;
+    margin-bottom: 2.5rem;
   }
 }
 

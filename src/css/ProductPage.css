@@ -130,4 +130,7 @@ h3 {
     display: flex;
     flex-direction: column;
   }
+  .photo-product {
+    height: 60vh !important;
+  }
 }

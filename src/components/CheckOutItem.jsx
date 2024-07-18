@@ -24,14 +24,14 @@ function CheckOutItem({ product }) {
   return (
     <>
       <td>
-        <div className="d-flex flex-wrap">
+        <div className="checkout-product-img-name">
           <img
             src={`${import.meta.env.VITE_IMAGES_URL}products/${image}`}
-            className="img-fluid me-3 mb-3 mb-lg-0 product-img rounded-corner shadow"
+            className="checkout-product-img rounded-corner shadow"
             alt={name}
           />
           <div>
-            <p className="proxima-nova-bold m-0 darkgreen">{name}</p>
+            <p className="proxima-nova-bold darkgreen checkout-product-name">{name}</p>
           </div>
         </div>
       </td>

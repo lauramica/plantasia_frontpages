@@ -58,7 +58,7 @@ function OrderPage() {
                         <img
                           src={`${import.meta.env.VITE_IMAGES_URL}products/${image}`}
                           alt={name}
-                          className="product-img"
+                          className="product_img"
                         />
                         <span className="product_name">{name}</span>
                       </div>

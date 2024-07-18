@@ -18,17 +18,20 @@ function About() {
             Switch to Spanish <i className="bi bi-arrow-right"></i>
           </Link>
         </span>
-        <div className="container about-banner-container d-flex flex-wrap flex-column justify-content-center align-items-center p-sm-0">
+        <div className="container about-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
           <h1 className="galadali-regular p-0">About This Project</h1>
           <p className="d-none d-md-block">
             This website was built as the final project of Hack Academy’s Web Development Bootcamp.
-            The objective was to apply the tools and knowledge that were acquired throughout it.
           </p>
         </div>
       </section>
       <section className="about-section-2 mt-3">
         <div className="container p-sm-0 d-flex flex-column flex-md-row">
           <div className="about-introduction proxima-nova-regular darkgreen mb-4 mt-4">
+            <p className="d-md-none">
+              This website was built as the final project of Hack Academy’s Web Development
+              Bootcamp.
+            </p>
             <p className="me-md-2 mb-0">
               The{" "}
               <Link
@@ -40,10 +43,6 @@ function About() {
               </Link>{" "}
               is a full time, practical, intensive course. For 13 weeks, students submerge on 40+
               hour weeks of web developing.
-            </p>
-            <p className="d-md-none mt-3">
-              This website was built as the final project of Hack Academy’s Web Development
-              Bootcamp.
             </p>
           </div>
           <div className="duration d-flex justify-content-between justify-content-md-end mt-md-4 mt-0 mb-4">

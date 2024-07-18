@@ -19,7 +19,7 @@ function About() {
           </Link>
         </span>
         <div className="container about-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
-          <h1 className="galadali-regular p-0">Sobre este proyecto...</h1>
+          <h1 className="galadali-regular p-0">Sobre este proyecto</h1>
           <p className="d-none d-md-block">
             Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack Academy,
             como nuestro proyecto final.
@@ -29,6 +29,10 @@ function About() {
       <section className="about-section-2 mt-3">
         <div className="container p-sm-0 d-flex flex-column flex-md-row">
           <div className="about-introduction proxima-nova-regular darkgreen mb-4 mt-4">
+            <p className="d-md-none">
+              Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack
+              Academy, como nuestro proyecto final.
+            </p>
             <p className="me-md-2 mb-0">
               El{" "}
               <Link
@@ -40,10 +44,6 @@ function About() {
               </Link>{" "}
               fue un curso intensivo, práctico y de dedicación full time, con una duración total de
               13 semanas y una carga horaria total de +40 horas semanales.
-            </p>
-            <p className="d-md-none mt-3">
-              Este sitio web fue construido en el marco del Bootcamp de desarollo web de Hack
-              Academy, como nuestro proyecto final.
             </p>
           </div>
           <div className="duration d-flex justify-content-between justify-content-md-end mt-md-4 mt-0 mb-4">

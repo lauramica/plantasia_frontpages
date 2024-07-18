@@ -111,7 +111,7 @@ function ProductPage() {
                 </div>
                 <h2 className="my-3 text-center text-nowrap mt-1 mt-md-4 productpage-productprice">$ {product.price}</h2>
               </div>
-              <div className="buttons-div text-center mb-1">
+              <div className="buttons-div text-center mb-md-1">
                 <div className="counter-container">
                   <button
                     className="counter-container-counterbutton darkgreen"
@@ -127,7 +127,7 @@ function ProductPage() {
                     <i className="bi bi-plus"></i>
                   </button>
                 </div>
-                <button className="product-submitbutton mt-3" onClick={handleAddProduct}>
+                <button className="product-submitbutton mt-md-3" onClick={handleAddProduct}>
                   Add to cart <i className="bi bi-cart-fill"></i>
                 </button>
               </div>

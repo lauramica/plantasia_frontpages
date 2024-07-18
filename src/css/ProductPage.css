@@ -140,8 +140,20 @@ h3 {
   .productpage-productname {
     width: 90%;
     font-size: 1.8rem;
+    margin-bottom: 0;
   }
   .productpage-productprice {
     font-size: 1.6rem;
+  }
+  .product-body-content-text {
+    padding: 10px 20px;
+  }
+  .buttons-div {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .product-submitbutton {
+    width: 150px;
+    border-radius: 2px;
   }
 }

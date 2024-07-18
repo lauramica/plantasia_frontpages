@@ -46,7 +46,7 @@ function Home() {
             <p className="proxima-nova-regular p-0 m-0">
               Welcome plant lover! We are Plantasia, your new favorite online plant shop.
             </p>
-            <p className="proxima-nova-regular">
+            <p className="proxima-nova-regular d-none d-md-block">
               Here you will find all plant's related goodness, and lots of tips to become the best
               plant parent. And if you aren't one yet, please let us introduce you to our childs!
             </p>

@@ -322,15 +322,6 @@
     width: 26%;
   }
   .about-banner {
-    background: rgb(0, 0, 0);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    aspect-ratio: 4/1;
-    color: white;
-    min-height: 650px;
-  }
-  .about-banner {
     max-height: 50vh;
   }
 }

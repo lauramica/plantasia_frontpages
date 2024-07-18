@@ -440,6 +440,9 @@
 }
 
 @media (min-width: 400px) and (max-width: 576px) {
+  .home-banner {
+    max-height: 50vh;
+  }
   .home-banner-container h1 {
     font-size: 1.9rem;
   }
@@ -536,6 +539,9 @@
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
+  .home-banner {
+    max-height: 50vh;
+  }
   .home-banner-container h1 {
     font-size: 2.6rem;
   }

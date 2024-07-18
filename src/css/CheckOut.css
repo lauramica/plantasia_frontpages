@@ -1,7 +1,16 @@
-.checkout .product-img {
-  width: 10%;
+.checkout-product-img-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-
+.checkout-product-img {
+  width: 100px;
+  height: auto;
+}
+.checkout-product-name {
+  white-space: wrap;
+  padding-left: 0.3rem;
+}
 .checkout table th {
   color: var(--mediumgreen);
   font-weight: normal;
@@ -98,7 +107,7 @@
 
 .checkout .section-title {
   font-family: "Galadali Regular";
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: var(--mediumgreen);
 }
 
@@ -151,13 +160,22 @@
 }
 
 @media (max-width: 576px) {
-  .checkout .product-img {
-    width: 50%;
+  .checkout-product-img-name {
+    flex-direction: column;
+    align-items: start;
+    text-align: start;
+  }
+  .checkout-product-name {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding-inline-start: 0;
   }
 }
 
 @media (max-width: 400px) {
-  .checkout .product-img {
-    width: 100%;
+  .checkout-product-img-name {
+    flex-direction: column;
+    align-items: start;
+    text-align: start;
   }
 }

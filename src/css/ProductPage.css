@@ -139,5 +139,9 @@ h3 {
   }
   .productpage-productname {
     width: 90%;
+    font-size: 1.8rem;
+  }
+  .productpage-productprice {
+    font-size: 1.6rem;
   }
 }

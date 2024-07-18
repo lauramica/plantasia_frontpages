@@ -109,7 +109,7 @@ function ProductPage() {
                   <i className="bi bi-tree ms-md-5 me-lg-5"></i>
                   <i className="bi bi-brightness-high ms-md-5"></i>
                 </div>
-                <h2 className="my-3 text-center text-nowrap mt-1 mt-md-4">$ {product.price}</h2>
+                <h2 className="my-3 text-center text-nowrap mt-1 mt-md-4 productpage-productprice">$ {product.price}</h2>
               </div>
               <div className="buttons-div text-center mb-1">
                 <div className="counter-container">

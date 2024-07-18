@@ -135,7 +135,7 @@ h3 {
 
 @media (max-width: 768px) {
   .photo-product {
-    height: 60vh !important;
+    height: 50vh !important;
   }
   .productpage-productname {
     width: 90%;

@@ -10,6 +10,11 @@
   color: var(--darkgreen);
   font-size: 1.4rem;
 }
+
+.navbar-person-icon {
+  font-size: 1.6rem !important;
+}
+
 .navbar-anchor {
   background-color: white;
   border: none;

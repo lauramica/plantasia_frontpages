@@ -125,11 +125,15 @@ h3 {
     font-size: 2rem;
   }
 }
+
 @media (max-width: 576px) {
   .product-body-content {
     display: flex;
     flex-direction: column;
   }
+}
+
+@media (max-width: 768px) {
   .photo-product {
     height: 60vh !important;
   }

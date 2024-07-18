@@ -6,7 +6,7 @@ function About() {
   return (
     <div className="about-page">
       <section
-        className="about-banner d-flex flex-column align-items-center"
+        className="about-banner d-flex align-items-center"
         style={{
           backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.37) 100%, rgba(29, 0, 0, 0.329) 100%), url(${
             import.meta.env.VITE_IMAGES_URL
@@ -18,13 +18,16 @@ function About() {
             Switch to Spanish <i className="bi bi-arrow-right"></i>
           </Link>
         </span>
-        <div className="container about-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
+        <div className="container about-banner-container d-flex flex-wrap flex-column justify-content-center align-items-center p-sm-0">
           <h1 className="galadali-regular p-0">About This Project</h1>
           <p className="d-none d-md-block">
             This website was built as the final project of Hack Academy’s Web Development Bootcamp.
             The objective was to apply the tools and knowledge that were acquired throughout it.
           </p>
         </div>
+        <p className="text-center d-md-none about-row">
+          <i className="bi bi-arrow-down"></i>
+        </p>
       </section>
       <section className="about-section-2 mt-3">
         <div className="container p-sm-0 d-flex flex-column flex-md-row">

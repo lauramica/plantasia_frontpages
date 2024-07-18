@@ -98,11 +98,11 @@ function ProductPage() {
             <div className="product-body-content-text w-100 d-flex flex-column justify-content-between">
               <div className="d-flex flex-column content-text">
                 <h1 className="mediumgreen pb-2">{product.name}</h1>
-                <p className="description-pharagraph proxima-nova-regular w-100 p-0">
+                <p className="description-pharagraph proxima-nova-regular w-100 p-0 d-none d-md-block">
                   {product.description}
                 </p>
               </div>
-              <div className="product-body-content-text-icons border-bottom border-top py-3">
+              <div className="product-body-content-text-icons border-bottom border-top py-3  d-none d-md-block">
                 <i className="bi bi-droplet"></i>
                 <i className="bi bi-feather"></i>
                 <i className="bi bi-tree"></i>

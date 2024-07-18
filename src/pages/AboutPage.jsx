@@ -25,9 +25,6 @@ function About() {
             The objective was to apply the tools and knowledge that were acquired throughout it.
           </p>
         </div>
-        <p className="text-center d-md-none about-row">
-          <i className="bi bi-arrow-down"></i>
-        </p>
       </section>
       <section className="about-section-2 mt-3">
         <div className="container p-sm-0 d-flex flex-column flex-md-row">

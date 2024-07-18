@@ -79,7 +79,7 @@ function ProductPage() {
   return (
     products &&
     product && (
-      <div className="container p-sm-0 mt-4 mt-lg-5">
+      <div className="container p-sm-0 mt-md-4 mt-lg-5">
         <Link
           className="text-decoration-none mediumgreen proxima-nova-regular d-flex align-items-center my-2"
           to="/products"

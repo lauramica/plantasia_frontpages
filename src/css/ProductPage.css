@@ -135,7 +135,7 @@ h3 {
 
 @media (max-width: 768px) {
   .photo-product {
-    height: 50vh !important;
+    height: 60vh !important;
   }
   .productpage-productname {
     width: 90%;
@@ -150,7 +150,7 @@ h3 {
   }
   .buttons-div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
   .product-submitbutton {
     width: 150px;

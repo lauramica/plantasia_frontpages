@@ -36,10 +36,10 @@ function CheckOutItem({ product }) {
         </div>
       </td>
       <td>
-        <div className="d-flex align-items-center quantity mb-1">
-          <i className="bi bi-dash-circle-fill" onClick={handleDecrement}></i>
-          <p className="m-0 mx-1 darkgreen mx-md-2 mx-lg-3">{quantity}</p>
-          <i className="bi bi-plus-circle-fill" onClick={handleIncrement}></i>
+        <div className="d-flex align-items-center justify-content-center quantity mb-1">
+          <i className="bi bi-dash-circle-fill me-1" onClick={handleDecrement}></i>
+          <p className="darkgreen mb-0">{quantity}</p>
+          <i className="bi bi-plus-circle-fill ms-1" onClick={handleIncrement}></i>
         </div>
         {stock < 10 ? (
           <small className="proxima-nova-bold terracotta">{`Only ${stock} left in stock!`}</small>

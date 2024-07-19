@@ -24,6 +24,7 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
         variant="light"
         sticky="top"
         className="navbar-plantasia"
+        collapseOnSelect
       >
         <Container className="p-sm-0 d-flex">
           <Navbar.Brand as={Link} to="/" className="text-warning">

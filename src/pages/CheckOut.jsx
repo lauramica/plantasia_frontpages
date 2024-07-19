@@ -54,13 +54,16 @@ function CheckOut() {
     setModalState(true);
     if (checkAllInputs()) {
       try {
+        console.log("Inputs Ok");
         const storeOrder = await axios({
           url: `${import.meta.env.VITE_API_URL}/orders/create`,
           method: "POST",
           data: { ...newOrder },
           headers: { Authorization: `Bearer ${loggedCustomer.token}` },
         });
+        console.log("Axios Done");
         const createdOrder = { ...newOrder, id: storeOrder.data.id };
+        console.log(createdOrder);
         dispatch(createOrder(createdOrder));
         setNewOrder(createdOrder);
         return;

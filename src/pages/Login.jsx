@@ -85,7 +85,7 @@ function Login() {
             <form className="proxima-nova-regular" onSubmit={handleLogin}>
               <div onClick={() => setAlert(false)}>
                 <div className="mb-3">
-                  <label htmlFor="" className="form-label">
+                  <label htmlFor="email" className="form-label">
                     E-mail
                   </label>
                   <input
@@ -107,7 +107,7 @@ function Login() {
                   </div>
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="" className="form-label">
+                  <label htmlFor="password" className="form-label">
                     Password
                   </label>
                   <input

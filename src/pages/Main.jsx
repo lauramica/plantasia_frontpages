@@ -28,12 +28,12 @@ function Main() {
     if (loggedCustomer.token) {
       const customerValidation = async () => {
         try {
-          const response = await axios({
+          const { data } = await axios({
             url: `${import.meta.env.VITE_API_URL}/customers/${loggedCustomer.id}`,
             method: "GET",
             headers: { Authorization: `Bearer ${loggedCustomer.token}` },
           });
-          if (!response.data.customer) {
+          if (data.customer.email !== loggedCustomer.email) {
             dispatch(logoutCustomer());
             dispatch(clearCart());
           }

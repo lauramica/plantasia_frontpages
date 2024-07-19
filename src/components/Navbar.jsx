@@ -74,13 +74,13 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
           />
           <Navbar.Collapse id="navbarNav">
             <Nav className="">
-              <Nav.Link as={Link} to="/">
+              <Nav.Link as={Link} to="/" className="proxima-nova-regular">
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/products">
+              <Nav.Link as={Link} to="/products" className="proxima-nova-regular">
                 Products
               </Nav.Link>
-              <Nav.Link as={Link} to="/about-this-project/en">
+              <Nav.Link as={Link} to="/about-this-project/en" className="proxima-nova-bold">
                 About this project
               </Nav.Link>
             </Nav>

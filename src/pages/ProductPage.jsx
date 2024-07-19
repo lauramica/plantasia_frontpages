@@ -115,19 +115,16 @@ function ProductPage() {
               </div>
               <div className="buttons-div text-center mb-md-1">
                 <div className="counter-container">
-                  <button
-                    className="counter-container-counterbutton darkgreen"
+                  <i
+                    className="bi bi-dash-circle-fill me-1 counter-container-counterbutton"
                     onClick={handleDecrement}
-                  >
-                    <i className="bi bi-dash"></i>
-                  </button>
+                  ></i>
                   <span className="counter-value">{count}</span>
-                  <button
-                    className="counter-container-counterbutton darkgreen"
+
+                  <i
+                    className="bi bi-plus-circle-fill ms-1 counter-container-counterbutton"
                     onClick={handleIncrement}
-                  >
-                    <i className="bi bi-plus"></i>
-                  </button>
+                  ></i>
                 </div>
                 <button className="product-submitbutton mt-md-3" onClick={handleAddProduct}>
                   Add to cart <i className="bi bi-cart-fill"></i>

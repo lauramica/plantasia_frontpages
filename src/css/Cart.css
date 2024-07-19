@@ -107,7 +107,7 @@
 .cart-button {
   border: none;
   padding: 10px;
-  border-radius: 2px;
+
   font-family: "Proxima Nova Regular";
   background-color: var(--mediumgreen);
   color: white;
@@ -194,9 +194,6 @@
   }
   .cart-items-text {
     margin-top: 0px;
-  }
-  .cart-button {
-    margin-bottom: 65px;
   }
 }
 

@@ -36,13 +36,15 @@ function CartItem({ product }) {
             <h4 className="p-0">{name.split("(")[0]}</h4>
           </div>
           <div className="counter-container text-center">
-            <button className="counter-container-counterbutton1" onClick={handleDecrement}>
-              <i className="bi bi-dash-lg"></i>
-            </button>
+            <i
+              className="bi bi-dash-circle-fill me-1 counter-container-counterbutton"
+              onClick={handleDecrement}
+            ></i>
             <span className="counter-value">{quantity}</span>
-            <button className="counter-container-counterbutton1" onClick={handleIncrement}>
-              <i className="bi bi-plus-lg"></i>
-            </button>
+            <i
+              className="bi bi-plus-circle-fill ms-1 counter-container-counterbutton"
+              onClick={handleIncrement}
+            ></i>
           </div>
         </div>
       </div>

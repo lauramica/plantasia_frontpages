@@ -1,6 +1,6 @@
 .product-body {
   color: var(--mediumgreen);
-  font-family: "Galadali";
+  font-family: "Galadali Regular";
 }
 
 .product-body-content {
@@ -22,12 +22,6 @@ h3 {
   padding: 30px;
 }
 
-.product-body-goback:hover {
-  color: #000;
-  text-decoration: underline;
-  transition: 0.3s ease;
-}
-
 .description-pharagraph {
   color: var(--lightgreen);
   font-size: 1.3rem;
@@ -41,18 +35,14 @@ h3 {
 }
 
 .counter-container-counterbutton {
-  border: none;
-  border-radius: 30px;
-  width: 40px;
-  height: 40px;
-  margin: 5px;
+  color: var(--lightgreen);
 }
 .counter-container-counterbutton:hover {
-  background-color: var(--lightgreen);
+  color: var(--darkgreen);
   transition: 0.3s ease;
 }
 .counter-container-counterbutton:active {
-  background-color: var(--mediumgreen);
+  color: var(--mediumgreen);
   transition: 0.3s ease;
 }
 

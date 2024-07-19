@@ -1,5 +1,4 @@
 .form-div {
-  /* background-color: var(--lightgreen); */
   border: solid;
   border-color: var(--lightgreen);
   padding: 1.5rem;
@@ -15,7 +14,6 @@
 }
 
 .input-form {
-  /* border: none; */
   color: var(--darkgreen);
   border: solid, 1px;
   border-color: var(--lightgreen);
@@ -23,7 +21,6 @@
 }
 
 .select-form {
-  /* border: none; */
   border: solid, 1px;
   border-color: var(--lightgreen);
   color: var(--darkgreen);
@@ -50,10 +47,12 @@
 }
 
 .modal-delete .modal-container .buttons .button-cancel {
-  background-color: var(--almond);
-  color: white;
+  background-color: white;
+  color:var(--terracotta);
   width: 100px;
   height: 45px;
+  font-weight: bolder;
+  border: 2px var(--terracotta) solid;
 }
 
 .modal-delete .modal-container .buttons .button-delete {

@@ -51,7 +51,7 @@ function ProfileView() {
                 <label className="label-info-user" htmlFor="address">
                   Address
                 </label>
-                <span className="info-user">{address?.address ?? "Adress"}</span>
+                <span className="info-user">{address?.address ?? "Address"}</span>
               </div>
               <div className="input-group d-flex flex-column me-md-1 w-md-50 mx-md-1 mb-2">
                 <label className="label-info-user" htmlFor="city">

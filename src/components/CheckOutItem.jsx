@@ -24,22 +24,22 @@ function CheckOutItem({ product }) {
   return (
     <>
       <td>
-        <div className="d-flex flex-wrap">
+        <div className="checkout-product-img-name">
           <img
             src={`${import.meta.env.VITE_IMAGES_URL}products/${image}`}
-            className="img-fluid me-3 mb-3 mb-lg-0 product-img rounded-corner shadow"
+            className="checkout-product-img rounded-corner shadow"
             alt={name}
           />
           <div>
-            <p className="proxima-nova-bold m-0 darkgreen">{name}</p>
+            <p className="proxima-nova-bold darkgreen checkout-product-name">{name}</p>
           </div>
         </div>
       </td>
       <td>
-        <div className="d-flex align-items-center quantity mb-1">
-          <i className="bi bi-dash-circle-fill" onClick={handleDecrement}></i>
-          <p className="m-0 mx-1 darkgreen mx-md-2 mx-lg-3">{quantity}</p>
-          <i className="bi bi-plus-circle-fill" onClick={handleIncrement}></i>
+        <div className="d-flex align-items-center justify-content-center quantity mb-1">
+          <i className="bi bi-dash-circle-fill me-1" onClick={handleDecrement}></i>
+          <p className="darkgreen mb-0">{quantity}</p>
+          <i className="bi bi-plus-circle-fill ms-1" onClick={handleIncrement}></i>
         </div>
         {stock < 10 ? (
           <small className="proxima-nova-bold terracotta">{`Only ${stock} left in stock!`}</small>

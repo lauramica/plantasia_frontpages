@@ -23,7 +23,7 @@ tbody td {
   flex-direction: row;
   align-items: center;
 }
-.product-img {
+.product_img {
   width: 100px;
   height: auto;
 }
@@ -52,7 +52,6 @@ tbody td {
     flex-direction: column;
   }
   .product_img_name {
-    display: flex;
     flex-direction: column;
     align-items: start;
     text-align: start;

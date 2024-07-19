@@ -87,9 +87,8 @@
 }
 
 .cart-title {
-  padding: 10px;
   text-align: left;
-  font-family: "Galadali";
+  font-family: "Galadali Regular";
   color: var(--darkgreen);
   position: relative;
 }
@@ -108,14 +107,15 @@
 .cart-button {
   border: none;
   padding: 10px;
-  border-radius: 2px;
-  font-family: "Proxima Nova";
+
+  font-family: "Proxima Nova Regular";
   background-color: var(--mediumgreen);
   color: white;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-  width: 90%;
+  width: 100%;
   position: fixed;
   bottom: 0;
+  margin-left: -16px;
 }
 
 .cart-button:hover {
@@ -135,7 +135,7 @@
 }
 
 .modal-body {
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Regular";
 }
 
 .modal.fade.right.modal-lg p {
@@ -194,9 +194,6 @@
   }
   .cart-items-text {
     margin-top: 0px;
-  }
-  .cart-button {
-    margin-bottom: 65px;
   }
 }
 

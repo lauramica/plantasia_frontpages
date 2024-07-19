@@ -337,20 +337,18 @@
 }
 
 @media (max-width: 400px) {
-  .home-banner-container h1 {
-    font-size: 1.9rem;
+  .home-banner {
+    max-height: 50vh;
+    text-align: center;
+    aspect-ratio: 4/2;
   }
 
   .home-banner-container p {
-    font-size: 1rem;
     text-align: center;
-    align-self: center;
-    width: 90%;
+    width: 100%;
   }
 
   .home-banner-button {
-    font-size: 0.6rem;
-    padding: 3px 11px;
     align-self: center;
   }
 
@@ -365,10 +363,6 @@
     font-size: 0.6rem;
   }
 
-  .home-banner {
-    text-align: center;
-    aspect-ratio: 4/3;
-  }
   .home-section-2-box {
     width: 100%;
     padding-right: 0;
@@ -381,6 +375,7 @@
   .home-section-2-img,
   .home-section-3-img {
     width: 100%;
+    max-height: 60vh;
   }
 
   .home-section-3-box a,
@@ -423,6 +418,7 @@
   .button-see-all {
     width: 20rem;
     font-size: 1.7rem;
+    font-family: "Proxima Nova Regular";
   }
   .card-one {
     margin-bottom: 0.8rem;
@@ -441,19 +437,16 @@
 }
 
 @media (min-width: 400px) and (max-width: 576px) {
-  .home-banner-container h1 {
-    font-size: 1.9rem;
+  .home-banner {
+    max-height: 50vh;
+    text-align: center;
+    aspect-ratio: 4/2;
   }
   .home-banner-container p {
-    font-size: 1.1rem;
     text-align: center;
-    align-self: center;
-    width: 90%;
+    width: 100%;
   }
-
   .home-banner-button {
-    font-size: 0.6rem;
-    padding: 3px 11px;
     align-self: center;
   }
 
@@ -468,10 +461,6 @@
     font-size: 0.7rem;
   }
 
-  .home-banner {
-    text-align: center;
-    aspect-ratio: 4/2;
-  }
   .home-section-2-box {
     width: 100%;
     padding-right: 0;
@@ -480,6 +469,7 @@
   .home-section-2-img,
   .home-section-3-img {
     width: 100%;
+    max-height: 60vh;
   }
   .home-section-3-box {
     width: 100%;
@@ -536,25 +526,19 @@
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
-  .home-banner-container h1 {
-    font-size: 2.6rem;
+  .home-banner {
+    max-height: 50vh;
+    text-align: center;
+    aspect-ratio: 4/2;
   }
 
   .home-banner-container p {
-    font-size: 1.5rem;
     text-align: center;
-    align-self: center;
-    width: 90%;
+    width: 100%;
   }
 
   .home-banner-button {
-    font-size: 0.9rem;
-    padding: 4px 12px;
     align-self: center;
-  }
-  .home-banner {
-    text-align: center;
-    aspect-ratio: 4/2;
   }
 
   .home-span-start {
@@ -578,7 +562,7 @@
 
   .home-section-2-img,
   .home-section-3-img {
-    width: 100%;
+    max-height: 60vh;
   }
 
   .home-section-3-care-products {
@@ -627,25 +611,15 @@
     font-size: 1.8rem;
   }
   .card-one {
-    margin-bottom: 0.8rem;
+    margin-bottom: 2.5rem;
   }
 
   .card-two {
-    margin-bottom: 0.8rem;
+    margin-bottom: 2.5rem;
   }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-  .home-banner-container h1 {
-    font-size: 2.4rem;
-  }
-  .home-banner-container p {
-    font-size: 1.2rem;
-  }
-
-  .home-banner-button {
-    font-size: 0.7rem;
-  }
 
   .home-span-start {
     font-size: 1.1rem;
@@ -705,18 +679,6 @@
 }
 
 @media (min-width: 993px) and (max-width: 1200px) {
-  .home-banner-container h1 {
-    font-size: 2.7rem;
-  }
-
-  .home-banner-container p {
-    font-size: 1.4rem;
-  }
-
-  .home-banner-button {
-    font-size: 0.9rem;
-  }
-
   .home-span-start {
     font-size: 1.6rem;
   }

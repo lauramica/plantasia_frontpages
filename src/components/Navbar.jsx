@@ -43,7 +43,7 @@ function CustomNavbar({ navBarCollapse, handleNavbarCollapse }) {
                 <p className="proxima-nova-bold m-0 me-2 d-none d-lg-block welcome-text">
                   Welcome plant lover!
                 </p>
-                <i className="bi bi-person"></i>
+                <i className="bi bi-person navbar-person-icon"></i>
               </Nav.Link>
             ) : (
               <>

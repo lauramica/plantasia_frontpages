@@ -79,7 +79,7 @@ function ProductPage() {
   return (
     products &&
     product && (
-      <div className="container p-sm-0 mt-4 mt-lg-5">
+      <div className="container p-sm-0 mt-md-4 mt-lg-5">
         <Link
           className="text-decoration-none mediumgreen proxima-nova-regular d-flex align-items-center my-2"
           to="/products"
@@ -96,36 +96,37 @@ function ProductPage() {
               />
             </div>
             <div className="product-body-content-text w-100 d-flex flex-column justify-content-between">
-              <div className="d-flex flex-column content-text">
-                <h1 className="mediumgreen pb-2">{product.name}</h1>
-                <p className="description-pharagraph proxima-nova-regular w-100 p-0">
-                  {product.description}
-                </p>
-              </div>
-              <div className="product-body-content-text-icons border-bottom border-top py-3">
-                <i className="bi bi-droplet"></i>
-                <i className="bi bi-feather"></i>
-                <i className="bi bi-tree"></i>
-                <i className="bi bi-brightness-high"></i>
-              </div>
-              <h2 className="my-3 text-center">$ {product.price}</h2>
-              <div className="buttons-div text-center mb-1">
-                <div className="counter-container">
-                  <button
-                    className="counter-container-counterbutton darkgreen"
-                    onClick={handleDecrement}
-                  >
-                    <i className="bi bi-dash"></i>
-                  </button>
-                  <span className="counter-value">{count}</span>
-                  <button
-                    className="counter-container-counterbutton darkgreen"
-                    onClick={handleIncrement}
-                  >
-                    <i className="bi bi-plus"></i>
-                  </button>
+              <div className="d-flex flex-md-column">
+                <div className="d-flex flex-column content-text">
+                  <h1 className="mediumgreen pb-2 productpage-productname">{product.name}</h1>
+                  <p className="description-pharagraph proxima-nova-regular w-100 p-0 d-none d-md-block">
+                    {product.description}
+                  </p>
                 </div>
-                <button className="product-submitbutton mt-3" onClick={handleAddProduct}>
+                <div className="product-body-content-text-icons border-bottom border-top py-3 d-none d-md-block">
+                  <i className="bi bi-droplet me-md-5"></i>
+                  <i className="bi bi-feather ms-lg-5 me-lg-5"></i>
+                  <i className="bi bi-tree ms-md-5 me-lg-5"></i>
+                  <i className="bi bi-brightness-high ms-md-5"></i>
+                </div>
+                <h2 className="my-3 text-center text-nowrap mt-1 mt-md-4 productpage-productprice">
+                  $ {product.price}
+                </h2>
+              </div>
+              <div className="buttons-div text-center mb-md-1">
+                <div className="counter-container">
+                  <i
+                    className="bi bi-dash-circle-fill me-1 counter-container-counterbutton"
+                    onClick={handleDecrement}
+                  ></i>
+                  <span className="counter-value">{count}</span>
+
+                  <i
+                    className="bi bi-plus-circle-fill ms-1 counter-container-counterbutton"
+                    onClick={handleIncrement}
+                  ></i>
+                </div>
+                <button className="product-submitbutton mt-md-3" onClick={handleAddProduct}>
                   Add to cart <i className="bi bi-cart-fill"></i>
                 </button>
               </div>

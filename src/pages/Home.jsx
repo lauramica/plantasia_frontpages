@@ -41,20 +41,23 @@ function Home() {
             }home/home_banner.png)`,
           }}
         >
-          <div className="container home-banner-container d-flex flex-wrap flex-column justify-content-center p-sm-0">
+          <div className="container home-banner-container d-flex flex-column justify-content-center p-sm-0">
             <h1 className="galadali-regular p-0">Growing Happiness </h1>
             <p className="proxima-nova-regular p-0 m-0">
               Welcome plant lover! We are Plantasia, your new favorite online plant shop.
             </p>
-            <p className="proxima-nova-regular">
+            <p className="proxima-nova-regular d-none d-md-block">
               Here you will find all plant's related goodness, and lots of tips to become the best
               plant parent. And if you aren't one yet, please let us introduce you to our childs!
             </p>
-            <Link to="/products" className="home-banner-button">
-              SHOP NOW
-            </Link>
+            <div className="mt-3 m-md-0">
+              <Link to="/products" className="home-banner-button">
+                SHOP NOW
+              </Link>
+            </div>
           </div>
         </section>
+
         <section className="home-section-2">
           <div className="container cards-container p-sm-0">
             <Link

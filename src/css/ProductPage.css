@@ -1,6 +1,6 @@
 .product-body {
   color: var(--mediumgreen);
-  font-family: "Galadali";
+  font-family: "Galadali Regular";
 }
 
 .product-body-content {
@@ -22,12 +22,6 @@ h3 {
   padding: 30px;
 }
 
-.product-body-goback:hover {
-  color: #000;
-  text-decoration: underline;
-  transition: 0.3s ease;
-}
-
 .description-pharagraph {
   color: var(--lightgreen);
   font-size: 1.3rem;
@@ -35,24 +29,20 @@ h3 {
 }
 
 .product-body-content-text-icons {
-  display: flex;
-  justify-content: space-around;
   color: var(--lightgreen);
   font-size: 3.5rem;
+  text-align: center;
 }
+
 .counter-container-counterbutton {
-  border: none;
-  border-radius: 30px;
-  width: 40px;
-  height: 40px;
-  margin: 5px;
+  color: var(--lightgreen);
 }
 .counter-container-counterbutton:hover {
-  background-color: var(--lightgreen);
+  color: var(--darkgreen);
   transition: 0.3s ease;
 }
 .counter-container-counterbutton:active {
-  background-color: var(--mediumgreen);
+  color: var(--mediumgreen);
   transition: 0.3s ease;
 }
 
@@ -125,9 +115,36 @@ h3 {
     font-size: 2rem;
   }
 }
+
 @media (max-width: 576px) {
   .product-body-content {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-product {
+    height: 50vh !important;
+  }
+  .productpage-productname {
+    width: 90%;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+  }
+  .productpage-productprice {
+    font-size: 1.6rem;
+  }
+  .product-body-content-text {
+    padding: 10px 20px;
+  }
+  .buttons-div {
+    display: flex;
+    justify-content: space-between;
+  }
+  .product-submitbutton {
+    width: fit-content;
+    border-radius: 2px;
+    padding: 0.5rem 1rem;
   }
 }

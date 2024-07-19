@@ -171,7 +171,7 @@ function CheckOut() {
             <thead className="galadali-regular fs-4">
               <tr>
                 <th className="section-title">Product</th>
-                <th className="section-title">Quantity</th>
+                <th className="section-title text-center">Quantity</th>
                 <th className="section-title">Price</th>
               </tr>
             </thead>
